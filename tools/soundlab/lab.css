@@ -1,0 +1,77 @@
+/* The sound lab, in the editor's look: neutral greys, hairlines, one accent. Knobs are the panels' to come. */
+:root {
+  --app: #0e0e0e; --panel: #1c1c1c; --head: #212121; --well: #151515; --raised: #2a2a2a; --hover: #262626;
+  --line: #2c2c2c; --line-2: #383838; --text: #d6d6d6; --dim: #909090; --faint: #5e5e5e;
+  --accent: oklch(80% 0.1 250); --accent-a: oklch(80% 0.1 250 / 0.14); --warm: #e8b43c; --bad: #ff6a5e;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; height: 100%; background: var(--app); color: var(--text); font: 12px/1.4 Inter, system-ui, sans-serif; }
+body { display: flex; flex-direction: column; user-select: none; }
+button { font: inherit; color: inherit; background: var(--raised); border: 1px solid var(--line-2); border-radius: 3px; padding: 4px 9px; cursor: pointer; }
+button:hover { border-color: #4a4a4a; background: #303030; }
+button.on { border-color: var(--accent); color: var(--accent); background: var(--accent-a); }
+select, input[type=text] { font: inherit; color: var(--text); background: var(--well); border: 1px solid var(--line-2); border-radius: 3px; padding: 3px 6px; }
+.grow { flex: 1; }
+.dim { color: var(--dim); }
+.mono { font-family: var(--mono); font-size: 11px; }
+.check { display: inline-flex; gap: 5px; align-items: center; color: var(--dim); }
+
+#top { height: 40px; flex: none; display: flex; align-items: center; gap: 14px; padding: 0 12px; background: var(--panel); border-bottom: 1px solid var(--line); }
+#top b { font-size: 13px; letter-spacing: 0.02em; }
+#tabs { display: flex; gap: 4px; }
+main { flex: 1; display: grid; grid-template-columns: minmax(460px, 46%) 1fr; min-height: 0; }
+#panel { overflow: auto; padding: 14px; border-right: 1px solid var(--line); background: var(--app); }
+#view { display: flex; flex-direction: column; min-height: 0; padding: 12px; gap: 8px; }
+#transport { display: flex; gap: 8px; align-items: center; }
+#transport .big { font-size: 15px; padding: 3px 14px; }
+#wave { height: 110px; width: 100%; background: var(--well); border: 1px solid var(--line); border-radius: 3px; }
+#spec { flex: 1; width: 100%; min-height: 200px; background: #000; border: 1px solid var(--line); border-radius: 3px; }
+#specAxis { display: flex; justify-content: space-between; }
+
+/* racks of knobs */
+.rack { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; margin-bottom: 12px; overflow: hidden; }
+.rack > header { display: flex; align-items: center; gap: 8px; padding: 7px 10px; background: var(--head); border-bottom: 1px solid var(--line); }
+.rack > header b { text-transform: uppercase; font-size: 10.5px; letter-spacing: 0.12em; color: var(--dim); }
+.rack .knobs { display: flex; flex-wrap: wrap; gap: 6px 4px; padding: 10px 8px; }
+.knob { width: 74px; display: flex; flex-direction: column; align-items: center; gap: 2px; cursor: ns-resize; }
+.knob svg { width: 46px; height: 46px; }
+.knob .name { font-size: 10px; color: var(--dim); text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 72px; }
+.knob .val { font-family: var(--mono); font-size: 10px; color: var(--text); }
+.knob:hover .val { color: var(--accent); }
+.field { display: flex; flex-direction: column; gap: 3px; padding: 4px 6px; min-width: 110px; }
+.field label { font-size: 10px; color: var(--dim); }
+
+/* lists */
+.list { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 12px; }
+.list button { padding: 3px 8px; }
+.row { display: flex; gap: 8px; align-items: center; margin-bottom: 10px; flex-wrap: wrap; }
+.note { color: var(--dim); font-size: 11px; margin: 0 0 12px; }
+
+/* the keyboard */
+#keys { position: relative; height: 110px; margin: 6px 0 14px; user-select: none; }
+#keys .w, #keys .b { position: absolute; top: 0; border-radius: 0 0 4px 4px; }
+#keys .w { height: 110px; background: #d9d9d9; border: 1px solid #111; }
+#keys .b { height: 66px; background: #151515; border: 1px solid #000; z-index: 1; }
+#keys .w.on { background: var(--accent); }
+#keys .b.on { background: oklch(60% 0.12 250); }
+#keys span { position: absolute; bottom: 4px; left: 0; right: 0; text-align: center; font: 9px var(--mono); color: #555; }
+#keys .b span { color: #777; }
+
+/* effect chain */
+.fx-card > header button { padding: 1px 7px; font-size: 11px; }
+.fx-card.off { opacity: 0.45; }
+
+/* the sample browser */
+#browser { position: fixed; inset: 0; background: #0009; display: grid; place-items: center; z-index: 10; }
+#browser .box { width: min(760px, 90vw); height: min(620px, 85vh); background: var(--panel); border: 1px solid var(--line-2); border-radius: 6px; display: flex; flex-direction: column; }
+#browser header { display: flex; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+#crumbs { padding: 6px 10px; color: var(--dim); border-bottom: 1px solid var(--line); }
+#crumbs a { color: var(--accent); cursor: pointer; }
+#listing { overflow: auto; flex: 1; padding: 4px 0; }
+#listing div { padding: 3px 12px; cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#listing div:hover { background: var(--hover); }
+#listing .dir::before { content: "▸ "; color: var(--dim); }
+#listing .file::before { content: "♪ "; color: var(--accent); }

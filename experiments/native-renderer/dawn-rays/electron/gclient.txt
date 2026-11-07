@@ -1,0 +1,10 @@
+solutions = [
+  { "name": "src/electron",
+    "url": "https://github.com/electron/electron@v44.5.1",
+    "deps_file": "DEPS",
+    "managed": False,
+    # (Chromium's own repository from GitHub's mirror: googlesource sits silent on this one, twice now)
+    "custom_deps": {"src": "https://github.com/chromium/chromium.git@152.0.7977.130"},
+    "custom_vars": {},
+  },
+]

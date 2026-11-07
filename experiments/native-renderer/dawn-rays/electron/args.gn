@@ -1,0 +1,14 @@
+# Electron's own settings, for testing rays and shared shaders on this machine: optimised, no debug symbols,
+# no link-time optimisation or profile data (that is what makes stock Electron's official builds slow to build).
+import("//electron/build/args/all.gn")
+is_debug = false
+is_component_build = false
+is_component_ffmpeg = true
+is_official_build = false
+dcheck_always_on = false
+symbol_level = 0
+blink_symbol_level = 0
+v8_symbol_level = 0
+enable_resource_allowlist_generation = false
+use_siso = false
+override_electron_version = "44.5.1"

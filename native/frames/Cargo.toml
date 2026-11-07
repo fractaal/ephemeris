@@ -1,0 +1,15 @@
+[package]
+name = "ephemeris-frames"
+version = "0.1.0"
+edition = "2021"
+description = "Ephemeris's shared frames on Linux: GPU images a render process draws and the editor shows, as DMA-BUFs"
+license = "UNLICENSED"
+publish = false
+
+[dependencies]
+ash = "=0.38.0"
+libc = "0.2"
+
+[profile.release]
+debug = false
+strip = true

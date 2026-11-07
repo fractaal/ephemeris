@@ -1,0 +1,66 @@
+<!doctype html>
+<html><head><meta charset="utf-8"></head><body>
+<script>
+// draws each frame with WebGPU straight into a shared buffer (a writable texture of its VideoFrame), waits for the GPU,
+// and says so; every 30 frames (HEAVY) a long compute job is queued as well, as a heavy GI frame would be
+const q = new URLSearchParams(location.search), FRAMES = +q.get('frames'), HEAVY = +q.get('heavy'), SPLIT = +(q.get('split') || 1);
+const frames = [];
+window.w.onTexture(async (imported, a) => { frames[a.buf] = imported.getVideoFrame(); });
+const WGSL = `
+struct U { frame: f32, bar: f32, w: f32, h: f32 }
+@group(0) @binding(0) var<uniform> u: U;
+@vertex fn vs(@builtin(vertex_index) i: u32) -> @builtin(position) vec4f {
+  var p = array(vec2f(-1.0, -1.0), vec2f(3.0, -1.0), vec2f(-1.0, 3.0));
+  return vec4f(p[i], 0.0, 1.0);
+}
+@fragment fn fs(@builtin(position) pos: vec4f) -> @location(0) vec4f {
+  if (pos.x < 32.0 && pos.y < 32.0) { return vec4f((u.frame % 256.0) / 255.0, 1.0, 0.0, 1.0); }
+  if (pos.x >= u.bar && pos.x < u.bar + 64.0) { return vec4f(1.0, 1.0, 1.0, 1.0); }
+  let t = u.frame / 60.0;
+  return vec4f(0.2 + 0.2 * sin(t * 2.0), 0.25, 0.45 + 0.2 * cos(t * 1.3), 1.0);
+}`;
+const HEAVY_WGSL = `
+@group(0) @binding(0) var<storage, read_write> o: array<f32>;
+@compute @workgroup_size(64) fn main(@builtin(global_invocation_id) id: vec3u) {
+  var x = f32(id.x) * 0.001;
+  for (var i = 0u; i < ${HEAVY || 1}u; i++) { x = fract(sin(x) * 43758.5453 + 0.1); }
+  o[id.x] = x;
+}`;
+window.w.onGo(async () => {
+  try {
+    const adapter = await navigator.gpu.requestAdapter({ powerPreference: 'high-performance' });
+    const device = await adapter.requestDevice();
+    console.log('worker adapter: ' + (adapter.info?.description || adapter.info?.vendor || '?') + ', buffers ' + frames.length);
+    const module = device.createShaderModule({ code: WGSL });
+    const pipe = device.createRenderPipeline({ layout: 'auto', vertex: { module, entryPoint: 'vs' }, fragment: { module, entryPoint: 'fs', targets: [{ format: 'bgra8unorm' }] } });
+    const ubuf = device.createBuffer({ size: 16, usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST });
+    const bind = device.createBindGroup({ layout: pipe.getBindGroupLayout(0), entries: [{ binding: 0, resource: { buffer: ubuf } }] });
+    const hm = device.createShaderModule({ code: HEAVY_WGSL });
+    const hp = device.createComputePipeline({ layout: 'auto', compute: { module: hm, entryPoint: 'main' } });
+    const hb = device.createBuffer({ size: 4 * 64 * 4096, usage: GPUBufferUsage.STORAGE });
+    const hbind = device.createBindGroup({ layout: hp.getBindGroupLayout(0), entries: [{ binding: 0, resource: { buffer: hb } }] });
+    const t0 = performance.now();
+    for (let n = 0; n < FRAMES; n++) {
+      const k = n % frames.length, bar = (n * 8) % (1472 - 64);
+      const tex = device.importSharedTexture(frames[k], GPUTextureUsage.RENDER_ATTACHMENT);
+      device.queue.writeBuffer(ubuf, 0, new Float32Array([n, bar, 1472, 828]));
+      const enc = device.createCommandEncoder();
+      const pass = enc.beginRenderPass({ colorAttachments: [{ view: tex.createView(), loadOp: 'clear', storeOp: 'store', clearValue: [0, 0, 0, 1] }] });
+      pass.setPipeline(pipe); pass.setBindGroup(0, bind); pass.draw(3); pass.end();
+      device.queue.submit([enc.finish()]);
+      tex.destroy();
+      const a = performance.now();
+      await device.queue.onSubmittedWorkDone();
+      window.w.done({ frame: n, buf: k, t: Date.now(), bar, gpuWait: +(performance.now() - a).toFixed(2), heavy: HEAVY && n % 30 === 16 ? 1 : 0 });
+      if (HEAVY && n % 30 === 15) {
+        const e = device.createCommandEncoder(), c = e.beginComputePass();
+        c.setPipeline(hp); c.setBindGroup(0, hbind); for (let d = 0; d < SPLIT; d++) c.dispatchWorkgroups(4096); c.end();
+        device.queue.submit([e.finish()]);
+      }
+      const wait = t0 + (n + 1) * 1000 / 60 - performance.now();
+      if (wait > 0) await new Promise((r) => setTimeout(r, wait));
+    }
+  } catch (e) { console.log('worker failed: ' + e.message); }
+  window.w.finished();
+});
+</script></body></html>

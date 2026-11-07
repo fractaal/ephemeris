@@ -1,0 +1,7 @@
+/* The starting film's own graphics: a card standing in for whatever the film shows. */
+.card { box-sizing: border-box; padding: 40px 44px; border-radius: 28px; background: oklch(22% 0.01 130); color: oklch(94% 0.012 130);
+  font-family: 'Google Sans Text', sans-serif; box-shadow: 0 40px 100px -30px rgba(0, 0, 0, .8), 0 0 0 1px rgba(255, 255, 255, .05); }
+.card h2 { margin: 0 0 10px; font: 600 34px/1.1 'Google Sans Flex', sans-serif; letter-spacing: -0.02em; }
+.card p { margin: 0 0 30px; font-size: 18px; line-height: 1.5; color: oklch(72% 0.01 130); }
+.card button { font: 600 18px 'Google Sans Text', sans-serif; padding: 14px 26px; border: 0; border-radius: 999px; background: oklch(30% 0.01 130); color: inherit; }
+.card button.on { background: oklch(88% 0.17 113); color: oklch(22% 0.05 130); }

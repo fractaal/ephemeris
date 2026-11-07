@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Sound Lab · Ephemeris</title>
+  <link rel="stylesheet" href="/lab/lab.css" />
+</head>
+<body>
+  <header id="top">
+    <b>Sound Lab</b>
+    <nav id="tabs">
+      <button data-tab="fx" class="on">Effects</button>
+      <button data-tab="sampler">Sampler</button>
+    </nav>
+    <span class="grow"></span>
+    <span id="status" class="dim"></span>
+    <button id="reload" title="Load the engine's modules again (after an agent changed them)">Reload modules</button>
+  </header>
+  <main>
+    <section id="panel"></section>
+    <section id="view">
+      <div id="transport">
+        <button id="play" class="big" title="Play (space)">▶</button>
+        <button id="stop" title="Stop">■</button>
+        <label class="check"><input type="checkbox" id="auto" checked /> play on change</label>
+        <span class="grow"></span>
+        <span id="meter" class="mono dim"></span>
+        <button id="toFx" title="Use this sound as the Effects tab's source">→ Effects</button>
+        <button id="save" title="Download it as a WAV">Save WAV</button>
+      </div>
+      <canvas id="wave"></canvas>
+      <canvas id="spec"></canvas>
+      <div id="specAxis" class="mono dim"></div>
+    </section>
+  </main>
+  <div id="browser" hidden>
+    <div class="box">
+      <header><b>Pick a sample</b><span class="grow"></span><button id="browserClose">✕</button></header>
+      <div id="crumbs" class="mono"></div>
+      <div id="listing"></div>
+    </div>
+  </div>
+  <script type="module" src="/lab/lab.js"></script>
+</body>
+</html>

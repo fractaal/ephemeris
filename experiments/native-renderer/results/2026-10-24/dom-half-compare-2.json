@@ -1,0 +1,2224 @@
+{
+  "created": "2026-10-23T22:41:51.163Z",
+  "mode": "compare",
+  "film": "motion-design-test-claude-2",
+  "settings": {
+    "sub": 4,
+    "scale": 0.5,
+    "fps": 24,
+    "shutter": 0.5
+  },
+  "chromeVersion": "153.0.8010.47",
+  "node": "v24.15.0",
+  "platform": "linux 7.2.5-1-cachyos",
+  "cpu": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
+  "root": "/home/benjude/.cache/ephemeris-native-bench/study",
+  "options": {
+    "gi": null,
+    "shadows": null
+  },
+  "clockTicks": 100,
+  "rows": [
+    {
+      "t": 18,
+      "width": 960,
+      "height": 540,
+      "quality": {
+        "baselineReplay": {
+          "mae": 0,
+          "rmse": 0,
+          "max": 0,
+          "pixelsOver2": 0,
+          "pixelsOver8": 0,
+          "pixels": 518400
+        },
+        "browserNative": {
+          "mae": 0,
+          "rmse": 0,
+          "max": 0,
+          "pixelsOver2": 0,
+          "pixelsOver8": 0,
+          "pixels": 518400
+        }
+      },
+      "capture": {
+        "prepareMs": 385.29999999701977,
+        "layerReadbackMs": 11.800000004470348,
+        "serializeMs": 2.2999999970197678,
+        "bytes": 1675469,
+        "imageBytes": 1628072,
+        "captures": 4,
+        "subs": 4,
+        "bands": 12
+      },
+      "samples": [
+        {
+          "browserMs": 5.9000000059604645,
+          "browserWallMs": 10.309631000000081,
+          "nativeMs": 3.656234999999924
+        },
+        {
+          "browserMs": 5.799999997019768,
+          "browserWallMs": 9.449771000000055,
+          "nativeMs": 3.620958999999857
+        },
+        {
+          "browserMs": 5.100000001490116,
+          "browserWallMs": 8.089976000000206,
+          "nativeMs": 8.093091000000186
+        },
+        {
+          "browserMs": 4.800000004470348,
+          "browserWallMs": 7.720154000000093,
+          "nativeMs": 3.158091999999897
+        },
+        {
+          "browserMs": 4.700000002980232,
+          "browserWallMs": 7.297241000000213,
+          "nativeMs": 3.547501000000011
+        },
+        {
+          "browserMs": 4.5999999940395355,
+          "browserWallMs": 7.790074000000004,
+          "nativeMs": 2.943550999999843
+        },
+        {
+          "browserMs": 4.700000002980232,
+          "browserWallMs": 8.020685999999841,
+          "nativeMs": 4.081361000000015
+        },
+        {
+          "browserMs": 5.399999998509884,
+          "browserWallMs": 8.664180000000215,
+          "nativeMs": 3.263851000000159
+        },
+        {
+          "browserMs": 5.600000001490116,
+          "browserWallMs": 8.870808000000125,
+          "nativeMs": 3.543523999999934
+        },
+        {
+          "browserMs": 5.100000001490116,
+          "browserWallMs": 18.571237999999994,
+          "nativeMs": 9.057847999999922
+        },
+        {
+          "browserMs": 17,
+          "browserWallMs": 21.105903000000126,
+          "nativeMs": 3.463124000000107
+        },
+        {
+          "browserMs": 5.399999998509884,
+          "browserWallMs": 9.021780000000035,
+          "nativeMs": 3.3961679999999888
+        },
+        {
+          "browserMs": 4.9000000059604645,
+          "browserWallMs": 11.992051000000174,
+          "nativeMs": 3.880374999999958
+        },
+        {
+          "browserMs": 5.100000001490116,
+          "browserWallMs": 10.816771000000244,
+          "nativeMs": 2.7862669999999525
+        },
+        {
+          "browserMs": 5.600000001490116,
+          "browserWallMs": 11.145546000000195,
+          "nativeMs": 3.6253169999999955
+        },
+        {
+          "browserMs": 5.799999997019768,
+          "browserWallMs": 9.776652999999897,
+          "nativeMs": 3.0237010000000737
+        },
+        {
+          "browserMs": 5.199999995529652,
+          "browserWallMs": 8.48335300000008,
+          "nativeMs": 5.548908999999867
+        },
+        {
+          "browserMs": 5,
+          "browserWallMs": 8.293166000000383,
+          "nativeMs": 2.8617669999998725
+        },
+        {
+          "browserMs": 7.5,
+          "browserWallMs": 10.51299199999994,
+          "nativeMs": 3.3811299999999846
+        },
+        {
+          "browserMs": 6.9000000059604645,
+          "browserWallMs": 10.96419700000024,
+          "nativeMs": 2.6444410000001426
+        },
+        {
+          "browserMs": 5.699999995529652,
+          "browserWallMs": 9.05796700000019,
+          "nativeMs": 5.7968620000001465
+        },
+        {
+          "browserMs": 5.399999998509884,
+          "browserWallMs": 9.025137000000086,
+          "nativeMs": 3.051402000000053
+        },
+        {
+          "browserMs": 5.100000001490116,
+          "browserWallMs": 8.287396000000172,
+          "nativeMs": 3.6306070000000545
+        },
+        {
+          "browserMs": 4.9000000059604645,
+          "browserWallMs": 7.986551999999847,
+          "nativeMs": 3.2871939999999995
+        }
+      ],
+      "browser": {
+        "n": 24,
+        "median": 5.399999998509884,
+        "p90": 6.9000000059604645,
+        "mean": 5.883333334078391
+      },
+      "native": {
+        "n": 24,
+        "median": 3.543523999999934,
+        "p90": 5.7968620000001465,
+        "mean": 3.9726365416666645
+      },
+      "profiles": {
+        "baseline": {
+          "ms": 14.1,
+          "subs": 4,
+          "stages": [
+            {
+              "name": "Layers",
+              "ms": 3.4,
+              "n": 2
+            },
+            {
+              "name": "Film code",
+              "ms": 1.2,
+              "n": 13
+            },
+            {
+              "name": "Scene data",
+              "ms": 0.4,
+              "n": 4
+            },
+            {
+              "name": "GPU commands",
+              "ms": 0.5,
+              "n": 5
+            },
+            {
+              "name": "GPU wait",
+              "ms": 5.8,
+              "n": 1
+            }
+          ],
+          "gpu": {
+            "ms": 4.908,
+            "busy": 0.791,
+            "full": false,
+            "passes": [
+              {
+                "name": "layers",
+                "ms": 0.09,
+                "parts": [
+                  {
+                    "name": "layers",
+                    "ms": 0.02
+                  }
+                ]
+              },
+              {
+                "name": "prepass",
+                "ms": 0.019,
+                "parts": [
+                  {
+                    "name": "prepass",
+                    "ms": 0.019
+                  }
+                ]
+              },
+              {
+                "name": "ao",
+                "ms": 0.015,
+                "parts": [
+                  {
+                    "name": "ao",
+                    "ms": 0.015
+                  }
+                ]
+              },
+              {
+                "name": "gi",
+                "ms": 0.006,
+                "parts": [
+                  {
+                    "name": "gi",
+                    "ms": 0.006
+                  }
+                ]
+              },
+              {
+                "name": "opaque",
+                "ms": 0.026,
+                "parts": [
+                  {
+                    "name": "opaque",
+                    "ms": 0.026
+                  }
+                ]
+              },
+              {
+                "name": "film scene passes",
+                "ms": 0.529,
+                "parts": [
+                  {
+                    "name": "night",
+                    "ms": 0.268
+                  },
+                  {
+                    "name": "orrery",
+                    "ms": 0.117
+                  }
+                ]
+              },
+              {
+                "name": "resolve",
+                "ms": 0.044,
+                "parts": [
+                  {
+                    "name": "resolve",
+                    "ms": 0.044
+                  }
+                ]
+              },
+              {
+                "name": "film light passes",
+                "ms": 0.048,
+                "parts": [
+                  {
+                    "name": "lens",
+                    "ms": 0.03
+                  }
+                ]
+              },
+              {
+                "name": "bloom",
+                "ms": 0.003,
+                "parts": []
+              },
+              {
+                "name": "view",
+                "ms": 0.007,
+                "parts": [
+                  {
+                    "name": "view",
+                    "ms": 0.007
+                  }
+                ]
+              },
+              {
+                "name": "output",
+                "ms": 0.004,
+                "parts": [
+                  {
+                    "name": "output",
+                    "ms": 0.004
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "browser": {
+          "ms": 6.7,
+          "subs": 1,
+          "stages": [
+            {
+              "name": "Scene data",
+              "ms": 0.4,
+              "n": 4
+            },
+            {
+              "name": "GPU commands",
+              "ms": 1.7,
+              "n": 5
+            },
+            {
+              "name": "GPU wait",
+              "ms": 3.4,
+              "n": 1
+            }
+          ],
+          "gpu": {
+            "ms": 2.49,
+            "busy": 0.798,
+            "full": false,
+            "passes": [
+              {
+                "name": "prepass",
+                "ms": 0.014,
+                "parts": [
+                  {
+                    "name": "prepass",
+                    "ms": 0.014
+                  }
+                ]
+              },
+              {
+                "name": "ao",
+                "ms": 0.015,
+                "parts": [
+                  {
+                    "name": "ao",
+                    "ms": 0.015
+                  }
+                ]
+              },
+              {
+                "name": "gi",
+                "ms": 0.006,
+                "parts": [
+                  {
+                    "name": "gi",
+                    "ms": 0.006
+                  }
+                ]
+              },
+              {
+                "name": "opaque",
+                "ms": 0.108,
+                "parts": [
+                  {
+                    "name": "opaque",
+                    "ms": 0.108
+                  }
+                ]
+              },
+              {
+                "name": "film scene passes",
+                "ms": 0.53,
+                "parts": [
+                  {
+                    "name": "night",
+                    "ms": 0.268
+                  },
+                  {
+                    "name": "orrery",
+                    "ms": 0.117
+                  }
+                ]
+              },
+              {
+                "name": "layers",
+                "ms": 0.021,
+                "parts": [
+                  {
+                    "name": "layers",
+                    "ms": 0.021
+                  }
+                ]
+              },
+              {
+                "name": "resolve",
+                "ms": 0.042,
+                "parts": [
+                  {
+                    "name": "resolve",
+                    "ms": 0.042
+                  }
+                ]
+              },
+              {
+                "name": "film light passes",
+                "ms": 0.048,
+                "parts": [
+                  {
+                    "name": "lens",
+                    "ms": 0.03
+                  }
+                ]
+              },
+              {
+                "name": "bloom",
+                "ms": 0.003,
+                "parts": []
+              },
+              {
+                "name": "view",
+                "ms": 0.007,
+                "parts": [
+                  {
+                    "name": "view",
+                    "ms": 0.007
+                  }
+                ]
+              },
+              {
+                "name": "output",
+                "ms": 0.004,
+                "parts": [
+                  {
+                    "name": "output",
+                    "ms": 0.004
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "native": {
+          "ms": 7.48,
+          "subs": 1,
+          "stages": [
+            {
+              "name": "Scene data",
+              "ms": 0.34,
+              "n": 4
+            },
+            {
+              "name": "GPU commands",
+              "ms": 6.03,
+              "n": 5
+            },
+            {
+              "name": "GPU wait",
+              "ms": 0.42,
+              "n": 1
+            }
+          ],
+          "gpu": {
+            "ms": 5.308,
+            "busy": 0.721,
+            "full": false,
+            "passes": [
+              {
+                "name": "prepass",
+                "ms": 0.066,
+                "parts": [
+                  {
+                    "name": "prepass",
+                    "ms": 0.066
+                  }
+                ]
+              },
+              {
+                "name": "ao",
+                "ms": 0,
+                "parts": [
+                  {
+                    "name": "ao",
+                    "ms": 0
+                  }
+                ]
+              },
+              {
+                "name": "gi",
+                "ms": 0,
+                "parts": [
+                  {
+                    "name": "gi",
+                    "ms": 0
+                  }
+                ]
+              },
+              {
+                "name": "opaque",
+                "ms": 0,
+                "parts": [
+                  {
+                    "name": "opaque",
+                    "ms": 0
+                  }
+                ]
+              },
+              {
+                "name": "film scene passes",
+                "ms": 0.59,
+                "parts": [
+                  {
+                    "name": "night",
+                    "ms": 0.262
+                  },
+                  {
+                    "name": "orrery",
+                    "ms": 0.197
+                  }
+                ]
+              },
+              {
+                "name": "layers",
+                "ms": 0,
+                "parts": [
+                  {
+                    "name": "layers",
+                    "ms": 0
+                  }
+                ]
+              },
+              {
+                "name": "resolve",
+                "ms": 0,
+                "parts": [
+                  {
+                    "name": "resolve",
+                    "ms": 0
+                  }
+                ]
+              },
+              {
+                "name": "film light passes",
+                "ms": 0.066,
+                "parts": [
+                  {
+                    "name": "lens",
+                    "ms": 0
+                  }
+                ]
+              },
+              {
+                "name": "bloom",
+                "ms": 0,
+                "parts": []
+              },
+              {
+                "name": "view",
+                "ms": 0,
+                "parts": [
+                  {
+                    "name": "view",
+                    "ms": 0
+                  }
+                ]
+              },
+              {
+                "name": "output",
+                "ms": 0,
+                "parts": [
+                  {
+                    "name": "output",
+                    "ms": 0
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "resources": {
+        "beforeBrowser": {
+          "at": 2600.845054,
+          "ticks": 343,
+          "pssKB": 714657,
+          "processes": [
+            {
+              "pid": 2036726,
+              "ppid": 2036682,
+              "ticks": 70,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 119539,
+              "rssKB": 233360
+            },
+            {
+              "pid": 2036741,
+              "ppid": 2036726,
+              "ticks": 2,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 19795,
+              "rssKB": 78792
+            },
+            {
+              "pid": 2036742,
+              "ppid": 2036726,
+              "ticks": 2,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 11804,
+              "rssKB": 77216
+            },
+            {
+              "pid": 2036748,
+              "ppid": 2036742,
+              "ticks": 0,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 2736,
+              "rssKB": 23048
+            },
+            {
+              "pid": 2036772,
+              "ppid": 2036741,
+              "ticks": 150,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 207217,
+              "rssKB": 331196
+            },
+            {
+              "pid": 2036774,
+              "ppid": 2036726,
+              "ticks": 17,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 46244,
+              "rssKB": 143620
+            },
+            {
+              "pid": 2036786,
+              "ppid": 2036774,
+              "ticks": 0,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 10622,
+              "rssKB": 25992
+            },
+            {
+              "pid": 2036802,
+              "ppid": 2036748,
+              "ticks": 0,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 7656,
+              "rssKB": 57164
+            },
+            {
+              "pid": 2036829,
+              "ppid": 2036748,
+              "ticks": 35,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 75730,
+              "rssKB": 175688
+            },
+            {
+              "pid": 2036845,
+              "ppid": 2036748,
+              "ticks": 56,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 134022,
+              "rssKB": 243056
+            },
+            {
+              "pid": 2036853,
+              "ppid": 2036748,
+              "ticks": 4,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 21374,
+              "rssKB": 102304
+            },
+            {
+              "pid": 2036867,
+              "ppid": 2036748,
+              "ticks": 2,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 14968,
+              "rssKB": 80796
+            },
+            {
+              "pid": 2036883,
+              "ppid": 2036748,
+              "ticks": 2,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 21605,
+              "rssKB": 99940
+            },
+            {
+              "pid": 2036884,
+              "ppid": 2036748,
+              "ticks": 3,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 21345,
+              "rssKB": 99948
+            }
+          ]
+        },
+        "beforeNative": {
+          "at": 2690.298655,
+          "ticks": 67,
+          "pssKB": 152935,
+          "processes": [
+            {
+              "pid": 2037000,
+              "ppid": 2036682,
+              "ticks": 67,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 152935,
+              "rssKB": 251516
+            }
+          ]
+        },
+        "afterBrowser": {
+          "at": 3128.252804,
+          "ticks": 374,
+          "pssKB": 694845,
+          "processes": [
+            {
+              "pid": 2036726,
+              "ppid": 2036682,
+              "ticks": 71,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 119543,
+              "rssKB": 233364
+            },
+            {
+              "pid": 2036741,
+              "ppid": 2036726,
+              "ticks": 2,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 19795,
+              "rssKB": 78792
+            },
+            {
+              "pid": 2036742,
+              "ppid": 2036726,
+              "ticks": 2,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 11804,
+              "rssKB": 77216
+            },
+            {
+              "pid": 2036748,
+              "ppid": 2036742,
+              "ticks": 0,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 2736,
+              "rssKB": 23048
+            },
+            {
+              "pid": 2036772,
+              "ppid": 2036741,
+              "ticks": 158,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 175315,
+              "rssKB": 299256
+            },
+            {
+              "pid": 2036774,
+              "ppid": 2036726,
+              "ticks": 19,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 46378,
+              "rssKB": 143756
+            },
+            {
+              "pid": 2036786,
+              "ppid": 2036774,
+              "ticks": 0,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 10622,
+              "rssKB": 25992
+            },
+            {
+              "pid": 2036802,
+              "ppid": 2036748,
+              "ticks": 0,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 7656,
+              "rssKB": 57164
+            },
+            {
+              "pid": 2036829,
+              "ppid": 2036748,
+              "ticks": 35,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 75730,
+              "rssKB": 175688
+            },
+            {
+              "pid": 2036845,
+              "ppid": 2036748,
+              "ticks": 76,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 145974,
+              "rssKB": 254976
+            },
+            {
+              "pid": 2036853,
+              "ppid": 2036748,
+              "ticks": 4,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 21374,
+              "rssKB": 102304
+            },
+            {
+              "pid": 2036867,
+              "ppid": 2036748,
+              "ticks": 2,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 14968,
+              "rssKB": 80796
+            },
+            {
+              "pid": 2036883,
+              "ppid": 2036748,
+              "ticks": 2,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 21605,
+              "rssKB": 99940
+            },
+            {
+              "pid": 2036884,
+              "ppid": 2036748,
+              "ticks": 3,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 21345,
+              "rssKB": 99948
+            }
+          ]
+        },
+        "afterNative": {
+          "at": 3187.477852,
+          "ticks": 82,
+          "pssKB": 156211,
+          "processes": [
+            {
+              "pid": 2037000,
+              "ppid": 2036682,
+              "ticks": 82,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 156211,
+              "rssKB": 254792
+            }
+          ]
+        }
+      }
+    },
+    {
+      "t": 34,
+      "width": 960,
+      "height": 540,
+      "quality": {
+        "baselineReplay": {
+          "mae": 0,
+          "rmse": 0,
+          "max": 0,
+          "pixelsOver2": 0,
+          "pixelsOver8": 0,
+          "pixels": 518400
+        },
+        "browserNative": {
+          "mae": 0,
+          "rmse": 0,
+          "max": 0,
+          "pixelsOver2": 0,
+          "pixelsOver8": 0,
+          "pixels": 518400
+        }
+      },
+      "capture": {
+        "prepareMs": 29.19999999552965,
+        "layerReadbackMs": 14.700000002980232,
+        "serializeMs": 2.600000001490116,
+        "bytes": 3571546,
+        "imageBytes": 3555320,
+        "captures": 6,
+        "subs": 4,
+        "bands": 1
+      },
+      "samples": [
+        {
+          "browserMs": 6.899999998509884,
+          "browserWallMs": 10.099047000000155,
+          "nativeMs": 4.162422999999762
+        },
+        {
+          "browserMs": 6.5,
+          "browserWallMs": 9.737149000000045,
+          "nativeMs": 2.757873000000018
+        },
+        {
+          "browserMs": 6.799999997019768,
+          "browserWallMs": 9.931633000000147,
+          "nativeMs": 3.430352000000312
+        },
+        {
+          "browserMs": 6.600000001490116,
+          "browserWallMs": 16.341223999999784,
+          "nativeMs": 2.7866770000000542
+        },
+        {
+          "browserMs": 11.600000001490116,
+          "browserWallMs": 14.907689000000119,
+          "nativeMs": 3.299898000000212
+        },
+        {
+          "browserMs": 7.4000000059604645,
+          "browserWallMs": 10.286117000000104,
+          "nativeMs": 4.726788999999826
+        },
+        {
+          "browserMs": 7.4000000059604645,
+          "browserWallMs": 9.62413800000013,
+          "nativeMs": 3.771479999999883
+        },
+        {
+          "browserMs": 6.700000002980232,
+          "browserWallMs": 9.23584099999971,
+          "nativeMs": 3.6292450000000827
+        },
+        {
+          "browserMs": 6.100000001490116,
+          "browserWallMs": 8.322841000000153,
+          "nativeMs": 3.418398999999681
+        },
+        {
+          "browserMs": 6.799999997019768,
+          "browserWallMs": 9.121237000000292,
+          "nativeMs": 4.07622100000026
+        },
+        {
+          "browserMs": 6.299999997019768,
+          "browserWallMs": 8.768145999999888,
+          "nativeMs": 3.393662999999833
+        },
+        {
+          "browserMs": 7.699999995529652,
+          "browserWallMs": 10.288461000000098,
+          "nativeMs": 2.7496180000002823
+        },
+        {
+          "browserMs": 9.899999998509884,
+          "browserWallMs": 12.794412999999622,
+          "nativeMs": 5.134853000000021
+        },
+        {
+          "browserMs": 7.100000001490116,
+          "browserWallMs": 9.920493000000079,
+          "nativeMs": 2.8745120000003226
+        },
+        {
+          "browserMs": 6.299999997019768,
+          "browserWallMs": 9.100447000000258,
+          "nativeMs": 3.4019790000002104
+        },
+        {
+          "browserMs": 6.899999998509884,
+          "browserWallMs": 10.11408500000016,
+          "nativeMs": 5.433802999999898
+        },
+        {
+          "browserMs": 6.200000002980232,
+          "browserWallMs": 9.105957999999646,
+          "nativeMs": 3.2194079999999303
+        },
+        {
+          "browserMs": 7,
+          "browserWallMs": 10.323557000000164,
+          "nativeMs": 3.289408000000094
+        },
+        {
+          "browserMs": 6.300000004470348,
+          "browserWallMs": 8.654473000000053,
+          "nativeMs": 7.647267000000284
+        },
+        {
+          "browserMs": 6.799999997019768,
+          "browserWallMs": 9.286134999999831,
+          "nativeMs": 3.4750960000001214
+        },
+        {
+          "browserMs": 6.0999999940395355,
+          "browserWallMs": 8.359691000000112,
+          "nativeMs": 3.364538000000266
+        },
+        {
+          "browserMs": 6.600000001490116,
+          "browserWallMs": 8.884263000000374,
+          "nativeMs": 2.6651899999997113
+        },
+        {
+          "browserMs": 6.200000002980232,
+          "browserWallMs": 8.403371999999763,
+          "nativeMs": 3.358046999999715
+        },
+        {
+          "browserMs": 6.399999998509884,
+          "browserWallMs": 8.788051999999425,
+          "nativeMs": 2.700655999999981
+        }
+      ],
+      "browser": {
+        "n": 24,
+        "median": 6.799999997019768,
+        "p90": 7.699999995529652,
+        "mean": 7.0250000000620885
+      },
+      "native": {
+        "n": 24,
+        "median": 3.4019790000002104,
+        "p90": 5.134853000000021,
+        "mean": 3.698641458333365
+      },
+      "profiles": {
+        "baseline": {
+          "ms": 14.3,
+          "subs": 4,
+          "stages": [
+            {
+              "name": "Layers",
+              "ms": 3.3,
+              "n": 2
+            },
+            {
+              "name": "Film code",
+              "ms": 1.4,
+              "n": 13
+            },
+            {
+              "name": "Scene data",
+              "ms": 0,
+              "n": 4
+            },
+            {
+              "name": "GPU commands",
+              "ms": 0.5,
+              "n": 5
+            },
+            {
+              "name": "GPU wait",
+              "ms": 8.4,
+              "n": 1
+            }
+          ],
+          "gpu": {
+            "ms": 6.894,
+            "busy": 0.799,
+            "full": false,
+            "passes": [
+              {
+                "name": "layers",
+                "ms": 0.071,
+                "parts": [
+                  {
+                    "name": "layers",
+                    "ms": 0.019
+                  }
+                ]
+              },
+              {
+                "name": "prepass",
+                "ms": 0.019,
+                "parts": [
+                  {
+                    "name": "prepass",
+                    "ms": 0.019
+                  }
+                ]
+              },
+              {
+                "name": "ao",
+                "ms": 0.015,
+                "parts": [
+                  {
+                    "name": "ao",
+                    "ms": 0.015
+                  }
+                ]
+              },
+              {
+                "name": "gi",
+                "ms": 0.007,
+                "parts": [
+                  {
+                    "name": "gi",
+                    "ms": 0.007
+                  }
+                ]
+              },
+              {
+                "name": "opaque",
+                "ms": 0.026,
+                "parts": [
+                  {
+                    "name": "opaque",
+                    "ms": 0.026
+                  }
+                ]
+              },
+              {
+                "name": "film scene passes",
+                "ms": 0.556,
+                "parts": [
+                  {
+                    "name": "night",
+                    "ms": 0.271
+                  },
+                  {
+                    "name": "orrery",
+                    "ms": 0.141
+                  }
+                ]
+              },
+              {
+                "name": "resolve",
+                "ms": 0.044,
+                "parts": [
+                  {
+                    "name": "resolve",
+                    "ms": 0.044
+                  }
+                ]
+              },
+              {
+                "name": "film light passes",
+                "ms": 0.047,
+                "parts": [
+                  {
+                    "name": "lens",
+                    "ms": 0.03
+                  }
+                ]
+              },
+              {
+                "name": "bloom",
+                "ms": 0.002,
+                "parts": []
+              },
+              {
+                "name": "view",
+                "ms": 0.007,
+                "parts": [
+                  {
+                    "name": "view",
+                    "ms": 0.007
+                  }
+                ]
+              },
+              {
+                "name": "output",
+                "ms": 0.004,
+                "parts": [
+                  {
+                    "name": "output",
+                    "ms": 0.004
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "browser": {
+          "ms": 7.1,
+          "subs": 1,
+          "stages": [
+            {
+              "name": "Scene data",
+              "ms": 0.1,
+              "n": 4
+            },
+            {
+              "name": "GPU commands",
+              "ms": 0.8,
+              "n": 5
+            },
+            {
+              "name": "GPU wait",
+              "ms": 5.5,
+              "n": 1
+            }
+          ],
+          "gpu": {
+            "ms": 3.808,
+            "busy": 0.814,
+            "full": false,
+            "passes": [
+              {
+                "name": "prepass",
+                "ms": 0.012,
+                "parts": [
+                  {
+                    "name": "prepass",
+                    "ms": 0.012
+                  }
+                ]
+              },
+              {
+                "name": "ao",
+                "ms": 0.015,
+                "parts": [
+                  {
+                    "name": "ao",
+                    "ms": 0.015
+                  }
+                ]
+              },
+              {
+                "name": "gi",
+                "ms": 0.006,
+                "parts": [
+                  {
+                    "name": "gi",
+                    "ms": 0.006
+                  }
+                ]
+              },
+              {
+                "name": "opaque",
+                "ms": 0.104,
+                "parts": [
+                  {
+                    "name": "opaque",
+                    "ms": 0.104
+                  }
+                ]
+              },
+              {
+                "name": "film scene passes",
+                "ms": 0.556,
+                "parts": [
+                  {
+                    "name": "night",
+                    "ms": 0.27
+                  },
+                  {
+                    "name": "orrery",
+                    "ms": 0.141
+                  }
+                ]
+              },
+              {
+                "name": "layers",
+                "ms": 0.02,
+                "parts": [
+                  {
+                    "name": "layers",
+                    "ms": 0.02
+                  }
+                ]
+              },
+              {
+                "name": "resolve",
+                "ms": 0.042,
+                "parts": [
+                  {
+                    "name": "resolve",
+                    "ms": 0.042
+                  }
+                ]
+              },
+              {
+                "name": "film light passes",
+                "ms": 0.047,
+                "parts": [
+                  {
+                    "name": "lens",
+                    "ms": 0.03
+                  }
+                ]
+              },
+              {
+                "name": "bloom",
+                "ms": 0.001,
+                "parts": []
+              },
+              {
+                "name": "view",
+                "ms": 0.007,
+                "parts": [
+                  {
+                    "name": "view",
+                    "ms": 0.007
+                  }
+                ]
+              },
+              {
+                "name": "output",
+                "ms": 0.004,
+                "parts": [
+                  {
+                    "name": "output",
+                    "ms": 0.004
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "native": {
+          "ms": 5.08,
+          "subs": 1,
+          "stages": [
+            {
+              "name": "Scene data",
+              "ms": 0.39,
+              "n": 4
+            },
+            {
+              "name": "GPU commands",
+              "ms": 3.97,
+              "n": 5
+            },
+            {
+              "name": "GPU wait",
+              "ms": 0.4,
+              "n": 1
+            }
+          ],
+          "gpu": {
+            "ms": 3.736,
+            "busy": 0.918,
+            "full": false,
+            "passes": [
+              {
+                "name": "prepass",
+                "ms": 0,
+                "parts": [
+                  {
+                    "name": "prepass",
+                    "ms": 0
+                  }
+                ]
+              },
+              {
+                "name": "ao",
+                "ms": 0.066,
+                "parts": [
+                  {
+                    "name": "ao",
+                    "ms": 0.066
+                  }
+                ]
+              },
+              {
+                "name": "gi",
+                "ms": 0,
+                "parts": [
+                  {
+                    "name": "gi",
+                    "ms": 0
+                  }
+                ]
+              },
+              {
+                "name": "opaque",
+                "ms": 0.197,
+                "parts": [
+                  {
+                    "name": "opaque",
+                    "ms": 0.197
+                  }
+                ]
+              },
+              {
+                "name": "film scene passes",
+                "ms": 0.524,
+                "parts": [
+                  {
+                    "name": "night",
+                    "ms": 0.262
+                  },
+                  {
+                    "name": "orrery",
+                    "ms": 0.197
+                  }
+                ]
+              },
+              {
+                "name": "layers",
+                "ms": 0,
+                "parts": [
+                  {
+                    "name": "layers",
+                    "ms": 0
+                  }
+                ]
+              },
+              {
+                "name": "resolve",
+                "ms": 0,
+                "parts": [
+                  {
+                    "name": "resolve",
+                    "ms": 0
+                  }
+                ]
+              },
+              {
+                "name": "film light passes",
+                "ms": 0.066,
+                "parts": [
+                  {
+                    "name": "lens",
+                    "ms": 0
+                  }
+                ]
+              },
+              {
+                "name": "bloom",
+                "ms": 0,
+                "parts": []
+              },
+              {
+                "name": "view",
+                "ms": 0.066,
+                "parts": [
+                  {
+                    "name": "view",
+                    "ms": 0.066
+                  }
+                ]
+              },
+              {
+                "name": "output",
+                "ms": 0,
+                "parts": [
+                  {
+                    "name": "output",
+                    "ms": 0
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "resources": {
+        "beforeBrowser": {
+          "at": 3672.397327,
+          "ticks": 407,
+          "pssKB": 730219,
+          "processes": [
+            {
+              "pid": 2036726,
+              "ppid": 2036682,
+              "ticks": 83,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 123329,
+              "rssKB": 240532
+            },
+            {
+              "pid": 2036741,
+              "ppid": 2036726,
+              "ticks": 2,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 19570,
+              "rssKB": 78792
+            },
+            {
+              "pid": 2036742,
+              "ppid": 2036726,
+              "ticks": 2,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 11195,
+              "rssKB": 77216
+            },
+            {
+              "pid": 2036748,
+              "ppid": 2036742,
+              "ticks": 1,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 2307,
+              "rssKB": 23048
+            },
+            {
+              "pid": 2036772,
+              "ppid": 2036741,
+              "ticks": 165,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 177942,
+              "rssKB": 304176
+            },
+            {
+              "pid": 2036774,
+              "ppid": 2036726,
+              "ticks": 20,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 45243,
+              "rssKB": 144120
+            },
+            {
+              "pid": 2036786,
+              "ppid": 2036774,
+              "ticks": 0,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 10564,
+              "rssKB": 25992
+            },
+            {
+              "pid": 2036802,
+              "ppid": 2036748,
+              "ticks": 0,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 6795,
+              "rssKB": 57164
+            },
+            {
+              "pid": 2036829,
+              "ppid": 2036748,
+              "ticks": 35,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 73205,
+              "rssKB": 176792
+            },
+            {
+              "pid": 2036845,
+              "ppid": 2036748,
+              "ticks": 87,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 173777,
+              "rssKB": 288992
+            },
+            {
+              "pid": 2036853,
+              "ppid": 2036748,
+              "ticks": 4,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 19892,
+              "rssKB": 104204
+            },
+            {
+              "pid": 2036867,
+              "ppid": 2036748,
+              "ticks": 2,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 13782,
+              "rssKB": 82784
+            },
+            {
+              "pid": 2036883,
+              "ppid": 2036748,
+              "ticks": 2,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 19579,
+              "rssKB": 101372
+            },
+            {
+              "pid": 2036884,
+              "ppid": 2036748,
+              "ticks": 4,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 19475,
+              "rssKB": 101636
+            },
+            {
+              "pid": 2037126,
+              "ppid": 2036748,
+              "ticks": 0,
+              "nice": -8,
+              "policy": 0,
+              "pssKB": 13564,
+              "rssKB": 82104
+            }
+          ]
+        },
+        "beforeNative": {
+          "at": 3764.494167,
+          "ticks": 89,
+          "pssKB": 156338,
+          "processes": [
+            {
+              "pid": 2037000,
+              "ppid": 2036682,
+              "ticks": 89,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 156338,
+              "rssKB": 254920
+            }
+          ]
+        },
+        "afterBrowser": {
+          "at": 4199.118912,
+          "ticks": 443,
+          "pssKB": 745314,
+          "processes": [
+            {
+              "pid": 2036726,
+              "ppid": 2036682,
+              "ticks": 89,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 123617,
+              "rssKB": 240880
+            },
+            {
+              "pid": 2036741,
+              "ppid": 2036726,
+              "ticks": 2,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 19570,
+              "rssKB": 78792
+            },
+            {
+              "pid": 2036742,
+              "ppid": 2036726,
+              "ticks": 2,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 11195,
+              "rssKB": 77216
+            },
+            {
+              "pid": 2036748,
+              "ppid": 2036742,
+              "ticks": 1,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 2307,
+              "rssKB": 23048
+            },
+            {
+              "pid": 2036772,
+              "ppid": 2036741,
+              "ticks": 177,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 176256,
+              "rssKB": 302496
+            },
+            {
+              "pid": 2036774,
+              "ppid": 2036726,
+              "ticks": 22,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 45511,
+              "rssKB": 144448
+            },
+            {
+              "pid": 2036786,
+              "ppid": 2036774,
+              "ticks": 0,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 10564,
+              "rssKB": 25992
+            },
+            {
+              "pid": 2036802,
+              "ppid": 2036748,
+              "ticks": 0,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 6795,
+              "rssKB": 57164
+            },
+            {
+              "pid": 2036829,
+              "ppid": 2036748,
+              "ticks": 35,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 73205,
+              "rssKB": 176792
+            },
+            {
+              "pid": 2036845,
+              "ppid": 2036748,
+              "ticks": 101,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 158683,
+              "rssKB": 273904
+            },
+            {
+              "pid": 2036853,
+              "ppid": 2036748,
+              "ticks": 4,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 19892,
+              "rssKB": 104204
+            },
+            {
+              "pid": 2036867,
+              "ppid": 2036748,
+              "ticks": 2,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 13782,
+              "rssKB": 82784
+            },
+            {
+              "pid": 2036883,
+              "ppid": 2036748,
+              "ticks": 2,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 19579,
+              "rssKB": 101372
+            },
+            {
+              "pid": 2036884,
+              "ppid": 2036748,
+              "ticks": 4,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 19475,
+              "rssKB": 101636
+            },
+            {
+              "pid": 2037126,
+              "ppid": 2036748,
+              "ticks": 0,
+              "nice": -8,
+              "policy": 0,
+              "pssKB": 13564,
+              "rssKB": 82104
+            },
+            {
+              "pid": 2037180,
+              "ppid": 2036748,
+              "ticks": 2,
+              "nice": -8,
+              "policy": 0,
+              "pssKB": 31319,
+              "rssKB": 123124
+            }
+          ]
+        },
+        "afterNative": {
+          "at": 4277.737789,
+          "ticks": 100,
+          "pssKB": 158926,
+          "processes": [
+            {
+              "pid": 2037000,
+              "ppid": 2036682,
+              "ticks": 100,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 158926,
+              "rssKB": 257508
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "harness": {
+    "run.mjs": "bf2933351acc79ea6244f6fc23295ed9e157b725395a7a1f87aae87cb84a7402",
+    "browser.mjs": "bba09c3b2f87cabe2fe2838f6fa1e4f35d1a460359dadfd8aa0cef461564d617",
+    "producer.mjs": "a44688fa283ee22fb8dc6d00801c04a5493bb3a31aba5a6df3c4796c3e745eb9",
+    "native.mjs": "7d76ecba213aeecc8c1eb251f20fca4a4c2dfc60bd21f6b657819a29c1ab9da8",
+    "codec.mjs": "8ada2794e421ab994dbe9d0a62bd0ba20c2db942ac441f7f73def8f794b29013"
+  },
+  "bootMs": 620.704718,
+  "visibility": "visible",
+  "browser": {
+    "size": [
+      1920,
+      1080
+    ],
+    "duration": 102,
+    "limits": {
+      "maxTextureDimension2D": 16384,
+      "maxStorageBufferBindingSize": 2147483644,
+      "maxBufferSize": 4294967292,
+      "maxColorAttachmentBytesPerSample": 128,
+      "maxSampledTexturesPerShaderStage": 48,
+      "maxStorageBuffersPerShaderStage": 16
+    },
+    "adapter": {
+      "vendor": "nvidia",
+      "architecture": "blackwell",
+      "device": "",
+      "description": ""
+    },
+    "layers": [
+      {
+        "label": "year",
+        "live": [
+          0,
+          102
+        ],
+        "width": 77,
+        "height": 35,
+        "res": 1
+      },
+      {
+        "label": "Mysterium Cosmographicum",
+        "live": [
+          2.35,
+          8.136
+        ],
+        "width": 1497,
+        "height": 84,
+        "res": 1
+      },
+      {
+        "label": "The secret of the universe",
+        "live": [
+          3.25,
+          7.859999999999999
+        ],
+        "width": 407,
+        "height": 46,
+        "res": 1
+      },
+      {
+        "label": "Six planets. Five perfect so",
+        "live": [
+          7.95,
+          12.104
+        ],
+        "width": 1079,
+        "height": 52,
+        "res": 1
+      },
+      {
+        "label": "It was beautiful.",
+        "live": [
+          11.649999999999999,
+          14.555
+        ],
+        "width": 349,
+        "height": 62,
+        "res": 1
+      },
+      {
+        "label": "It was wrong.",
+        "live": [
+          14.2,
+          16.295
+        ],
+        "width": 297,
+        "height": 62,
+        "res": 1
+      },
+      {
+        "label": "Astronomia Nova",
+        "live": [
+          16.25,
+          20.01
+        ],
+        "width": 601,
+        "height": 55,
+        "res": 1
+      },
+      {
+        "label": "For twenty years, Tycho Brah",
+        "live": [
+          16.65,
+          20.352
+        ],
+        "width": 846,
+        "height": 52,
+        "res": 1
+      },
+      {
+        "label": "The best circle missed by ei",
+        "live": [
+          20.099999999999998,
+          23.426000000000002
+        ],
+        "width": 816,
+        "height": 52,
+        "res": 1
+      },
+      {
+        "label": "So the circle had to go. The",
+        "live": [
+          23.05,
+          26.292
+        ],
+        "width": 805,
+        "height": 52,
+        "res": 1
+      },
+      {
+        "label": "A line from the Sun sweeps o",
+        "live": [
+          25.95,
+          31.964
+        ],
+        "width": 1034,
+        "height": 52,
+        "res": 1
+      },
+      {
+        "label": "The square of a planet’s yea",
+        "live": [
+          32.95,
+          37.788000000000004
+        ],
+        "width": 920,
+        "height": 46,
+        "res": 1
+      },
+      {
+        "label": "Near the Sun it runs fast; f",
+        "live": [
+          37.35,
+          41.160000000000004
+        ],
+        "width": 755,
+        "height": 52,
+        "res": 1
+      },
+      {
+        "label": "And Kepler heard each planet",
+        "live": [
+          40.85,
+          43.672
+        ],
+        "width": 622,
+        "height": 52,
+        "res": 1
+      },
+      {
+        "label": "Harmonices Mundi",
+        "live": [
+          44,
+          48.480000000000004
+        ],
+        "width": 1286,
+        "height": 101,
+        "res": 1
+      },
+      {
+        "label": "The harmony of the world",
+        "live": [
+          44.550000000000004,
+          48.24
+        ],
+        "width": 416,
+        "height": 46,
+        "res": 1
+      },
+      {
+        "label": "Every eight years, Venus and",
+        "live": [
+          61.35,
+          68.14399999999999
+        ],
+        "width": 1184,
+        "height": 49,
+        "res": 1
+      },
+      {
+        "label": "Thirteen turns of Venus to e",
+        "live": [
+          69.35000000000001,
+          76.66399999999999
+        ],
+        "width": 953,
+        "height": 49,
+        "res": 1
+      },
+      {
+        "label": "Tabulae Rudolphinae",
+        "live": [
+          76.35000000000001,
+          87.466
+        ],
+        "width": 1009,
+        "height": 74,
+        "res": 1
+      },
+      {
+        "label": "Tables of every motion, for ",
+        "live": [
+          76.95,
+          87.442
+        ],
+        "width": 634,
+        "height": 46,
+        "res": 1
+      },
+      {
+        "label": "21 October · Tonight",
+        "live": [
+          88.05,
+          100.28
+        ],
+        "width": 360,
+        "height": 27,
+        "res": 1
+      },
+      {
+        "label": "Ephemeris",
+        "live": [
+          90.25,
+          100.46999999999998
+        ],
+        "width": 925,
+        "height": 131,
+        "res": 1
+      },
+      {
+        "label": "a table of where every body ",
+        "live": [
+          91.35000000000001,
+          100.485
+        ],
+        "width": 584,
+        "height": 49,
+        "res": 1
+      },
+      {
+        "label": "Tycho’s table",
+        "live": [
+          16,
+          19.8
+        ],
+        "width": 367,
+        "height": 404,
+        "res": 1
+      },
+      {
+        "label": "eight minutes",
+        "live": false,
+        "width": 145,
+        "height": 74,
+        "res": 2
+      },
+      {
+        "label": "the third law",
+        "live": [
+          32,
+          43
+        ],
+        "width": 630,
+        "height": 494,
+        "res": 1
+      },
+      {
+        "label": "label mercury",
+        "live": false,
+        "width": 201,
+        "height": 62,
+        "res": 1.5
+      },
+      {
+        "label": "label venus",
+        "live": false,
+        "width": 112,
+        "height": 62,
+        "res": 1.5
+      },
+      {
+        "label": "label earth",
+        "live": false,
+        "width": 112,
+        "height": 62,
+        "res": 1.5
+      },
+      {
+        "label": "label mars",
+        "live": false,
+        "width": 90,
+        "height": 62,
+        "res": 1.5
+      },
+      {
+        "label": "label jupiter",
+        "live": false,
+        "width": 102,
+        "height": 62,
+        "res": 1.5
+      },
+      {
+        "label": "label saturn",
+        "live": false,
+        "width": 101,
+        "height": 62,
+        "res": 1.5
+      },
+      {
+        "label": "label mercury",
+        "live": false,
+        "width": 186,
+        "height": 32,
+        "res": 1.5
+      },
+      {
+        "label": "label venus",
+        "live": false,
+        "width": 294,
+        "height": 58,
+        "res": 1.5
+      },
+      {
+        "label": "label earth",
+        "live": false,
+        "width": 155,
+        "height": 32,
+        "res": 1.5
+      },
+      {
+        "label": "label mars",
+        "live": false,
+        "width": 145,
+        "height": 32,
+        "res": 1.5
+      },
+      {
+        "label": "label jupiter",
+        "live": false,
+        "width": 186,
+        "height": 32,
+        "res": 1.5
+      },
+      {
+        "label": "label saturn",
+        "live": false,
+        "width": 232,
+        "height": 58,
+        "res": 1.5
+      }
+    ]
+  },
+  "native": {
+    "pid": 2037000,
+    "adapter": {
+      "vendor": "nvidia",
+      "architecture": "blackwell",
+      "device": "nvidia-geforce-rtx-5070-ti",
+      "description": "NVIDIA: 615.71.09 615.71.9.0"
+    },
+    "features": [
+      "timestamp-query",
+      "core-features-and-limits"
+    ],
+    "limits": {
+      "maxTextureDimension2D": 16384,
+      "maxStorageBufferBindingSize": 2147483644,
+      "maxBufferSize": 4294967292,
+      "maxColorAttachmentBytesPerSample": 128,
+      "maxSampledTexturesPerShaderStage": 48,
+      "maxStorageBuffersPerShaderStage": 16
+    }
+  }
+}

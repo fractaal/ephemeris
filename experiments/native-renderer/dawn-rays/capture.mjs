@@ -1,0 +1,24 @@
+// capture.mjs <port> <film> <t> <file>: a real frame's renderSub and finish inputs, as the film makes them, nothing drawn.
+import fs from 'node:fs'; import path from 'node:path';
+import { createRequire } from 'node:module';
+const { WebSocketServer } = createRequire(path.join(process.env.TREE, 'x.js'))('ws');
+const { openBrowser } = await import(path.join(process.env.TREE, 'tools/browser.mjs'));
+const [,, port, film, tArg, file] = process.argv, t = +tArg;
+const wss = new WebSocketServer({ host: '127.0.0.1', port: 0, maxPayload: 3 * 2 ** 30 }); await new Promise((r) => wss.once('listening', r));
+const got = []; let want; wss.on('connection', (s) => s.on('message', (d) => { if (want) { const w = want; want = null; w(d); } else got.push(d); }));
+const next = () => (got.length ? Promise.resolve(got.shift()) : new Promise((r) => { want = r; }));
+const br = await openBrowser(), p = await br.newPage({ viewport: { width: 1920, height: 1080 } });
+p.on('pageerror', (e) => console.log('[page]', e.message.slice(0, 300)));
+const here = path.join(process.env.TREE, 'experiments/native-renderer');
+await p.route('**/__rt/*.mjs', (r) => r.fulfill({ contentType: 'text/javascript', body: fs.readFileSync(path.join(here, path.basename(new URL(r.request().url()).pathname))) }));
+await p.goto(`http://127.0.0.1:${port}/projects/${film}/`, { waitUntil: 'load' });
+await p.waitForFunction(() => window.__ready === true || window.__bootError, null, { timeout: 300000 });
+const boot = await p.evaluate(() => window.__bootError ?? null); if (boot) throw new Error(boot);
+const info = await p.evaluate(async (wsPort) => (await import('/__rt/browser.mjs')).install(wsPort), wss.address().port);
+const extra = await p.evaluate(() => { const R = window.__ephemeris.comp; return { gi: R.giAll ?? null, shadows: R.shadowsAll ?? null, reflections: R.reflectionsAll ?? null, rendering: R.rendering ?? {} }; });
+const o = { sub: +(process.env.SUB ?? 4), shutter: 0.5, fps: 24, scale: +(process.env.SCALE ?? 1) };
+const r = await p.evaluate(([t, o]) => window.__bench.capture(t, o, false), [t, o]);
+const data = await next();
+fs.writeFileSync(file, data); fs.writeFileSync(`${file}.json`, JSON.stringify({ film, t, o, info, options: extra, capture: r }));
+console.log(`captured ${film} ${t}: ${(data.length / 2 ** 20).toFixed(0)} MB, ${r.subs} sub-frames, options ${JSON.stringify(extra).slice(0, 200)}`);
+await br.close(); process.exit(0);

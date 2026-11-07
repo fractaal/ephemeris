@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ephemeris</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%23202020'/%3E%3Crect x='7' y='2' width='2' height='12' fill='%238cc3fc'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/nle/nle.css">
+</head>
+<body class="studio">
+  <div id="splash">
+    <svg class="orbit" viewBox="0 0 64 64"><circle cx="32" cy="32" r="22" /><circle class="body" cx="32" cy="32" r="5" /><g class="moon"><circle cx="54" cy="32" r="3" /></g></svg>
+    <b>Ephemeris</b>
+    <span>motion design studio</span>
+    <small id="splashVersion"></small>
+  </div>
+
+  <header id="top">
+    <span class="home-mark"><i></i><b id="proj">Ephemeris</b></span>
+    <span class="lcd" id="version"></span>
+    <span class="grow"></span>
+    <button id="newBtn" class="btn" title="New project (N)"><svg viewBox="0 0 16 16"><path d="M7 2h2v5h5v2H9v5H7V9H2V7h5z"/></svg>New project<kbd>N</kbd></button>
+  </header>
+
+  <main id="picker">
+    <div class="search"><label class="find" title="Search projects (/)"><svg viewBox="0 0 16 16"><path d="M6.5 2a4.5 4.5 0 0 1 3.6 7.2l3.6 3.6-1.4 1.4-3.6-3.6A4.5 4.5 0 1 1 6.5 2zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"/></svg><input id="find" type="search" placeholder="Search projects" spellcheck="false" autocomplete="off"><kbd>/</kbd></label></div>
+    <div class="picker-head"><h1>Projects</h1><span id="count" class="count"></span></div>
+    <div id="grid" class="grid"></div>
+    <p id="empty" class="empty" hidden>No projects yet. Make one with <b>New project</b>.</p>
+    <p id="none" class="empty" hidden></p>
+  </main>
+
+  <div id="newSheet" class="overlay" hidden>
+    <form class="sheet small" id="newForm">
+      <div class="sheet-head"><b>New project</b><button type="button" class="link" data-close>Cancel · Esc</button></div>
+      <div class="form">
+        <label>Name</label><input name="name" placeholder="launch-film" spellcheck="false" autocomplete="off" pattern="[a-z0-9][a-z0-9\-]*" required>
+        <span></span><span class="hint">Lowercase letters, digits and dashes.</span>
+        <span></span><span class="hint error" id="newError" hidden></span>
+        <div class="full row-btns"><button class="btn primary" type="submit">Create and open</button></div>
+      </div>
+    </form>
+  </div>
+  <script type="module" src="/nle/studio.js"></script>
+</body>
+</html>

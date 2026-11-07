@@ -1,0 +1,717 @@
+{
+  "created": "2026-10-23T22:44:13.619Z",
+  "mode": "hybrid",
+  "film": "doctor-who-intro-max",
+  "settings": {
+    "sub": 4,
+    "scale": 1,
+    "fps": 24,
+    "shutter": 0.25
+  },
+  "chromeVersion": "153.0.8010.47",
+  "node": "v24.15.0",
+  "platform": "linux 7.2.5-1-cachyos",
+  "cpu": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
+  "root": "/home/benjude/.cache/ephemeris-native-bench/study",
+  "options": {
+    "gi": null,
+    "shadows": true
+  },
+  "clockTicks": 100,
+  "rows": [
+    {
+      "t": 30,
+      "first": {
+        "time": 30,
+        "wallMs": 685.0021880000004,
+        "browserWallMs": 47.656355000000985,
+        "prepareMs": 37.599999994039536,
+        "layerReadbackMs": 0,
+        "serializeMs": 6.800000004470348,
+        "bytes": 1543412,
+        "imageBytes": 0,
+        "captures": 0,
+        "subs": 42,
+        "decodeMs": 8.282455000000482,
+        "uploadSubmitMs": 16.639008999999533,
+        "renderMs": 607.7002270000003,
+        "profile": null,
+        "width": 1920,
+        "height": 1080,
+        "bands": 2,
+        "nativeMs": 633.1794749999999,
+        "hash": "2eb1361de8f9467541619c4f7be778cda1c62478c0fb2ac8d56f2d8c1e05ad77"
+      },
+      "samples": [
+        {
+          "time": 30,
+          "wallMs": 700.7485770000003,
+          "browserWallMs": 70.77556499999992,
+          "prepareMs": 58.20000000298023,
+          "layerReadbackMs": 0,
+          "serializeMs": 9.700000002980232,
+          "bytes": 1543412,
+          "imageBytes": 0,
+          "captures": 0,
+          "subs": 42,
+          "decodeMs": 5.564997999999832,
+          "uploadSubmitMs": 10.61920900000041,
+          "renderMs": 606.0692030000009,
+          "profile": null,
+          "width": 1920,
+          "height": 1080,
+          "bands": 2,
+          "nativeMs": 622.8147809999991,
+          "hash": "2eb1361de8f9467541619c4f7be778cda1c62478c0fb2ac8d56f2d8c1e05ad77"
+        },
+        {
+          "time": 30.041666666666668,
+          "wallMs": 770.3465750000014,
+          "browserWallMs": 79.13880100000097,
+          "prepareMs": 62.899999998509884,
+          "layerReadbackMs": 0,
+          "serializeMs": 11.899999998509884,
+          "bytes": 1743351,
+          "imageBytes": 0,
+          "captures": 0,
+          "subs": 46,
+          "decodeMs": 6.46659499999987,
+          "uploadSubmitMs": 11.807213999998567,
+          "renderMs": 667.1422439999988,
+          "profile": null,
+          "width": 1920,
+          "height": 1080,
+          "bands": 2,
+          "nativeMs": 685.9220700000005,
+          "hash": "4279e96e459a16e0996c77aaf40f92e2795ea9cbd40c08bd8ddaf4afddd1d2cd"
+        },
+        {
+          "time": 30.083333333333332,
+          "wallMs": 787.5584269999999,
+          "browserWallMs": 77.84538900000007,
+          "prepareMs": 63.899999998509884,
+          "layerReadbackMs": 0,
+          "serializeMs": 11.399999998509884,
+          "bytes": 1855181,
+          "imageBytes": 0,
+          "captures": 0,
+          "subs": 47,
+          "decodeMs": 3.8353900000001886,
+          "uploadSubmitMs": 7.828574999999546,
+          "renderMs": 692.8145729999997,
+          "profile": null,
+          "width": 1920,
+          "height": 1080,
+          "bands": 2,
+          "nativeMs": 704.9837540000008,
+          "hash": "a34587243b445c4b57c1936b3bc5055d2046ca9640aa4d62c1c9767023119680"
+        },
+        {
+          "time": 30.125,
+          "wallMs": 783.8217509999995,
+          "browserWallMs": 58.305741000000125,
+          "prepareMs": 43.5,
+          "layerReadbackMs": 0,
+          "serializeMs": 8.299999997019768,
+          "bytes": 1942553,
+          "imageBytes": 0,
+          "captures": 0,
+          "subs": 49,
+          "decodeMs": 4.102971000000252,
+          "uploadSubmitMs": 8.05903699999908,
+          "renderMs": 708.8617829999985,
+          "profile": null,
+          "width": 1920,
+          "height": 1080,
+          "bands": 2,
+          "nativeMs": 721.5998690000015,
+          "hash": "04195436549073e09261a5066a1eaa6214e0ee00349f2191c106edf5bbedb083"
+        },
+        {
+          "time": 30.166666666666668,
+          "wallMs": 773.6001560000004,
+          "browserWallMs": 52.73608400000012,
+          "prepareMs": 40.80000000447035,
+          "layerReadbackMs": 0,
+          "serializeMs": 9,
+          "bytes": 1933881,
+          "imageBytes": 0,
+          "captures": 0,
+          "subs": 49,
+          "decodeMs": 4.087051000000429,
+          "uploadSubmitMs": 10.611745000000155,
+          "renderMs": 701.4194100000004,
+          "profile": null,
+          "width": 1920,
+          "height": 1080,
+          "bands": 2,
+          "nativeMs": 716.6097969999992,
+          "hash": "57a8ff73a7e15f1ecd36d9b628ea09647b67f07c4cfe23e2386a7f74383fb8c1"
+        },
+        {
+          "time": 30.208333333333332,
+          "wallMs": 808.4403860000002,
+          "browserWallMs": 74.52168700000038,
+          "prepareMs": 57.900000005960464,
+          "layerReadbackMs": 0,
+          "serializeMs": 13.299999997019768,
+          "bytes": 1942441,
+          "imageBytes": 0,
+          "captures": 0,
+          "subs": 49,
+          "decodeMs": 7.180652999999438,
+          "uploadSubmitMs": 10.637403000000631,
+          "renderMs": 709.7973740000016,
+          "profile": null,
+          "width": 1920,
+          "height": 1080,
+          "bands": 2,
+          "nativeMs": 728.1442299999999,
+          "hash": "a81df5d402c06a57e7e867838fe7447645daacd262c19e4e10379422229f36c8"
+        },
+        {
+          "time": 30.25,
+          "wallMs": 780.8781390000004,
+          "browserWallMs": 77.1018980000008,
+          "prepareMs": 62,
+          "layerReadbackMs": 0,
+          "serializeMs": 11.800000004470348,
+          "bytes": 1902550,
+          "imageBytes": 0,
+          "captures": 0,
+          "subs": 48,
+          "decodeMs": 5.43376200000057,
+          "uploadSubmitMs": 9.564664999999877,
+          "renderMs": 685.1395530000009,
+          "profile": null,
+          "width": 1920,
+          "height": 1080,
+          "bands": 2,
+          "nativeMs": 700.7194500000005,
+          "hash": "411e2b98af7993f15297898770b95c5e6431dd744a5f969f1c1ca55eb6335258"
+        },
+        {
+          "time": 30.291666666666668,
+          "wallMs": 751.2189360000011,
+          "browserWallMs": 71.86728799999946,
+          "prepareMs": 55.5,
+          "layerReadbackMs": 0.09999999403953552,
+          "serializeMs": 11.900000005960464,
+          "bytes": 1857304,
+          "imageBytes": 0,
+          "captures": 0,
+          "subs": 47,
+          "decodeMs": 4.62557900000138,
+          "uploadSubmitMs": 7.9769539999997505,
+          "renderMs": 662.7493279999999,
+          "profile": null,
+          "width": 1920,
+          "height": 1080,
+          "bands": 2,
+          "nativeMs": 675.8581580000009,
+          "hash": "094a39fef03fedf774d7a1124614d4adb4568eb3728986fd2a448c02d8cdcc84"
+        },
+        {
+          "time": 30.333333333333332,
+          "wallMs": 664.5164949999998,
+          "browserWallMs": 43.44888800000081,
+          "prepareMs": 33.5,
+          "layerReadbackMs": 0,
+          "serializeMs": 7.5,
+          "bytes": 1743817,
+          "imageBytes": 0,
+          "captures": 0,
+          "subs": 44,
+          "decodeMs": 3.6626870000000054,
+          "uploadSubmitMs": 6.915285000000949,
+          "renderMs": 606.9772700000012,
+          "profile": null,
+          "width": 1920,
+          "height": 1080,
+          "bands": 2,
+          "nativeMs": 618.2268799999983,
+          "hash": "b86ccd9e055646e51b2302669d26b09b80864785cd0a5e6479858ac2f9b63983"
+        },
+        {
+          "time": 30.375,
+          "wallMs": 608.4903520000007,
+          "browserWallMs": 60.65464800000154,
+          "prepareMs": 47.600000001490116,
+          "layerReadbackMs": 0,
+          "serializeMs": 9.899999998509884,
+          "bytes": 1558304,
+          "imageBytes": 0,
+          "captures": 0,
+          "subs": 41,
+          "decodeMs": 3.3358850000004168,
+          "uploadSubmitMs": 6.727393999999549,
+          "renderMs": 532.2831600000009,
+          "profile": null,
+          "width": 1920,
+          "height": 1080,
+          "bands": 2,
+          "nativeMs": 543.1102289999999,
+          "hash": "e9c1458bd337540927a36bfc3e6778cdd9185f18b56d5fcc290b8e6f093bd179"
+        },
+        {
+          "time": 30.416666666666668,
+          "wallMs": 619.9509369999978,
+          "browserWallMs": 60.18615000000136,
+          "prepareMs": 44.69999999552965,
+          "layerReadbackMs": 0,
+          "serializeMs": 8.800000004470348,
+          "bytes": 1433279,
+          "imageBytes": 0,
+          "captures": 0,
+          "subs": 38,
+          "decodeMs": 5.6423220000015135,
+          "uploadSubmitMs": 9.62702199999876,
+          "renderMs": 537.852515999999,
+          "profile": null,
+          "width": 1920,
+          "height": 1080,
+          "bands": 2,
+          "nativeMs": 553.7161730000007,
+          "hash": "9b909a8cc297750ae59c4705b1c0b9e8b38c7e776d5bf0a511b95a020482a363"
+        },
+        {
+          "time": 30.458333333333332,
+          "wallMs": 555.7420249999996,
+          "browserWallMs": 54.487952999999834,
+          "prepareMs": 43.20000000298023,
+          "layerReadbackMs": 0,
+          "serializeMs": 7.799999997019768,
+          "bytes": 1243785,
+          "imageBytes": 0,
+          "captures": 0,
+          "subs": 33,
+          "decodeMs": 4.351627000000008,
+          "uploadSubmitMs": 7.606068999999479,
+          "renderMs": 480.68357399999877,
+          "profile": null,
+          "width": 1920,
+          "height": 1080,
+          "bands": 2,
+          "nativeMs": 493.22409999999763,
+          "hash": "30b36a157f684192933ad5115a46159479256fb8a4b5e8592aa66088c5ebb8f6"
+        }
+      ],
+      "elapsedMs": 8656.769235000002,
+      "fps": 1.3861984389606983,
+      "wall": {
+        "n": 12,
+        "median": 770.3465750000014,
+        "p90": 787.5584269999999,
+        "mean": 717.1093963333334
+      },
+      "before": {
+        "at": 9178.355419,
+        "ticks": 1384,
+        "pssKB": 2054018,
+        "processes": [
+          {
+            "pid": 2047510,
+            "ppid": 2027520,
+            "ticks": 191,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 118362,
+            "rssKB": 170564
+          },
+          {
+            "pid": 2047524,
+            "ppid": 2047510,
+            "ticks": 93,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 119550,
+            "rssKB": 235536
+          },
+          {
+            "pid": 2047525,
+            "ppid": 2047510,
+            "ticks": 28,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 42800,
+            "rssKB": 42808
+          },
+          {
+            "pid": 2047538,
+            "ppid": 2047524,
+            "ticks": 2,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 19289,
+            "rssKB": 79248
+          },
+          {
+            "pid": 2047539,
+            "ppid": 2047524,
+            "ticks": 2,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 11164,
+            "rssKB": 77716
+          },
+          {
+            "pid": 2047546,
+            "ppid": 2047539,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 2307,
+            "rssKB": 23020
+          },
+          {
+            "pid": 2047569,
+            "ppid": 2047538,
+            "ticks": 85,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 224406,
+            "rssKB": 443860
+          },
+          {
+            "pid": 2047571,
+            "ppid": 2047524,
+            "ticks": 29,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 47878,
+            "rssKB": 145404
+          },
+          {
+            "pid": 2047585,
+            "ppid": 2047571,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 10541,
+            "rssKB": 25576
+          },
+          {
+            "pid": 2047598,
+            "ppid": 2047546,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 6714,
+            "rssKB": 56540
+          },
+          {
+            "pid": 2047626,
+            "ppid": 2047546,
+            "ticks": 37,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 72477,
+            "rssKB": 175764
+          },
+          {
+            "pid": 2047650,
+            "ppid": 2047546,
+            "ticks": 196,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 528599,
+            "rssKB": 734912
+          },
+          {
+            "pid": 2047662,
+            "ppid": 2047546,
+            "ticks": 4,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 20258,
+            "rssKB": 105432
+          },
+          {
+            "pid": 2047683,
+            "ppid": 2047546,
+            "ticks": 3,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 13843,
+            "rssKB": 83680
+          },
+          {
+            "pid": 2047701,
+            "ppid": 2047546,
+            "ticks": 3,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 19444,
+            "rssKB": 100676
+          },
+          {
+            "pid": 2047702,
+            "ppid": 2047546,
+            "ticks": 3,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 19250,
+            "rssKB": 100272
+          },
+          {
+            "pid": 2047826,
+            "ppid": 2047510,
+            "ticks": 704,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 734075,
+            "rssKB": 832996
+          },
+          {
+            "pid": 2048000,
+            "ppid": 2047546,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 13625,
+            "rssKB": 82764
+          },
+          {
+            "pid": 2048037,
+            "ppid": 2047546,
+            "ticks": 2,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 29436,
+            "rssKB": 121064
+          }
+        ]
+      },
+      "after": {
+        "at": 17915.005283,
+        "ticks": 2670,
+        "pssKB": 2081241,
+        "processes": [
+          {
+            "pid": 2047510,
+            "ppid": 2027520,
+            "ticks": 237,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 157562,
+            "rssKB": 209764
+          },
+          {
+            "pid": 2047524,
+            "ppid": 2047510,
+            "ticks": 94,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 119377,
+            "rssKB": 235304
+          },
+          {
+            "pid": 2047525,
+            "ppid": 2047510,
+            "ticks": 28,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 42800,
+            "rssKB": 42808
+          },
+          {
+            "pid": 2047538,
+            "ppid": 2047524,
+            "ticks": 2,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 19289,
+            "rssKB": 79248
+          },
+          {
+            "pid": 2047539,
+            "ppid": 2047524,
+            "ticks": 2,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 11164,
+            "rssKB": 77716
+          },
+          {
+            "pid": 2047546,
+            "ppid": 2047539,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 2307,
+            "rssKB": 23020
+          },
+          {
+            "pid": 2047569,
+            "ppid": 2047538,
+            "ticks": 87,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 224292,
+            "rssKB": 443640
+          },
+          {
+            "pid": 2047571,
+            "ppid": 2047524,
+            "ticks": 31,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 47500,
+            "rssKB": 145068
+          },
+          {
+            "pid": 2047585,
+            "ppid": 2047571,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 10541,
+            "rssKB": 25576
+          },
+          {
+            "pid": 2047598,
+            "ppid": 2047546,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 6727,
+            "rssKB": 56672
+          },
+          {
+            "pid": 2047626,
+            "ppid": 2047546,
+            "ticks": 37,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 72479,
+            "rssKB": 175772
+          },
+          {
+            "pid": 2047650,
+            "ppid": 2047546,
+            "ticks": 295,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 502501,
+            "rssKB": 708828
+          },
+          {
+            "pid": 2047662,
+            "ppid": 2047546,
+            "ticks": 4,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 19408,
+            "rssKB": 104588
+          },
+          {
+            "pid": 2047683,
+            "ppid": 2047546,
+            "ticks": 3,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 13849,
+            "rssKB": 83748
+          },
+          {
+            "pid": 2047701,
+            "ppid": 2047546,
+            "ticks": 3,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 19455,
+            "rssKB": 100748
+          },
+          {
+            "pid": 2047702,
+            "ppid": 2047546,
+            "ticks": 3,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 19256,
+            "rssKB": 100340
+          },
+          {
+            "pid": 2047826,
+            "ppid": 2047510,
+            "ticks": 1840,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 749671,
+            "rssKB": 848592
+          },
+          {
+            "pid": 2048000,
+            "ppid": 2047546,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 13631,
+            "rssKB": 82832
+          },
+          {
+            "pid": 2048037,
+            "ppid": 2047546,
+            "ticks": 2,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 29432,
+            "rssKB": 121068
+          }
+        ]
+      }
+    }
+  ],
+  "harness": {
+    "run.mjs": "bf2933351acc79ea6244f6fc23295ed9e157b725395a7a1f87aae87cb84a7402",
+    "browser.mjs": "bba09c3b2f87cabe2fe2838f6fa1e4f35d1a460359dadfd8aa0cef461564d617",
+    "producer.mjs": "a44688fa283ee22fb8dc6d00801c04a5493bb3a31aba5a6df3c4796c3e745eb9",
+    "native.mjs": "7d76ecba213aeecc8c1eb251f20fca4a4c2dfc60bd21f6b657819a29c1ab9da8",
+    "codec.mjs": "8ada2794e421ab994dbe9d0a62bd0ba20c2db942ac441f7f73def8f794b29013"
+  },
+  "bootMs": 790.7279649999999,
+  "visibility": "visible",
+  "browser": {
+    "size": [
+      1920,
+      1080
+    ],
+    "duration": 74.35,
+    "limits": {
+      "maxTextureDimension2D": 16384,
+      "maxStorageBufferBindingSize": 2147483644,
+      "maxBufferSize": 4294967292,
+      "maxColorAttachmentBytesPerSample": 128,
+      "maxSampledTexturesPerShaderStage": 48,
+      "maxStorageBuffersPerShaderStage": 16
+    },
+    "adapter": {
+      "vendor": "nvidia",
+      "architecture": "blackwell",
+      "device": "",
+      "description": ""
+    },
+    "layers": []
+  },
+  "native": {
+    "pid": 2047826,
+    "adapter": {
+      "vendor": "nvidia",
+      "architecture": "blackwell",
+      "device": "nvidia-geforce-rtx-5070-ti",
+      "description": "NVIDIA: 615.71.09 615.71.9.0"
+    },
+    "features": [
+      "timestamp-query",
+      "core-features-and-limits"
+    ],
+    "limits": {
+      "maxTextureDimension2D": 16384,
+      "maxStorageBufferBindingSize": 2147483644,
+      "maxBufferSize": 4294967292,
+      "maxColorAttachmentBytesPerSample": 128,
+      "maxSampledTexturesPerShaderStage": 48,
+      "maxStorageBuffersPerShaderStage": 16
+    }
+  }
+}

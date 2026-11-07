@@ -1,0 +1,12 @@
+[package]
+name = "hardware-rays"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+# The same scene, the same rays, the same GPU: the renderer's own WGSL walking its hierarchies, against the GPU's ray tracing hardware.
+[dependencies]
+wgpu = "30"
+pollster = "0.4"
+serde_json = "1"
+png = "0.18"

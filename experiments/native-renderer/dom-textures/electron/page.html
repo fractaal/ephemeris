@@ -1,0 +1,27 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>
+  html, body { margin: 0; width: 100%; height: 100%; background: transparent; overflow: hidden; font-family: sans-serif; }
+  .tag { position: fixed; display: flex; }
+  .tag i { width: 8px; height: 8px; display: block; }
+  #tl { left: 0; top: 0; } #br { right: 0; bottom: 0; }
+  #title { position: absolute; left: 200px; top: 160px; font-size: 180px; font-weight: 800; color: #fff; text-shadow: 0 8px 40px rgba(255, 90, 40, .9); }
+  #card { position: absolute; left: 240px; top: 480px; width: 900px; height: 360px; border-radius: 40px; background: linear-gradient(120deg, #ff5a28cc, #3a7bffcc); backdrop-filter: blur(20px); box-shadow: 0 30px 90px #000a; }
+  #sub { position: absolute; left: 60px; top: 110px; color: #fff; font-size: 64px; }
+</style>
+<div id="title"></div>
+<div id="card"><div id="sub"></div></div>
+<div class="tag" id="tl"></div><div class="tag" id="br"></div>
+<script>
+  // the moment, in 24 black or white cells at two corners: what the renderer reads back to know what a texture shows
+  for (const t of [tl, br]) for (let i = 0; i < 24; i++) t.append(document.createElement('i'));
+  const paint = (t, n) => { [...t.children].forEach((c, i) => { c.style.background = (n >> i) & 1 ? '#fff' : '#000'; }); };
+  window.seek = (n) => new Promise((done) => {
+    paint(tl, n); paint(br, n);
+    title.textContent = 'frame ' + n;
+    sub.textContent = 'a DOM layer, moment ' + n;
+    card.style.transform = `translate(${(n * 37) % 300}px, ${(n * 19) % 90}px) rotate(${((n * 7) % 40) - 20}deg)`;
+    requestAnimationFrame(() => requestAnimationFrame(done));
+  });
+  seek(0);
+</script>

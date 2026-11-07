@@ -1,0 +1,1490 @@
+{
+  "created": "2026-10-23T22:41:55.579Z",
+  "mode": "baseline",
+  "film": "motion-design-test-claude-2",
+  "settings": {
+    "sub": 4,
+    "scale": 0.5,
+    "fps": 24,
+    "shutter": 0.5
+  },
+  "chromeVersion": "153.0.8010.47",
+  "node": "v24.15.0",
+  "platform": "linux 7.2.5-1-cachyos",
+  "cpu": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
+  "root": "/home/benjude/.cache/ephemeris-native-bench/study",
+  "options": {
+    "gi": null,
+    "shadows": null
+  },
+  "clockTicks": 100,
+  "rows": [
+    {
+      "t": 18,
+      "first": {
+        "time": 18,
+        "wallMs": 20.518352999999934,
+        "renderMs": 16.30000000447035,
+        "width": 960,
+        "height": 540,
+        "subs": 4,
+        "bands": 1,
+        "hash": "a65726c1b1c2b449049a30715d752af2d0ec44207c85619ad6221b2def41fabb"
+      },
+      "samples": [
+        {
+          "time": 18,
+          "wallMs": 18.495956999999635,
+          "renderMs": 13.5,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "a65726c1b1c2b449049a30715d752af2d0ec44207c85619ad6221b2def41fabb"
+        },
+        {
+          "time": 18.041666666666668,
+          "wallMs": 21.84235200000012,
+          "renderMs": 17.099999994039536,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "14450cdd242251141cae6b626a80a0fe96022046f124ea224978a926ab84e2b2"
+        },
+        {
+          "time": 18.083333333333332,
+          "wallMs": 20.451618999999937,
+          "renderMs": 16.399999998509884,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "95b344e45b2f6e6c2504b92db405cf5bcca95c1ebb7562333d4af17974ef99f7"
+        },
+        {
+          "time": 18.125,
+          "wallMs": 21.836671000000024,
+          "renderMs": 16.69999999552965,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "2648f4bfc6d94059d2104cf54a47463522a09b5a17d0b6a09e4d3ed98753dbd1"
+        },
+        {
+          "time": 18.166666666666668,
+          "wallMs": 21.679035999999996,
+          "renderMs": 17.600000001490116,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "602b9cd480211cb2b0539554685050aa9e70962b508d704d90272adc35647981"
+        },
+        {
+          "time": 18.208333333333332,
+          "wallMs": 20.097416000000067,
+          "renderMs": 15.099999994039536,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "706b24ec3fed5cf6dc520edd2629d22cf705dbf1d3acda2140dd28fd2e4f3c3a"
+        },
+        {
+          "time": 18.25,
+          "wallMs": 19.54497100000026,
+          "renderMs": 15.600000001490116,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "67ffb7378b452f7bd2470de1758728cac913f8d1116d190ac76464e474e5c8a6"
+        },
+        {
+          "time": 18.291666666666668,
+          "wallMs": 20.75033799999983,
+          "renderMs": 16.69999999552965,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "5f374f2843ebe71225743c4fae94baae932fe6b32b36926081bcfb7e38a17508"
+        },
+        {
+          "time": 18.333333333333332,
+          "wallMs": 19.434373999999934,
+          "renderMs": 15.800000004470348,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "ba155e46f499a709aa3296ceef2de758ee4c7573c0e04d85d88d663cbed4a457"
+        },
+        {
+          "time": 18.375,
+          "wallMs": 19.939660000000003,
+          "renderMs": 16.19999999552965,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "81bb09c04191f590de67bed269910b89006350abd0487c9ae583c413a50973eb"
+        },
+        {
+          "time": 18.416666666666668,
+          "wallMs": 21.19542199999978,
+          "renderMs": 15.600000001490116,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "db43fd436239fdae1a021781f29a940e134f0b43d9dbb8125e7b101ebbdef947"
+        },
+        {
+          "time": 18.458333333333332,
+          "wallMs": 34.93822,
+          "renderMs": 28,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "ef11baf532baf411af1e699c60759704572b25893b31fedbef89f3b739adba13"
+        },
+        {
+          "time": 18.5,
+          "wallMs": 30.11315700000023,
+          "renderMs": 26.200000002980232,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "fb70f3fd337ec499e5db284ade0b6703bbf36ca1664624d4c18b4f7e80a3b236"
+        },
+        {
+          "time": 18.541666666666668,
+          "wallMs": 17.690820000000258,
+          "renderMs": 14.199999995529652,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "fdebc00813f18543e6fbdb8148d8606aa3cbbe11061b367a380a2c6ca2208460"
+        },
+        {
+          "time": 18.583333333333332,
+          "wallMs": 17.131582999999864,
+          "renderMs": 13.800000004470348,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "71cf2887424dbd5225465551da6090f78448f8afc62ec377568c577be24fbe64"
+        },
+        {
+          "time": 18.625,
+          "wallMs": 17.678535999999895,
+          "renderMs": 13.5,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "0e1a15c7a01ba9e834ceb7950fdf8318b65580fc79d64b3bd85323090d6d296a"
+        },
+        {
+          "time": 18.666666666666668,
+          "wallMs": 18.120534000000134,
+          "renderMs": 14.5,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "41d0886a411d713dd1645c820cfe7ac4c3c5f1801e316ce4daf051444e4e3e18"
+        },
+        {
+          "time": 18.708333333333332,
+          "wallMs": 21.351243000000068,
+          "renderMs": 18.100000001490116,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "bbdbd9666e6d6b85036d0e42de0391bd919ce622ca4653debee6a6e83526d33f"
+        },
+        {
+          "time": 18.75,
+          "wallMs": 17.483291999999892,
+          "renderMs": 14.199999995529652,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "f46d93e4cee927148e3e1e2d7e58d94da2dfea8550a578bd93a85af84890b9ec"
+        },
+        {
+          "time": 18.791666666666668,
+          "wallMs": 16.771048000000064,
+          "renderMs": 13.100000001490116,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "850ea9e0731ac964cbda8b3902a9aad1cb471c372a6249dcb07223b0c7e4708f"
+        },
+        {
+          "time": 18.833333333333332,
+          "wallMs": 17.193549000000075,
+          "renderMs": 13.300000004470348,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "34fe659caf598735d69d757188657cd1d1a89be53f79a46900b3a9b35dc33dec"
+        },
+        {
+          "time": 18.875,
+          "wallMs": 17.851720999999998,
+          "renderMs": 14,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "dba0906e790d2f0336a027b1aa0dd8e64f8cf83c34b4907ce1660970133ebbb3"
+        },
+        {
+          "time": 18.916666666666668,
+          "wallMs": 18.49795099999983,
+          "renderMs": 13.900000005960464,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "89053787c545b7c9f78a2750d622763981b17bf831c38e45dcc359c0a8aac77a"
+        },
+        {
+          "time": 18.958333333333332,
+          "wallMs": 17.296590999999808,
+          "renderMs": 14.199999995529652,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "dda7312044101e697556a56a23111690fdd706c2bb703abd2fb31d642266c984"
+        }
+      ],
+      "elapsedMs": 520.8563629999999,
+      "fps": 46.077962572572055,
+      "wall": {
+        "n": 24,
+        "median": 19.54497100000026,
+        "p90": 21.84235200000012,
+        "mean": 20.307752541666655
+      },
+      "before": {
+        "at": 2484.95591,
+        "ticks": 448,
+        "pssKB": 805603,
+        "processes": [
+          {
+            "pid": 2037249,
+            "ppid": 2027520,
+            "ticks": 117,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 106406,
+            "rssKB": 158216
+          },
+          {
+            "pid": 2037279,
+            "ppid": 2037249,
+            "ticks": 68,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 115589,
+            "rssKB": 229624
+          },
+          {
+            "pid": 2037287,
+            "ppid": 2037279,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 19636,
+            "rssKB": 77868
+          },
+          {
+            "pid": 2037288,
+            "ppid": 2037279,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 12162,
+            "rssKB": 78916
+          },
+          {
+            "pid": 2037290,
+            "ppid": 2037288,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 3012,
+            "rssKB": 25080
+          },
+          {
+            "pid": 2037314,
+            "ppid": 2037287,
+            "ticks": 162,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 203261,
+            "rssKB": 324932
+          },
+          {
+            "pid": 2037316,
+            "ppid": 2037279,
+            "ticks": 13,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 44478,
+            "rssKB": 140992
+          },
+          {
+            "pid": 2037317,
+            "ppid": 2037316,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 9636,
+            "rssKB": 23840
+          },
+          {
+            "pid": 2037332,
+            "ppid": 2037290,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 7795,
+            "rssKB": 58852
+          },
+          {
+            "pid": 2037417,
+            "ppid": 2037290,
+            "ticks": 23,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 75101,
+            "rssKB": 177112
+          },
+          {
+            "pid": 2037446,
+            "ppid": 2037290,
+            "ticks": 53,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 128269,
+            "rssKB": 238340
+          },
+          {
+            "pid": 2037454,
+            "ppid": 2037290,
+            "ticks": 3,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21678,
+            "rssKB": 104956
+          },
+          {
+            "pid": 2037472,
+            "ppid": 2037290,
+            "ticks": 2,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 15236,
+            "rssKB": 83272
+          },
+          {
+            "pid": 2037490,
+            "ppid": 2037290,
+            "ticks": 3,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21782,
+            "rssKB": 101572
+          },
+          {
+            "pid": 2037493,
+            "ppid": 2037290,
+            "ticks": 3,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21562,
+            "rssKB": 101404
+          }
+        ]
+      },
+      "after": {
+        "at": 3076.682673,
+        "ticks": 549,
+        "pssKB": 810223,
+        "processes": [
+          {
+            "pid": 2037249,
+            "ppid": 2027520,
+            "ticks": 161,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 122762,
+            "rssKB": 174572
+          },
+          {
+            "pid": 2037279,
+            "ppid": 2037249,
+            "ticks": 68,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 115615,
+            "rssKB": 229692
+          },
+          {
+            "pid": 2037287,
+            "ppid": 2037279,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 19636,
+            "rssKB": 77868
+          },
+          {
+            "pid": 2037288,
+            "ppid": 2037279,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 12162,
+            "rssKB": 78916
+          },
+          {
+            "pid": 2037290,
+            "ppid": 2037288,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 3012,
+            "rssKB": 25080
+          },
+          {
+            "pid": 2037314,
+            "ppid": 2037287,
+            "ticks": 179,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 168018,
+            "rssKB": 289708
+          },
+          {
+            "pid": 2037316,
+            "ppid": 2037279,
+            "ticks": 15,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 44818,
+            "rssKB": 141332
+          },
+          {
+            "pid": 2037317,
+            "ppid": 2037316,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 9636,
+            "rssKB": 23840
+          },
+          {
+            "pid": 2037332,
+            "ppid": 2037290,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 7795,
+            "rssKB": 58852
+          },
+          {
+            "pid": 2037417,
+            "ppid": 2037290,
+            "ticks": 23,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 75098,
+            "rssKB": 177112
+          },
+          {
+            "pid": 2037446,
+            "ppid": 2037290,
+            "ticks": 91,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 151413,
+            "rssKB": 261492
+          },
+          {
+            "pid": 2037454,
+            "ppid": 2037290,
+            "ticks": 3,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21678,
+            "rssKB": 104956
+          },
+          {
+            "pid": 2037472,
+            "ppid": 2037290,
+            "ticks": 2,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 15236,
+            "rssKB": 83272
+          },
+          {
+            "pid": 2037490,
+            "ppid": 2037290,
+            "ticks": 3,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21782,
+            "rssKB": 101572
+          },
+          {
+            "pid": 2037493,
+            "ppid": 2037290,
+            "ticks": 3,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21562,
+            "rssKB": 101404
+          }
+        ]
+      }
+    },
+    {
+      "t": 34,
+      "first": {
+        "time": 34,
+        "wallMs": 18.065390999999636,
+        "renderMs": 15.299999997019768,
+        "width": 960,
+        "height": 540,
+        "subs": 4,
+        "bands": 1,
+        "hash": "a9d0de8070eecc59f16e0ee86a748ecf577434c9a2c4d5fdae73696a1aa549e5"
+      },
+      "samples": [
+        {
+          "time": 34,
+          "wallMs": 21.075666999999612,
+          "renderMs": 16.5,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "a9d0de8070eecc59f16e0ee86a748ecf577434c9a2c4d5fdae73696a1aa549e5"
+        },
+        {
+          "time": 34.041666666666664,
+          "wallMs": 22.81099499999982,
+          "renderMs": 18.5,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "193c1f91683db564be3df8ae24e280eae1a29781b8b8506179a9d79ee7d34449"
+        },
+        {
+          "time": 34.083333333333336,
+          "wallMs": 19.023975999999948,
+          "renderMs": 15.399999998509884,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "06f153be996337d879952c30d0b06ac2b1fd2e542f1b7b5d17f410d300197f3f"
+        },
+        {
+          "time": 34.125,
+          "wallMs": 19.884375999999975,
+          "renderMs": 15,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "e57f6fe051eeb234d4881b1fbd8c93551badd95dc591e9940ef850b0cec8442e"
+        },
+        {
+          "time": 34.166666666666664,
+          "wallMs": 22.696762000000035,
+          "renderMs": 16.600000001490116,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "85ed51c8c881f9fb9dc54239e6e78558e71f0d9b7271cc9ae3451f9ea622ce46"
+        },
+        {
+          "time": 34.208333333333336,
+          "wallMs": 29.12862300000006,
+          "renderMs": 22.700000002980232,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "d51952c129cfc3da4739c4fa49e85900e91029bc02e6a935e3eeb054c87b86eb"
+        },
+        {
+          "time": 34.25,
+          "wallMs": 24.108304999999746,
+          "renderMs": 18.900000005960464,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "7a7dd263241db3566dc47041325a244f5688df695b6a2bc646776b22c96bad48"
+        },
+        {
+          "time": 34.291666666666664,
+          "wallMs": 23.51976300000024,
+          "renderMs": 19.299999997019768,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "2d2b8462f3872600ce765d957ce490b91abcc3f83f4b4470286b641162efdd9d"
+        },
+        {
+          "time": 34.333333333333336,
+          "wallMs": 24.259457999999995,
+          "renderMs": 19.400000005960464,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "dadf4cbc038fa469319dfe10e9358f37ac2f8a59a30b34944fee5eda215bfd21"
+        },
+        {
+          "time": 34.375,
+          "wallMs": 20.7858640000004,
+          "renderMs": 17.299999997019768,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "fce34b0b08bf30d7307b3518ed16008d5add9e2069b79902628ded9f940f702b"
+        },
+        {
+          "time": 34.416666666666664,
+          "wallMs": 22.21525100000008,
+          "renderMs": 18.100000001490116,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "487962a1c9556d1dcd6bb4f58a5d5d89fbd123447c53239de0a9ab769c01d985"
+        },
+        {
+          "time": 34.458333333333336,
+          "wallMs": 21.982814999999846,
+          "renderMs": 18.200000002980232,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "05548d083d33b9b89d6fd6ea31b12563ec6538e2ded1d4eddcb1001b68a472f4"
+        },
+        {
+          "time": 34.5,
+          "wallMs": 21.57689500000015,
+          "renderMs": 17.5,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "e05b632f3e32ec5628a4d6550bd512e6794350b2782a77f491459ce7c54e65e8"
+        },
+        {
+          "time": 34.541666666666664,
+          "wallMs": 23.66547599999967,
+          "renderMs": 19.899999998509884,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "342b1ee336b52d63be64711315727190263a68a5ef257c66cf701bba499a64a2"
+        },
+        {
+          "time": 34.583333333333336,
+          "wallMs": 23.765512999999828,
+          "renderMs": 20.200000002980232,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "ac5490663a42de0b261b7dd468091c3edf0c0faba5ff7f565a56843973d02e3b"
+        },
+        {
+          "time": 34.625,
+          "wallMs": 23.89972399999988,
+          "renderMs": 19.899999998509884,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "2d824eefb057c5da7b459a278809b4d53c3ccc086528a296f9a63132dacaebba"
+        },
+        {
+          "time": 34.666666666666664,
+          "wallMs": 23.725326999999652,
+          "renderMs": 19.600000001490116,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "0e3cca115e0f9042a2741e17b0277a76cc5e474c3326dd532f7ed552638a74d2"
+        },
+        {
+          "time": 34.708333333333336,
+          "wallMs": 28.689580999999635,
+          "renderMs": 25.100000001490116,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "473685e13996b848baa729d016c35c6145cfd549d06f129ccfbd8b9fec561f5d"
+        },
+        {
+          "time": 34.75,
+          "wallMs": 25.28591899999992,
+          "renderMs": 21.600000001490116,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "6c84c94c303b49e43c5b789803ce7584ecee10aeb43d80473eb17b88c8991a7b"
+        },
+        {
+          "time": 34.791666666666664,
+          "wallMs": 25.302369999999883,
+          "renderMs": 21.700000002980232,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "8b148708601e63cb1d7b27f0cf190d058a995fb861d7c5ee507f63f8c9e1aa9f"
+        },
+        {
+          "time": 34.833333333333336,
+          "wallMs": 24.26987700000018,
+          "renderMs": 20.700000002980232,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "75e9bceba65d3fb7f62a5c2890a681a17951189a7a96049c1ceb6a210c1aa8a5"
+        },
+        {
+          "time": 34.875,
+          "wallMs": 22.720777,
+          "renderMs": 19.399999998509884,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "d863c223e4643ceaef448b106f41408180ba462cf5175b41a70764c2d724ca61"
+        },
+        {
+          "time": 34.916666666666664,
+          "wallMs": 15.910326000000168,
+          "renderMs": 12.799999997019768,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "e0d808bbde8cdd43816f305d3fabf2ef956fb0989f8c0d3e3bbbb51053baf3db"
+        },
+        {
+          "time": 34.958333333333336,
+          "wallMs": 16.960282000000007,
+          "renderMs": 13.799999997019768,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "354c0b94592de97f6e02c8a8d2cc40afd4fec1c95f82c87e18ff76c6faf848eb"
+        }
+      ],
+      "elapsedMs": 579.613805,
+      "fps": 41.40688125949657,
+      "wall": {
+        "n": 24,
+        "median": 23.51976300000024,
+        "p90": 25.302369999999883,
+        "mean": 22.802663416666615
+      },
+      "before": {
+        "at": 3457.057894,
+        "ticks": 608,
+        "pssKB": 828370,
+        "processes": [
+          {
+            "pid": 2037249,
+            "ppid": 2027520,
+            "ticks": 205,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 122776,
+            "rssKB": 174640
+          },
+          {
+            "pid": 2037279,
+            "ppid": 2037249,
+            "ticks": 68,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 115600,
+            "rssKB": 229692
+          },
+          {
+            "pid": 2037287,
+            "ppid": 2037279,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 19636,
+            "rssKB": 77868
+          },
+          {
+            "pid": 2037288,
+            "ppid": 2037279,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 12162,
+            "rssKB": 78916
+          },
+          {
+            "pid": 2037290,
+            "ppid": 2037288,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 3012,
+            "rssKB": 25080
+          },
+          {
+            "pid": 2037314,
+            "ppid": 2037287,
+            "ticks": 183,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 168014,
+            "rssKB": 289872
+          },
+          {
+            "pid": 2037316,
+            "ppid": 2037279,
+            "ticks": 16,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 44818,
+            "rssKB": 141332
+          },
+          {
+            "pid": 2037317,
+            "ppid": 2037316,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 9636,
+            "rssKB": 23840
+          },
+          {
+            "pid": 2037332,
+            "ppid": 2037290,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 7795,
+            "rssKB": 58852
+          },
+          {
+            "pid": 2037417,
+            "ppid": 2037290,
+            "ticks": 23,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 75071,
+            "rssKB": 177112
+          },
+          {
+            "pid": 2037446,
+            "ppid": 2037290,
+            "ticks": 101,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 169592,
+            "rssKB": 279920
+          },
+          {
+            "pid": 2037454,
+            "ppid": 2037290,
+            "ticks": 3,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21678,
+            "rssKB": 104956
+          },
+          {
+            "pid": 2037472,
+            "ppid": 2037290,
+            "ticks": 2,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 15236,
+            "rssKB": 83272
+          },
+          {
+            "pid": 2037490,
+            "ppid": 2037290,
+            "ticks": 3,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21782,
+            "rssKB": 101572
+          },
+          {
+            "pid": 2037493,
+            "ppid": 2037290,
+            "ticks": 3,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21562,
+            "rssKB": 101404
+          }
+        ]
+      },
+      "after": {
+        "at": 4130.779683,
+        "ticks": 724,
+        "pssKB": 831030,
+        "processes": [
+          {
+            "pid": 2037249,
+            "ppid": 2027520,
+            "ticks": 250,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 123753,
+            "rssKB": 175616
+          },
+          {
+            "pid": 2037279,
+            "ppid": 2037249,
+            "ticks": 69,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 115607,
+            "rssKB": 229696
+          },
+          {
+            "pid": 2037287,
+            "ppid": 2037279,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 19637,
+            "rssKB": 77868
+          },
+          {
+            "pid": 2037288,
+            "ppid": 2037279,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 12162,
+            "rssKB": 78916
+          },
+          {
+            "pid": 2037290,
+            "ppid": 2037288,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 3012,
+            "rssKB": 25080
+          },
+          {
+            "pid": 2037314,
+            "ppid": 2037287,
+            "ticks": 202,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 167424,
+            "rssKB": 289284
+          },
+          {
+            "pid": 2037316,
+            "ppid": 2037279,
+            "ticks": 18,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 44819,
+            "rssKB": 141332
+          },
+          {
+            "pid": 2037317,
+            "ppid": 2037316,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 9636,
+            "rssKB": 23840
+          },
+          {
+            "pid": 2037332,
+            "ppid": 2037290,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 7796,
+            "rssKB": 58852
+          },
+          {
+            "pid": 2037417,
+            "ppid": 2037290,
+            "ticks": 23,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 75071,
+            "rssKB": 177112
+          },
+          {
+            "pid": 2037446,
+            "ppid": 2037290,
+            "ticks": 150,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 171854,
+            "rssKB": 282184
+          },
+          {
+            "pid": 2037454,
+            "ppid": 2037290,
+            "ticks": 3,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21678,
+            "rssKB": 104956
+          },
+          {
+            "pid": 2037472,
+            "ppid": 2037290,
+            "ticks": 2,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 15237,
+            "rssKB": 83272
+          },
+          {
+            "pid": 2037490,
+            "ppid": 2037290,
+            "ticks": 3,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21782,
+            "rssKB": 101572
+          },
+          {
+            "pid": 2037493,
+            "ppid": 2037290,
+            "ticks": 3,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21562,
+            "rssKB": 101404
+          }
+        ]
+      }
+    }
+  ],
+  "harness": {
+    "run.mjs": "bf2933351acc79ea6244f6fc23295ed9e157b725395a7a1f87aae87cb84a7402",
+    "browser.mjs": "bba09c3b2f87cabe2fe2838f6fa1e4f35d1a460359dadfd8aa0cef461564d617",
+    "producer.mjs": "a44688fa283ee22fb8dc6d00801c04a5493bb3a31aba5a6df3c4796c3e745eb9",
+    "native.mjs": "7d76ecba213aeecc8c1eb251f20fca4a4c2dfc60bd21f6b657819a29c1ab9da8",
+    "codec.mjs": "8ada2794e421ab994dbe9d0a62bd0ba20c2db942ac441f7f73def8f794b29013"
+  },
+  "bootMs": 596.9904779999999,
+  "visibility": "visible",
+  "browser": {
+    "size": [
+      1920,
+      1080
+    ],
+    "duration": 102,
+    "limits": {
+      "maxTextureDimension2D": 16384,
+      "maxStorageBufferBindingSize": 2147483644,
+      "maxBufferSize": 4294967292,
+      "maxColorAttachmentBytesPerSample": 128,
+      "maxSampledTexturesPerShaderStage": 48,
+      "maxStorageBuffersPerShaderStage": 16
+    },
+    "adapter": {
+      "vendor": "nvidia",
+      "architecture": "blackwell",
+      "device": "",
+      "description": ""
+    },
+    "layers": [
+      {
+        "label": "year",
+        "live": [
+          0,
+          102
+        ],
+        "width": 77,
+        "height": 35,
+        "res": 1
+      },
+      {
+        "label": "Mysterium Cosmographicum",
+        "live": [
+          2.35,
+          8.136
+        ],
+        "width": 1497,
+        "height": 84,
+        "res": 1
+      },
+      {
+        "label": "The secret of the universe",
+        "live": [
+          3.25,
+          7.859999999999999
+        ],
+        "width": 407,
+        "height": 46,
+        "res": 1
+      },
+      {
+        "label": "Six planets. Five perfect so",
+        "live": [
+          7.95,
+          12.104
+        ],
+        "width": 1079,
+        "height": 52,
+        "res": 1
+      },
+      {
+        "label": "It was beautiful.",
+        "live": [
+          11.649999999999999,
+          14.555
+        ],
+        "width": 349,
+        "height": 62,
+        "res": 1
+      },
+      {
+        "label": "It was wrong.",
+        "live": [
+          14.2,
+          16.295
+        ],
+        "width": 297,
+        "height": 62,
+        "res": 1
+      },
+      {
+        "label": "Astronomia Nova",
+        "live": [
+          16.25,
+          20.01
+        ],
+        "width": 601,
+        "height": 55,
+        "res": 1
+      },
+      {
+        "label": "For twenty years, Tycho Brah",
+        "live": [
+          16.65,
+          20.352
+        ],
+        "width": 846,
+        "height": 52,
+        "res": 1
+      },
+      {
+        "label": "The best circle missed by ei",
+        "live": [
+          20.099999999999998,
+          23.426000000000002
+        ],
+        "width": 816,
+        "height": 52,
+        "res": 1
+      },
+      {
+        "label": "So the circle had to go. The",
+        "live": [
+          23.05,
+          26.292
+        ],
+        "width": 805,
+        "height": 52,
+        "res": 1
+      },
+      {
+        "label": "A line from the Sun sweeps o",
+        "live": [
+          25.95,
+          31.964
+        ],
+        "width": 1034,
+        "height": 52,
+        "res": 1
+      },
+      {
+        "label": "The square of a planet’s yea",
+        "live": [
+          32.95,
+          37.788000000000004
+        ],
+        "width": 920,
+        "height": 46,
+        "res": 1
+      },
+      {
+        "label": "Near the Sun it runs fast; f",
+        "live": [
+          37.35,
+          41.160000000000004
+        ],
+        "width": 755,
+        "height": 52,
+        "res": 1
+      },
+      {
+        "label": "And Kepler heard each planet",
+        "live": [
+          40.85,
+          43.672
+        ],
+        "width": 622,
+        "height": 52,
+        "res": 1
+      },
+      {
+        "label": "Harmonices Mundi",
+        "live": [
+          44,
+          48.480000000000004
+        ],
+        "width": 1286,
+        "height": 101,
+        "res": 1
+      },
+      {
+        "label": "The harmony of the world",
+        "live": [
+          44.550000000000004,
+          48.24
+        ],
+        "width": 416,
+        "height": 46,
+        "res": 1
+      },
+      {
+        "label": "Every eight years, Venus and",
+        "live": [
+          61.35,
+          68.14399999999999
+        ],
+        "width": 1184,
+        "height": 49,
+        "res": 1
+      },
+      {
+        "label": "Thirteen turns of Venus to e",
+        "live": [
+          69.35000000000001,
+          76.66399999999999
+        ],
+        "width": 953,
+        "height": 49,
+        "res": 1
+      },
+      {
+        "label": "Tabulae Rudolphinae",
+        "live": [
+          76.35000000000001,
+          87.466
+        ],
+        "width": 1009,
+        "height": 74,
+        "res": 1
+      },
+      {
+        "label": "Tables of every motion, for ",
+        "live": [
+          76.95,
+          87.442
+        ],
+        "width": 634,
+        "height": 46,
+        "res": 1
+      },
+      {
+        "label": "21 October · Tonight",
+        "live": [
+          88.05,
+          100.28
+        ],
+        "width": 360,
+        "height": 27,
+        "res": 1
+      },
+      {
+        "label": "Ephemeris",
+        "live": [
+          90.25,
+          100.46999999999998
+        ],
+        "width": 925,
+        "height": 131,
+        "res": 1
+      },
+      {
+        "label": "a table of where every body ",
+        "live": [
+          91.35000000000001,
+          100.485
+        ],
+        "width": 584,
+        "height": 49,
+        "res": 1
+      },
+      {
+        "label": "Tycho’s table",
+        "live": [
+          16,
+          19.8
+        ],
+        "width": 367,
+        "height": 404,
+        "res": 1
+      },
+      {
+        "label": "eight minutes",
+        "live": false,
+        "width": 145,
+        "height": 74,
+        "res": 2
+      },
+      {
+        "label": "the third law",
+        "live": [
+          32,
+          43
+        ],
+        "width": 630,
+        "height": 494,
+        "res": 1
+      },
+      {
+        "label": "label mercury",
+        "live": false,
+        "width": 201,
+        "height": 62,
+        "res": 1.5
+      },
+      {
+        "label": "label venus",
+        "live": false,
+        "width": 112,
+        "height": 62,
+        "res": 1.5
+      },
+      {
+        "label": "label earth",
+        "live": false,
+        "width": 112,
+        "height": 62,
+        "res": 1.5
+      },
+      {
+        "label": "label mars",
+        "live": false,
+        "width": 90,
+        "height": 62,
+        "res": 1.5
+      },
+      {
+        "label": "label jupiter",
+        "live": false,
+        "width": 102,
+        "height": 62,
+        "res": 1.5
+      },
+      {
+        "label": "label saturn",
+        "live": false,
+        "width": 101,
+        "height": 62,
+        "res": 1.5
+      },
+      {
+        "label": "label mercury",
+        "live": false,
+        "width": 186,
+        "height": 32,
+        "res": 1.5
+      },
+      {
+        "label": "label venus",
+        "live": false,
+        "width": 294,
+        "height": 58,
+        "res": 1.5
+      },
+      {
+        "label": "label earth",
+        "live": false,
+        "width": 155,
+        "height": 32,
+        "res": 1.5
+      },
+      {
+        "label": "label mars",
+        "live": false,
+        "width": 145,
+        "height": 32,
+        "res": 1.5
+      },
+      {
+        "label": "label jupiter",
+        "live": false,
+        "width": 186,
+        "height": 32,
+        "res": 1.5
+      },
+      {
+        "label": "label saturn",
+        "live": false,
+        "width": 232,
+        "height": 58,
+        "res": 1.5
+      }
+    ]
+  }
+}

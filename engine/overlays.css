@@ -1,0 +1,78 @@
+/* What the viewer draws over the picture (engine/overlays.js, gizmo.js): an <svg class="obj-ov"> of the frame's pixels
+   laid over it, in the editor's viewer (nle/app.js) and over the film's own picture in the editor's frame (viewport.js).
+   Its colours are the editor's: --accent, --accent-a, --cue, --text, --dim, --mono, --r-panel. */
+/* objects: the selection's outline and annotations pinned to their objects, over the picture (clicks pass through) */
+.obj-ov { position: absolute; pointer-events: none; overflow: hidden; }   /* (what reaches past the picture is cut at its edge) */
+.obj-ov .sel { fill: var(--accent-a); stroke: var(--accent); stroke-width: 3; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.obj-ov .sel.also { fill: none; stroke-width: 1.5; stroke-opacity: 0.8; }   /* (the others selected with it) */
+/* a whole object: each copy outlined, thinly */
+.obj-ov .sel-all polygon { fill: none; stroke: var(--accent); stroke-width: 1; stroke-opacity: 0.7; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.obj-ov .pin circle { fill: rgba(14, 18, 24, 0.75); stroke: var(--cue); stroke-width: 2; vector-effect: non-scaling-stroke; }
+.obj-ov .pin circle.dot { fill: var(--cue); stroke: none; }
+/* the scene's own lights (overlays.js lightsSvg): a ring and a core in the light's colour; a spot's way, dashed */
+.obj-ov .light-mark circle { fill: rgba(10, 10, 16, 0.55); stroke-width: 2.5; vector-effect: non-scaling-stroke; }
+.obj-ov .light-mark circle.core { stroke: none; }
+.obj-ov .light-mark line { stroke: rgba(255, 255, 255, 0.6); stroke-width: 1.5; stroke-dasharray: 6 5; vector-effect: non-scaling-stroke; }
+/* the selection's path through the film, and the points its pose is set at (overlays.js pathSvg): a key a diamond, where a
+   move lands a dot; the lane selected's in the accent, the rest faint; the one at the playhead filled. Each a handle */
+.obj-ov .path { fill: none; stroke: var(--accent); stroke-width: 2; stroke-opacity: 0.85; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.obj-ov .path.under { stroke: rgba(0, 0, 0, 0.55); stroke-width: 3; stroke-opacity: 1; }
+.obj-ov .path-pt { pointer-events: auto; cursor: grab; }
+.obj-ov .path-pt .hit { fill: transparent; stroke: none; }
+.obj-ov .path-pt .mark { fill: rgba(14, 18, 24, 0.8); stroke: rgba(255, 255, 255, 0.55); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.obj-ov .path-pt.sel .mark { stroke: var(--accent); stroke-width: 2; }
+.obj-ov .path-pt.now .mark { fill: #fff; }
+.obj-ov .path-pt.sel.now .mark { fill: var(--accent); }
+.obj-ov .path-pt:hover .mark { stroke: #fff; stroke-width: 2.5; }
+/* the floor's grid (overlays.js gridSvg): faint lines, every fifth stronger, fading with distance; the X and Z axes */
+.obj-ov .grid path { fill: none; stroke: #fff; stroke-width: 1; vector-effect: non-scaling-stroke; }
+.obj-ov .grid .minor { stroke-opacity: 0.16; } .obj-ov .grid .major { stroke-opacity: 0.32; }
+.obj-ov .grid .axx { stroke: #ff6262; stroke-opacity: 0.75; stroke-width: 1.5; } .obj-ov .grid .axz { stroke: #5e90ff; stroke-opacity: 0.75; stroke-width: 1.5; }
+.obj-ov .grid .b1 { opacity: 0.55; } .obj-ov .grid .b2 { opacity: 0.25; }
+.obj-ov .pin text { fill: #fff; font: 600 22px/1 Inter, system-ui, sans-serif; paint-order: stroke; stroke: rgba(14, 18, 24, 0.8); stroke-width: 5px; }
+/* the project camera seen from outside it (overlays.js cameraSvg): its path faint in the accent, each cut a square; where
+   it is and what it frames, white, or in the accent where selected */
+.obj-ov .cam-path { fill: none; stroke: var(--accent); stroke-opacity: 0.55; stroke-width: 1.5; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.obj-ov .cam-cut { fill: var(--accent); fill-opacity: 0.9; }
+.obj-ov .cam-frustum path { fill: none; stroke: #fff; stroke-opacity: 0.9; stroke-width: 1.5; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.obj-ov .cam-frustum circle { fill: #fff; fill-opacity: 0.9; }
+.obj-ov .cam-frustum.sel path { stroke: var(--accent); stroke-width: 2; }
+.obj-ov .cam-frustum.sel circle { fill: var(--accent); }
+/* the gizmo over the selection (engine/gizmo.js): an arrow and a ring per axis (X red, Y green, Z blue), in perspective; its
+   centre to move in the view's plane; a square to scale. Mid-gesture: what the gesture does */
+.obj-ov .gz { pointer-events: visiblePainted; cursor: grab; }
+/* (a dark edge, so they read over a bright picture) */
+.obj-ov .gizmo, .obj-ov .gizmo-guides { filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.55)); }
+.obj-ov .gz-hit { stroke: transparent; stroke-width: 16; vector-effect: non-scaling-stroke; pointer-events: stroke; }
+.obj-ov .gz-shaft { stroke-width: 3; vector-effect: non-scaling-stroke; }
+.obj-ov .gz-head { stroke: rgba(0, 0, 0, 0.35); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.obj-ov .gz-arrow:hover .gz-shaft { stroke-width: 5; }
+.obj-ov .gz-arrow:hover .gz-head { stroke: #fff; }
+.obj-ov .gz-rl { stroke-width: 2; vector-effect: non-scaling-stroke; pointer-events: none; }
+.obj-ov .gz-rl.back { stroke-width: 1.2; opacity: 0.3; }
+.obj-ov .gz-ring { cursor: alias; }
+.obj-ov .gz-ring:hover .gz-rl { stroke-width: 3.5; opacity: 1; }
+.obj-ov .gz-ring .gz-line { stroke: rgba(255, 255, 255, 0.5); stroke-width: 1.5; vector-effect: non-scaling-stroke; pointer-events: none; }
+.obj-ov .gz-ring:hover .gz-line { stroke: #fff; stroke-width: 2.5; }
+.obj-ov .gz-center { fill: rgba(255, 255, 255, 0.85); stroke: #0e0e0e; stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.obj-ov .gz:hover .gz-center { fill: #fff; }
+.obj-ov .gz-sq-line { stroke: rgba(232, 180, 60, 0.6); stroke-width: 1.5; vector-effect: non-scaling-stroke; pointer-events: none; }
+.obj-ov .gz-sq { fill: #e8b43c; stroke: #0e0e0e; stroke-width: 1.5; vector-effect: non-scaling-stroke; cursor: nwse-resize; }
+.obj-ov .gz:hover .gz-sq { fill: #ffd060; }
+.obj-ov .gz-sq-axis { stroke: #0e0e0e; stroke-width: 1; vector-effect: non-scaling-stroke; cursor: nwse-resize; }
+.obj-ov .gizmo-guides { pointer-events: none; }
+.obj-ov .gz-under { fill: none; stroke: rgba(0, 0, 0, 0.55); stroke-width: 3; vector-effect: non-scaling-stroke; }
+.obj-ov .gz-guide { stroke-width: 1.5; stroke-dasharray: 6 5; vector-effect: non-scaling-stroke; opacity: 0.85; }
+.obj-ov .gz-pivot { fill: none; stroke: #fff; stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.obj-ov .gz-pivot.now { fill: #fff; stroke: #0e0e0e; }
+.obj-ov .gz-trail { stroke: #fff; stroke-width: 1.2; stroke-dasharray: 2 4; vector-effect: non-scaling-stroke; }
+.obj-ov .gz-dash { stroke: #fff; stroke-width: 1.2; stroke-dasharray: 5 4; vector-effect: non-scaling-stroke; }
+.obj-ov .gz-turn-ring { stroke-width: 3; vector-effect: non-scaling-stroke; }
+.obj-ov .gz-turn-ring.back { stroke-width: 1.5; opacity: 0.4; }
+.obj-ov .gz-sweep { fill-opacity: 0.45; stroke: none; }
+.obj-ov .gz-reach { stroke: #fff; stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.obj-ov .gz-reach.was { stroke-dasharray: 3 4; }
+.gizmo-hud { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); z-index: 4; padding: 6px 12px; background: rgba(14, 14, 14, 0.88); color: var(--text); font: 11.5px var(--mono); white-space: nowrap; pointer-events: none; border-radius: var(--r-panel); }
+.gizmo-hud b { font-family: Inter, system-ui, sans-serif; font-weight: 600; color: var(--accent); margin-right: 6px; }
+.gizmo-hud span { color: var(--dim); font-family: Inter, system-ui, sans-serif; font-size: 10.5px; }
+.gizmo-hud .into { display: block; margin-top: 3px; color: var(--text); text-align: center; }   /* (the lane it goes into) */

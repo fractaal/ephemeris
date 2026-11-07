@@ -1,0 +1,207 @@
+{
+  "root": "/home/benjude/.cache/ephemeris-native-bench/study",
+  "dawn": "/home/benjude/.cache/ephemeris-native-bench/node_modules/webgpu",
+  "jobs": [
+    {
+      "film": "motion-design-test-claude-2",
+      "name": "dom",
+      "times": "18,34",
+      "full": "18",
+      "mode": "baseline",
+      "scale": 0.5,
+      "repeat": 1,
+      "frames": 24
+    },
+    {
+      "film": "motion-design-test-claude-2",
+      "name": "dom",
+      "times": "18,34",
+      "full": "18",
+      "mode": "compare",
+      "scale": 0.5,
+      "repeat": 1,
+      "frames": 24
+    },
+    {
+      "film": "motion-design-test-claude-2",
+      "name": "dom",
+      "times": "18,34",
+      "full": "18",
+      "mode": "hybrid",
+      "scale": 0.5,
+      "repeat": 1,
+      "frames": 24
+    },
+    {
+      "film": "doctor-who-intro-max",
+      "name": "doctor",
+      "times": "10,30,55",
+      "full": "30",
+      "mode": "baseline",
+      "scale": 0.5,
+      "repeat": 1,
+      "frames": 24
+    },
+    {
+      "film": "doctor-who-intro-max",
+      "name": "doctor",
+      "times": "10,30,55",
+      "full": "30",
+      "mode": "compare",
+      "scale": 0.5,
+      "repeat": 1,
+      "frames": 24
+    },
+    {
+      "film": "doctor-who-intro-max",
+      "name": "doctor",
+      "times": "10,30,55",
+      "full": "30",
+      "mode": "hybrid",
+      "scale": 0.5,
+      "repeat": 1,
+      "frames": 24
+    },
+    {
+      "film": "motion-design-test-claude-2",
+      "name": "dom",
+      "times": "18,34",
+      "full": "18",
+      "mode": "hybrid",
+      "scale": 0.5,
+      "repeat": 2,
+      "frames": 24
+    },
+    {
+      "film": "motion-design-test-claude-2",
+      "name": "dom",
+      "times": "18,34",
+      "full": "18",
+      "mode": "compare",
+      "scale": 0.5,
+      "repeat": 2,
+      "frames": 24
+    },
+    {
+      "film": "motion-design-test-claude-2",
+      "name": "dom",
+      "times": "18,34",
+      "full": "18",
+      "mode": "baseline",
+      "scale": 0.5,
+      "repeat": 2,
+      "frames": 24
+    },
+    {
+      "film": "doctor-who-intro-max",
+      "name": "doctor",
+      "times": "10,30,55",
+      "full": "30",
+      "mode": "hybrid",
+      "scale": 0.5,
+      "repeat": 2,
+      "frames": 24
+    },
+    {
+      "film": "doctor-who-intro-max",
+      "name": "doctor",
+      "times": "10,30,55",
+      "full": "30",
+      "mode": "compare",
+      "scale": 0.5,
+      "repeat": 2,
+      "frames": 24
+    },
+    {
+      "film": "doctor-who-intro-max",
+      "name": "doctor",
+      "times": "10,30,55",
+      "full": "30",
+      "mode": "baseline",
+      "scale": 0.5,
+      "repeat": 2,
+      "frames": 24
+    },
+    {
+      "film": "motion-design-test-claude-2",
+      "name": "dom",
+      "times": "18",
+      "full": "18",
+      "mode": "baseline",
+      "scale": 1,
+      "repeat": 1,
+      "frames": 12
+    },
+    {
+      "film": "motion-design-test-claude-2",
+      "name": "dom",
+      "times": "18",
+      "full": "18",
+      "mode": "compare",
+      "scale": 1,
+      "repeat": 1,
+      "frames": 12
+    },
+    {
+      "film": "motion-design-test-claude-2",
+      "name": "dom",
+      "times": "18",
+      "full": "18",
+      "mode": "hybrid",
+      "scale": 1,
+      "repeat": 1,
+      "frames": 12
+    },
+    {
+      "film": "doctor-who-intro-max",
+      "name": "doctor",
+      "times": "30",
+      "full": "30",
+      "mode": "baseline",
+      "scale": 1,
+      "repeat": 1,
+      "frames": 12
+    },
+    {
+      "film": "doctor-who-intro-max",
+      "name": "doctor",
+      "times": "30",
+      "full": "30",
+      "mode": "compare",
+      "scale": 1,
+      "repeat": 1,
+      "frames": 12
+    },
+    {
+      "film": "doctor-who-intro-max",
+      "name": "doctor",
+      "times": "30",
+      "full": "30",
+      "mode": "hybrid",
+      "scale": 1,
+      "repeat": 1,
+      "frames": 12
+    }
+  ],
+  "followup": {
+    "reason": "The first full-resolution DOM run was near break-even; repeat twice in opposing orders rather than treating the small initial gain as reliable.",
+    "film": "motion-design-test-claude-2",
+    "times": "18",
+    "scale": 1,
+    "sub": 4,
+    "warm": 6,
+    "frames": 12,
+    "orders": [
+      [
+        "hybrid",
+        "compare",
+        "baseline"
+      ],
+      [
+        "baseline",
+        "compare",
+        "hybrid"
+      ]
+    ]
+  }
+}

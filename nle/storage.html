@@ -1,0 +1,7 @@
+<!doctype html>
+<meta charset="utf-8">
+<script>
+// what the studio's editor kept at this address, for its page at 127.0.0.1 (nle/storage.js), and for it alone
+const to = `http://127.0.0.1:${location.port}`;
+if (location.ancestorOrigins?.[0] === to) parent.postMessage({ ephemerisStorage: Object.fromEntries(Object.entries(localStorage)) }, to);
+</script>

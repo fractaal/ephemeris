@@ -1,0 +1,8 @@
+{
+  "nativeBinarySha256": "ab18a659f8325e874ea45c80347b64336d7f748601102753d2bc669fdecfd710",
+  "nativePackage": "webgpu@0.6.2",
+  "cdpClientSha256": "c9ebdf075775a2c1ebd26450789e708e1af99e23d58b723ca4ac743f47c31a14",
+  "rendererChanges": "none",
+  "outputFormat": "raw RGBA8",
+  "gpuVramMeasured": false
+}

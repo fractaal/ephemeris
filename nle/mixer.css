@@ -1,0 +1,109 @@
+/* the Mixer panel (nle/mixer.js): narrow strips side by side, scrolling sideways, the master kept at the right and the
+   drawer of the open effect beside it. Flat, as the rest of the editor: the strips' parts in rows, the accent for what
+   is on and what is open. */
+#mixerBody { flex: 1; min-height: 0; display: flex; align-items: stretch; background: var(--app); overflow: hidden; }
+.mx-strips { flex: 1; min-width: 0; display: flex; align-items: stretch; gap: 1px; overflow: auto hidden; scrollbar-width: thin; }
+.mx-gap { flex: none; width: 6px; }
+.strip { flex: none; width: 104px; display: flex; flex-direction: column; background: var(--panel); overflow: hidden auto; scrollbar-width: none; }
+.strip.master { margin-left: 3px; }
+.strip > header { flex: none; display: flex; align-items: center; gap: 5px; height: 20px; padding: 0 6px; background: var(--tc, var(--head));  min-width: 0; }
+.strip[style*="--tc"] > header > * { color: #111; }
+.strip-num { flex: none; font: 9.5px var(--mono); color: var(--faint); }
+.strip-name { font-weight: 600; font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.strip-tag { flex: none; margin-left: auto; font-size: 9.5px; color: var(--faint); }
+.strip.bus > header { background: #1d2430; }
+.strip.muted > :not(header), .strip.quiet > :not(header) { opacity: 0.42; }
+.mx-sub { font-size: 9.5px; color: var(--faint); padding: 0 6px 2px; }
+
+/* what plays on it: a row each, its device marked */
+.strip-what { flex: none; display: flex; flex-direction: column; gap: 2px; padding: 5px 5px 3px; }
+.irow { display: flex; align-items: center; gap: 4px; height: 20px; padding: 0 1px 0 3px; background: var(--raised); border-radius: var(--r-ctl); cursor: pointer; min-width: 0; }
+.irow:hover {  background: var(--hover); }
+.irow.audio { background: var(--group); cursor: default; color: var(--faint); padding-left: 6px; }
+.irow-kind { flex: none; padding: 0 3px; font: 600 8.5px/13px var(--mono); color: var(--dim); background: var(--well); }
+.irow-name { flex: 1; min-width: 0; font-size: 10.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.irow em { flex: none; font: 9px var(--mono); font-style: normal; color: var(--faint); }
+.irow button { flex: none; width: 15px; height: 16px; font-size: 9px; color: var(--faint); }
+.irow button:hover { color: var(--text); background: var(--hover); }
+
+/* its effects: a row each, in order (its square lit while it is on) */
+.slots { flex: none; display: flex; flex-direction: column; gap: 2px; padding: 2px 5px 6px; }
+.strip.bus .slots, .strip.master .slots { padding-top: 5px; }
+.slot { display: flex; align-items: center; gap: 5px; height: 19px; padding: 0 5px; background: var(--well); border-radius: var(--r-ctl); text-align: left; font-size: 10.5px; color: var(--text); }
+.slot i { flex: none; width: 6px; height: 6px; background: var(--accent); }
+.slot.off { color: var(--faint); } .slot.off i { background: none; border: 1px solid var(--faint); }
+.slot:hover {  background: var(--hover); }
+.slot.open { --text: var(--on-fg); --accent: var(--on-fg); background: var(--on-bg); color: var(--on-fg); }
+.slot.add { justify-content: center; color: var(--faint); background: var(--group); font-size: 10px; }
+.slot.add:hover { color: var(--text); }
+.slot span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* its sends: a knob per bus */
+.sends { flex: none; padding: 4px 0 2px;  }
+.sends-knobs { display: flex; flex-wrap: wrap; justify-content: space-evenly; gap: 2px 0; }
+.sends .knob.mini { width: 32px; }
+.sends .knob.mini .knob-name { font-size: 9px; max-width: 32px; }
+.sends .knob.mini .knob-val { display: none; }
+.knob.mini.none .knob-needle { stroke: var(--faint); }
+
+/* pan, the fader and the meter, its level */
+.strip-fader { flex: 1 1 0; min-height: 126px; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 4px 4px 2px;  }
+.strip-pan .knob { width: 40px; }
+.strip-pan .knob svg { width: 24px; height: 24px; }
+.strip-pan .knob-val { display: none; }
+.strip-rail { flex: 1; min-height: 64px; display: flex; gap: 6px; width: 100%; justify-content: center; }
+.fader { position: relative; width: 46px; height: 100%; touch-action: none; cursor: ns-resize; user-select: none; }
+.fader-rail { position: absolute; left: 22px; right: 4px; top: 6px; bottom: 6px; }
+.fader-rail b { position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; margin-left: -1px; background: var(--well); box-shadow: 0 0 0 1px var(--line-2); }
+.fader-cap { position: absolute; left: -1px; right: -1px; height: 12px; margin-bottom: -6px; background: #8e8e8e; }
+.fader-cap::after { content: ""; position: absolute; left: 2px; right: 2px; top: 5px; height: 2px; background: var(--panel); }
+.fader:hover .fader-cap { background: var(--text); }
+.fader-scale { position: absolute; left: 0; width: 16px; top: 6px; bottom: 6px; }
+.fader-scale span { position: absolute; right: 0; transform: translateY(50%); font: 8.5px var(--mono); color: var(--faint); }
+.fader-val { font: 10px var(--mono); color: var(--dim); padding: 1px 6px; background: var(--well); }
+.meter { position: relative; width: 6px; height: calc(100% - 12px); margin-top: 6px; background: var(--well); overflow: hidden; box-shadow: 0 0 0 1px var(--line); }
+/* the RMS: the meter's whole height coloured by the scale (−60 to +6 dB: green to −12, yellow by −3, red from 0), shown up
+   to the level (mixer.js clips it) */
+.meter-rms { position: absolute; inset: 0; background: linear-gradient(to top, #3ee06a 0, #3ee06a 72.7%, var(--cue) 86.4%, var(--bad) 90.9%); clip-path: inset(100% 0 0 0); }
+.meter-peak { position: absolute; left: 0; right: 0; height: 2px; background: #e6e6e6; }
+.meter-peak.hot { background: var(--bad); }
+.flags { flex: none; display: flex; justify-content: center; gap: 3px; padding: 4px 0 6px; }
+.flag { width: 28px; height: 18px; background: var(--raised); border-radius: var(--r-ctl); font-weight: 600; font-size: 10px; color: var(--dim); }
+.flag:hover { color: var(--text); }
+.flag.mute.on { background: var(--cue);  color: #1a1405; }
+.flag.solo.on { background: var(--accent);  color: var(--accent-ink); }
+.add-bus { flex: none; align-self: flex-start; margin: 6px; height: 22px; padding: 0 9px; background: var(--raised); border-radius: var(--r-ctl); color: var(--dim); font-size: 11px; white-space: nowrap; }
+.add-bus:hover { color: var(--text);  background: var(--hover); }
+
+/* the drawer: the open effect's controls */
+.mx-drawer { flex: none; width: 340px; display: flex; flex-direction: column; background: var(--panel); border-left: 1px solid var(--line); min-height: 0; }
+.mx-drawer-head { flex: none; display: flex; align-items: center; gap: 4px; height: 22px; padding: 0 4px 0 8px;  background: var(--head); }
+.mx-drawer-head b { font-size: 11px; text-transform: capitalize; }
+.mx-drawer-on { color: var(--faint); font-size: 10.5px; margin-left: 6px; }
+.mx-btn { height: 18px; min-width: 18px; padding: 0 4px; color: var(--dim); font-size: 11px; }
+.mx-btn.wide { padding: 0 7px; }
+.mx-btn:hover:not(:disabled) { background: var(--hover); color: var(--text); }
+.mx-btn:disabled { color: var(--faint); cursor: default; }
+.mx-btn.on { background: var(--accent-on); color: var(--accent); }
+.mx-drawer-body { flex: 1; min-height: 0; overflow: auto; padding: 8px; }
+.mx-drawer.off .mx-drawer-body { opacity: 0.45; }
+.mx-drawer-body.rack-body, .mx-drawer-body .rack-body { gap: 10px 4px; }
+.rack-body .knob-choice { width: 100%; flex-direction: row; justify-content: space-between; align-items: center; }
+.eq-bands { display: flex; flex-direction: column; }
+.mx-drawer.wide { width: 620px; }
+/* the EQ's view (fxview.js: drawn by its worker on the canvas) */
+.eq-view { flex: none; height: 230px; margin: -8px -8px 6px;  background: #0d0d0d; }
+.fx-graph { flex: none; height: 210px; margin: -8px -8px 8px;  background: #0d0d0d; }
+.fx-view { position: relative; width: 100%; height: 100%; }
+.fx-canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+.fx-modes { position: absolute; top: 6px; right: 8px; display: flex; gap: 1px; }
+.fx-modes button { padding: 1px 8px; font-size: 10.5px; color: var(--dim); background: var(--panel-2); }
+.fx-modes button.on { background: var(--accent-on); color: var(--accent); }
+.eq-band { display: flex; align-items: center; gap: 4px;  padding: 4px 0; }
+.eq-band.sel { background: var(--hover); }
+.eq-band:first-child {  }
+.eq-swatch { flex: none; width: 4px; align-self: stretch; margin-right: 4px; }
+.eq-band .eq-x { margin-left: auto; }
+.eq-add { align-self: flex-start; margin-top: 6px; }
+.eq-band .knob-choice { width: 110px; flex: none; }
+.eq-band .knob { width: 60px; }

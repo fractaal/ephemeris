@@ -1,0 +1,13 @@
+[package]
+name = "dom-textures"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+# Can a page's pixels reach a renderer of our own as GPU memory, on a GPU we choose, at the moment we asked for?
+[dependencies]
+wgpu = "30"
+pollster = "0.4"
+libc = "0.2"
+serde_json = "1"
+png = "0.18"

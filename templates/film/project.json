@@ -1,0 +1,6 @@
+{
+  "name": "{{name}}",
+  "title": "{{name}}",
+  "film": "film.js",
+  "ephemeris": "{{ephemeris}}"
+}

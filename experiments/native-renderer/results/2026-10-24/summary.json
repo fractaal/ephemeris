@@ -1,0 +1,1786 @@
+[
+  {
+    "key": "doctor-who-intro-max scale=1 samples=4 t=30",
+    "renderer": {
+      "runs": [
+        "doctor-full-compare-1"
+      ],
+      "browserMs": {
+        "n": 12,
+        "median": 712.7000000029802,
+        "mean": 718.2249999996275,
+        "min": 699.8999999985099,
+        "max": 761.3000000044703,
+        "p90": 734.2000000029802
+      },
+      "nativeMs": {
+        "n": 12,
+        "median": 715.5205040000001,
+        "mean": 722.930814833334,
+        "min": 701.8532890000006,
+        "max": 795.9894950000016,
+        "p90": 752.5535090000012
+      },
+      "browserPssMiB": [
+        1383.2314453125
+      ],
+      "nativePssMiB": [
+        783.244140625
+      ],
+      "pixelComparisons": [
+        {
+          "run": "doctor-full-compare-1",
+          "baselineReplay": {
+            "mae": 0,
+            "rmse": 0,
+            "max": 0,
+            "pixelsOver2": 0,
+            "pixelsOver8": 0,
+            "pixels": 2073600
+          },
+          "browserNative": {
+            "mae": 0,
+            "rmse": 0,
+            "max": 0,
+            "pixelsOver2": 0,
+            "pixelsOver8": 0,
+            "pixels": 2073600
+          }
+        }
+      ]
+    },
+    "baseline": {
+      "runs": [
+        "doctor-full-baseline-1"
+      ],
+      "wallMs": {
+        "n": 12,
+        "median": 688.3204939999996,
+        "mean": 664.7339175000001,
+        "min": 501.51148400000056,
+        "max": 772.3795320000008,
+        "p90": 749.4958719999995
+      },
+      "fps": 1.4922308949546081,
+      "runFps": [
+        1.4922308949546081
+      ],
+      "pssMiB": [
+        1580.921875
+      ],
+      "cpuMsPerFrame": [
+        791.6666666666666
+      ],
+      "schedule": [
+        [
+          "0:16"
+        ]
+      ],
+      "renderMs": {
+        "n": 12,
+        "median": 675.1000000014901,
+        "mean": 649.3166666670392,
+        "min": 489.59999999403954,
+        "max": 755.8999999985099,
+        "p90": 730
+      },
+      "subs": [
+        42,
+        46,
+        47,
+        49,
+        48,
+        44,
+        41,
+        38,
+        33
+      ]
+    },
+    "hybrid": {
+      "runs": [
+        "doctor-full-hybrid-1"
+      ],
+      "wallMs": {
+        "n": 12,
+        "median": 770.3465750000014,
+        "mean": 717.1093963333334,
+        "min": 555.7420249999996,
+        "max": 808.4403860000002,
+        "p90": 787.5584269999999
+      },
+      "fps": 1.3861984389606983,
+      "runFps": [
+        1.3861984389606983
+      ],
+      "pssMiB": [
+        2032.4619140625
+      ],
+      "cpuMsPerFrame": [
+        1071.6666666666667
+      ],
+      "schedule": [
+        [
+          "0:16"
+        ]
+      ],
+      "renderMs": {
+        "n": 12,
+        "median": 667.1422439999988,
+        "mean": 632.6491656666667,
+        "min": 480.68357399999877,
+        "max": 709.7973740000016,
+        "p90": 708.8617829999985
+      },
+      "subs": [
+        42,
+        46,
+        47,
+        49,
+        48,
+        44,
+        41,
+        38,
+        33
+      ],
+      "prepareMs": {
+        "n": 12,
+        "median": 55.5,
+        "mean": 51.1416666675359,
+        "min": 33.5,
+        "max": 63.899999998509884,
+        "p90": 62.899999998509884
+      },
+      "layerReadbackMs": {
+        "n": 12,
+        "median": 0,
+        "mean": 0.00833333283662796,
+        "min": 0,
+        "max": 0.09999999403953552,
+        "p90": 0
+      },
+      "serializeMs": {
+        "n": 12,
+        "median": 9.899999998509884,
+        "mean": 10.108333333705863,
+        "min": 7.5,
+        "max": 13.299999997019768,
+        "p90": 11.900000005960464
+      },
+      "browserWallMs": {
+        "n": 12,
+        "median": 70.77556499999992,
+        "mean": 65.08917433333379,
+        "min": 43.44888800000081,
+        "max": 79.13880100000097,
+        "p90": 77.84538900000007
+      },
+      "nativeMs": {
+        "n": 12,
+        "median": 685.9220700000005,
+        "mean": 647.0774575833333,
+        "min": 493.22409999999763,
+        "max": 728.1442299999999,
+        "p90": 721.5998690000015
+      },
+      "captures": [
+        0
+      ],
+      "imageBytes": [
+        0
+      ],
+      "packetBytes": {
+        "n": 12,
+        "median": 1855181,
+        "mean": 1724988.1666666667,
+        "min": 1243785,
+        "max": 1942553,
+        "p90": 1942441
+      }
+    },
+    "endToEndQuality": [
+      {
+        "baseline": "doctor-full-baseline-1",
+        "hybrid": "doctor-full-hybrid-1",
+        "equalHashes": 12,
+        "unequalHashes": 0,
+        "missingHashes": 0,
+        "sampleCountMismatch": 0,
+        "firstFrame": {
+          "max": 0,
+          "maeRGBA": 0,
+          "changedBytes": 0
+        }
+      }
+    ]
+  },
+  {
+    "key": "doctor-who-intro-max scale=0.5 samples=4 t=10",
+    "renderer": {
+      "runs": [
+        "doctor-half-compare-1",
+        "doctor-half-compare-2"
+      ],
+      "browserMs": {
+        "n": 48,
+        "median": 36.5,
+        "mean": 35.68333333296081,
+        "min": 30.69999999552965,
+        "max": 39.100000001490116,
+        "p90": 37.79999999701977
+      },
+      "nativeMs": {
+        "n": 48,
+        "median": 35.36945100000048,
+        "mean": 35.1806377083333,
+        "min": 31.225932999999714,
+        "max": 50.52070800000001,
+        "p90": 36.17108199999984
+      },
+      "browserPssMiB": [
+        1641.783203125,
+        1692.3984375
+      ],
+      "nativePssMiB": [
+        560.0185546875,
+        565.6181640625
+      ],
+      "pixelComparisons": [
+        {
+          "run": "doctor-half-compare-1",
+          "baselineReplay": {
+            "mae": 0,
+            "rmse": 0,
+            "max": 0,
+            "pixelsOver2": 0,
+            "pixelsOver8": 0,
+            "pixels": 518400
+          },
+          "browserNative": {
+            "mae": 0,
+            "rmse": 0,
+            "max": 0,
+            "pixelsOver2": 0,
+            "pixelsOver8": 0,
+            "pixels": 518400
+          }
+        },
+        {
+          "run": "doctor-half-compare-2",
+          "baselineReplay": {
+            "mae": 0,
+            "rmse": 0,
+            "max": 0,
+            "pixelsOver2": 0,
+            "pixelsOver8": 0,
+            "pixels": 518400
+          },
+          "browserNative": {
+            "mae": 0,
+            "rmse": 0,
+            "max": 0,
+            "pixelsOver2": 0,
+            "pixelsOver8": 0,
+            "pixels": 518400
+          }
+        }
+      ]
+    },
+    "baseline": {
+      "runs": [
+        "doctor-half-baseline-1",
+        "doctor-half-baseline-2"
+      ],
+      "wallMs": {
+        "n": 48,
+        "median": 32.35113999999976,
+        "mean": 32.01893722916668,
+        "min": 24.144095000000107,
+        "max": 45.15942099999984,
+        "p90": 36.25658199999998
+      },
+      "fps": 30.250346707889086,
+      "runFps": [
+        29.432324049887796,
+        31.115140458417784
+      ],
+      "pssMiB": [
+        1519.7177734375,
+        1476.1572265625
+      ],
+      "cpuMsPerFrame": [
+        45.416666666666664,
+        37.5
+      ],
+      "schedule": [
+        [
+          "0:16"
+        ],
+        [
+          "0:16"
+        ]
+      ],
+      "renderMs": {
+        "n": 48,
+        "median": 28.700000002980232,
+        "mean": 28.325000000186265,
+        "min": 21.399999998509884,
+        "max": 35.20000000298023,
+        "p90": 32.599999994039536
+      },
+      "subs": [
+        4
+      ]
+    },
+    "hybrid": {
+      "runs": [
+        "doctor-half-hybrid-1",
+        "doctor-half-hybrid-2"
+      ],
+      "wallMs": {
+        "n": 48,
+        "median": 32.91252700000041,
+        "mean": 33.773525583333345,
+        "min": 24.063391000000138,
+        "max": 45.25857099999985,
+        "p90": 42.41833399999996
+      },
+      "fps": 28.632162313108317,
+      "runFps": [
+        29.703445441871718,
+        27.635462948054737
+      ],
+      "pssMiB": [
+        2187.4375,
+        2257.548828125
+      ],
+      "cpuMsPerFrame": [
+        64.58333333333333,
+        66.25
+      ],
+      "schedule": [
+        [
+          "0:16",
+          "0:-8"
+        ],
+        [
+          "0:16",
+          "0:-8"
+        ]
+      ],
+      "renderMs": {
+        "n": 48,
+        "median": 19.586009000000104,
+        "mean": 19.85156922916669,
+        "min": 14.457226999999875,
+        "max": 30.789654000000155,
+        "p90": 22.870036000000255
+      },
+      "subs": [
+        4
+      ],
+      "prepareMs": {
+        "n": 48,
+        "median": 8.800000004470348,
+        "mean": 9.310416667411724,
+        "min": 5.5,
+        "max": 15.700000002980232,
+        "p90": 14.100000001490116
+      },
+      "layerReadbackMs": {
+        "n": 48,
+        "median": 0,
+        "mean": 0.016666666604578495,
+        "min": 0,
+        "max": 0.10000000149011612,
+        "p90": 0.10000000149011612
+      },
+      "serializeMs": {
+        "n": 48,
+        "median": 0.6000000014901161,
+        "mean": 0.5874999992859861,
+        "min": 0.29999999701976776,
+        "max": 1,
+        "p90": 0.8000000044703484
+      },
+      "browserWallMs": {
+        "n": 48,
+        "median": 10.748391999999967,
+        "mean": 11.452939687499963,
+        "min": 6.906641000000036,
+        "max": 18.04186699999991,
+        "p90": 16.702440000000024
+      },
+      "nativeMs": {
+        "n": 48,
+        "median": 20.87911899999972,
+        "mean": 21.049577374999995,
+        "min": 15.64046099999996,
+        "max": 31.919369000000188,
+        "p90": 25.299203999999918
+      },
+      "captures": [
+        0
+      ],
+      "imageBytes": [
+        0
+      ],
+      "packetBytes": {
+        "n": 48,
+        "median": 74623,
+        "mean": 74498.75,
+        "min": 74033,
+        "max": 74740,
+        "p90": 74675
+      }
+    },
+    "endToEndQuality": [
+      {
+        "baseline": "doctor-half-baseline-1",
+        "hybrid": "doctor-half-hybrid-1",
+        "equalHashes": 24,
+        "unequalHashes": 0,
+        "missingHashes": 0,
+        "sampleCountMismatch": 0,
+        "firstFrame": {
+          "max": 0,
+          "maeRGBA": 0,
+          "changedBytes": 0
+        }
+      },
+      {
+        "baseline": "doctor-half-baseline-1",
+        "hybrid": "doctor-half-hybrid-2",
+        "equalHashes": 24,
+        "unequalHashes": 0,
+        "missingHashes": 0,
+        "sampleCountMismatch": 0,
+        "firstFrame": {
+          "max": 0,
+          "maeRGBA": 0,
+          "changedBytes": 0
+        }
+      }
+    ]
+  },
+  {
+    "key": "doctor-who-intro-max scale=0.5 samples=4 t=30",
+    "renderer": {
+      "runs": [
+        "doctor-half-compare-1",
+        "doctor-half-compare-2"
+      ],
+      "browserMs": {
+        "n": 48,
+        "median": 301.40000000596046,
+        "mean": 302.4791666669771,
+        "min": 283.40000000596046,
+        "max": 352.79999999701977,
+        "p90": 311.5
+      },
+      "nativeMs": {
+        "n": 48,
+        "median": 298.0940330000012,
+        "mean": 302.3870513541669,
+        "min": 278.5762700000014,
+        "max": 375.60723900000085,
+        "p90": 319.307589
+      },
+      "browserPssMiB": [
+        1389.5126953125,
+        1447.708984375
+      ],
+      "nativePssMiB": [
+        761.888671875,
+        739.703125
+      ],
+      "pixelComparisons": [
+        {
+          "run": "doctor-half-compare-1",
+          "baselineReplay": {
+            "mae": 0,
+            "rmse": 0,
+            "max": 0,
+            "pixelsOver2": 0,
+            "pixelsOver8": 0,
+            "pixels": 518400
+          },
+          "browserNative": {
+            "mae": 0,
+            "rmse": 0,
+            "max": 0,
+            "pixelsOver2": 0,
+            "pixelsOver8": 0,
+            "pixels": 518400
+          }
+        },
+        {
+          "run": "doctor-half-compare-2",
+          "baselineReplay": {
+            "mae": 0,
+            "rmse": 0,
+            "max": 0,
+            "pixelsOver2": 0,
+            "pixelsOver8": 0,
+            "pixels": 518400
+          },
+          "browserNative": {
+            "mae": 0,
+            "rmse": 0,
+            "max": 0,
+            "pixelsOver2": 0,
+            "pixelsOver8": 0,
+            "pixels": 518400
+          }
+        }
+      ]
+    },
+    "baseline": {
+      "runs": [
+        "doctor-half-baseline-1",
+        "doctor-half-baseline-2"
+      ],
+      "wallMs": {
+        "n": 48,
+        "median": 153.3447159999996,
+        "mean": 151.64471081250008,
+        "min": 68.82412499999919,
+        "max": 262.5736730000008,
+        "p90": 230.6076409999996
+      },
+      "fps": 6.539904260992667,
+      "runFps": [
+        6.521853303629179,
+        6.5580554172996015
+      ],
+      "pssMiB": [
+        1549.2001953125,
+        1461.0986328125
+      ],
+      "cpuMsPerFrame": [
+        229.58333333333334,
+        219.16666666666666
+      ],
+      "schedule": [
+        [
+          "0:16"
+        ],
+        [
+          "0:16"
+        ]
+      ],
+      "renderMs": {
+        "n": 48,
+        "median": 149.60000000149012,
+        "mean": 147.72708333376795,
+        "min": 65,
+        "max": 259.80000000447035,
+        "p90": 227.60000000149012
+      },
+      "subs": [
+        42,
+        46,
+        47,
+        49,
+        48,
+        44,
+        41,
+        38,
+        33,
+        30,
+        25,
+        23,
+        20,
+        18,
+        17,
+        16,
+        19
+      ]
+    },
+    "hybrid": {
+      "runs": [
+        "doctor-half-hybrid-1",
+        "doctor-half-hybrid-2"
+      ],
+      "wallMs": {
+        "n": 48,
+        "median": 206.36304100000052,
+        "mean": 193.06939358333338,
+        "min": 82.16595600000073,
+        "max": 327.1344220000001,
+        "p90": 294.3006829999995
+      },
+      "fps": 5.150008788640206,
+      "runFps": [
+        5.002146894352093,
+        5.306878452262911
+      ],
+      "pssMiB": [
+        2053.5712890625,
+        2074.6142578125
+      ],
+      "cpuMsPerFrame": [
+        376.25,
+        348.3333333333333
+      ],
+      "schedule": [
+        [
+          "0:16"
+        ],
+        [
+          "0:16"
+        ]
+      ],
+      "renderMs": {
+        "n": 48,
+        "median": 142.67572299999847,
+        "mean": 136.55900762500005,
+        "min": 57.49910799999998,
+        "max": 232.46718899999996,
+        "p90": 211.37582199999997
+      },
+      "subs": [
+        42,
+        46,
+        47,
+        49,
+        48,
+        44,
+        41,
+        38,
+        33,
+        30,
+        25,
+        23,
+        20,
+        18,
+        17,
+        16,
+        19
+      ],
+      "prepareMs": {
+        "n": 48,
+        "median": 32.20000000298023,
+        "mean": 35.637500000186265,
+        "min": 14.399999998509884,
+        "max": 90,
+        "p90": 68.5
+      },
+      "layerReadbackMs": {
+        "n": 48,
+        "median": 0,
+        "mean": 0,
+        "min": 0,
+        "max": 0,
+        "p90": 0
+      },
+      "serializeMs": {
+        "n": 48,
+        "median": 6.300000004470348,
+        "mean": 6.5854166662320495,
+        "min": 2.2000000029802322,
+        "max": 15.700000002980232,
+        "p90": 11.699999995529652
+      },
+      "browserWallMs": {
+        "n": 48,
+        "median": 43.17705399999977,
+        "mean": 44.88815518749993,
+        "min": 18.411197999999786,
+        "max": 107.13779700000032,
+        "p90": 86.29353599999922
+      },
+      "nativeMs": {
+        "n": 48,
+        "median": 150.2042679999995,
+        "mean": 146.46375958333323,
+        "min": 62.22124900000017,
+        "max": 266.0595089999997,
+        "p90": 225.88954700000068
+      },
+      "captures": [
+        0
+      ],
+      "imageBytes": [
+        0
+      ],
+      "packetBytes": {
+        "n": 48,
+        "median": 1243820,
+        "mean": 1201393.1666666667,
+        "min": 526214,
+        "max": 1942604,
+        "p90": 1933932
+      }
+    },
+    "endToEndQuality": [
+      {
+        "baseline": "doctor-half-baseline-1",
+        "hybrid": "doctor-half-hybrid-1",
+        "equalHashes": 24,
+        "unequalHashes": 0,
+        "missingHashes": 0,
+        "sampleCountMismatch": 0,
+        "firstFrame": {
+          "max": 0,
+          "maeRGBA": 0,
+          "changedBytes": 0
+        }
+      },
+      {
+        "baseline": "doctor-half-baseline-1",
+        "hybrid": "doctor-half-hybrid-2",
+        "equalHashes": 24,
+        "unequalHashes": 0,
+        "missingHashes": 0,
+        "sampleCountMismatch": 0,
+        "firstFrame": {
+          "max": 0,
+          "maeRGBA": 0,
+          "changedBytes": 0
+        }
+      }
+    ]
+  },
+  {
+    "key": "doctor-who-intro-max scale=0.5 samples=4 t=55",
+    "renderer": {
+      "runs": [
+        "doctor-half-compare-1",
+        "doctor-half-compare-2"
+      ],
+      "browserMs": {
+        "n": 48,
+        "median": 138.90000000596046,
+        "mean": 137.58958333311602,
+        "min": 127.30000000447035,
+        "max": 145.5,
+        "p90": 143.29999999701977
+      },
+      "nativeMs": {
+        "n": 48,
+        "median": 137.95329300000594,
+        "mean": 140.7855221875011,
+        "min": 126.65818700000818,
+        "max": 179.29668200000015,
+        "p90": 160.41809300000023
+      },
+      "browserPssMiB": [
+        1348.62109375,
+        1569.6025390625
+      ],
+      "nativePssMiB": [
+        792.8818359375,
+        797.3212890625
+      ],
+      "pixelComparisons": [
+        {
+          "run": "doctor-half-compare-1",
+          "baselineReplay": {
+            "mae": 0,
+            "rmse": 0,
+            "max": 0,
+            "pixelsOver2": 0,
+            "pixelsOver8": 0,
+            "pixels": 518400
+          },
+          "browserNative": {
+            "mae": 0,
+            "rmse": 0,
+            "max": 0,
+            "pixelsOver2": 0,
+            "pixelsOver8": 0,
+            "pixels": 518400
+          }
+        },
+        {
+          "run": "doctor-half-compare-2",
+          "baselineReplay": {
+            "mae": 0,
+            "rmse": 0,
+            "max": 0,
+            "pixelsOver2": 0,
+            "pixelsOver8": 0,
+            "pixels": 518400
+          },
+          "browserNative": {
+            "mae": 0,
+            "rmse": 0,
+            "max": 0,
+            "pixelsOver2": 0,
+            "pixelsOver8": 0,
+            "pixels": 518400
+          }
+        }
+      ]
+    },
+    "baseline": {
+      "runs": [
+        "doctor-half-baseline-1",
+        "doctor-half-baseline-2"
+      ],
+      "wallMs": {
+        "n": 48,
+        "median": 111.22412200000144,
+        "mean": 109.94450529166674,
+        "min": 90.88990999999987,
+        "max": 128.48917599999913,
+        "p90": 118.72790999999961
+      },
+      "fps": 8.975513898849638,
+      "runFps": [
+        8.928255860563786,
+        9.023274881112581
+      ],
+      "pssMiB": [
+        1615.3505859375,
+        1538.4306640625
+      ],
+      "cpuMsPerFrame": [
+        143.75,
+        146.66666666666666
+      ],
+      "schedule": [
+        [
+          "0:16"
+        ],
+        [
+          "0:16"
+        ]
+      ],
+      "renderMs": {
+        "n": 48,
+        "median": 106.80000000447035,
+        "mean": 105.76666666691501,
+        "min": 87.90000000596046,
+        "max": 124.10000000149012,
+        "p90": 115.30000000447035
+      },
+      "subs": [
+        15
+      ]
+    },
+    "hybrid": {
+      "runs": [
+        "doctor-half-hybrid-1",
+        "doctor-half-hybrid-2"
+      ],
+      "wallMs": {
+        "n": 48,
+        "median": 135.25318200000038,
+        "mean": 136.06533624999994,
+        "min": 120.30244700000003,
+        "max": 162.49712199999885,
+        "p90": 147.62490400000024
+      },
+      "fps": 7.288401477040114,
+      "runFps": [
+        7.161558226424616,
+        7.419818959954158
+      ],
+      "pssMiB": [
+        2030.345703125,
+        2075.482421875
+      ],
+      "cpuMsPerFrame": [
+        242.91666666666666,
+        248.33333333333334
+      ],
+      "schedule": [
+        [
+          "0:16"
+        ],
+        [
+          "0:16"
+        ]
+      ],
+      "renderMs": {
+        "n": 48,
+        "median": 92.16945399999895,
+        "mean": 92.66777710416666,
+        "min": 75.94222400000035,
+        "max": 106.36138599999867,
+        "p90": 103.95060000000012
+      },
+      "subs": [
+        15
+      ],
+      "prepareMs": {
+        "n": 48,
+        "median": 29.69999999552965,
+        "mean": 29.637500000031043,
+        "min": 19.30000000447035,
+        "max": 49.600000001490116,
+        "p90": 34.20000000298023
+      },
+      "layerReadbackMs": {
+        "n": 48,
+        "median": 0,
+        "mean": 0.008333333457509676,
+        "min": 0,
+        "max": 0.10000000149011612,
+        "p90": 0
+      },
+      "serializeMs": {
+        "n": 48,
+        "median": 3.8000000044703484,
+        "mean": 3.889583333550642,
+        "min": 2.2000000029802322,
+        "max": 6.5,
+        "p90": 5.200000002980232
+      },
+      "browserWallMs": {
+        "n": 48,
+        "median": 36.17708800000037,
+        "mean": 35.754997958333206,
+        "min": 23.360725000000457,
+        "max": 58.868561999999656,
+        "p90": 39.95934000000125
+      },
+      "nativeMs": {
+        "n": 48,
+        "median": 97.9873690000004,
+        "mean": 98.29454410416668,
+        "min": 80.8271220000006,
+        "max": 111.69363900000099,
+        "p90": 108.90084799999931
+      },
+      "captures": [
+        0
+      ],
+      "imageBytes": [
+        0
+      ],
+      "packetBytes": {
+        "n": 48,
+        "median": 561966,
+        "mean": 583344.2916666666,
+        "min": 541420,
+        "max": 657089,
+        "p90": 639728
+      }
+    },
+    "endToEndQuality": [
+      {
+        "baseline": "doctor-half-baseline-1",
+        "hybrid": "doctor-half-hybrid-1",
+        "equalHashes": 24,
+        "unequalHashes": 0,
+        "missingHashes": 0,
+        "sampleCountMismatch": 0,
+        "firstFrame": {
+          "max": 0,
+          "maeRGBA": 0,
+          "changedBytes": 0
+        }
+      },
+      {
+        "baseline": "doctor-half-baseline-1",
+        "hybrid": "doctor-half-hybrid-2",
+        "equalHashes": 24,
+        "unequalHashes": 0,
+        "missingHashes": 0,
+        "sampleCountMismatch": 0,
+        "firstFrame": {
+          "max": 0,
+          "maeRGBA": 0,
+          "changedBytes": 0
+        }
+      }
+    ]
+  },
+  {
+    "key": "motion-design-test-claude-2 scale=1 samples=4 t=18",
+    "renderer": {
+      "runs": [
+        "dom-full-compare-1",
+        "dom-full-compare-2",
+        "dom-full-compare-3"
+      ],
+      "browserMs": {
+        "n": 36,
+        "median": 7.300000004470348,
+        "mean": 7.977777778274483,
+        "min": 6.5,
+        "max": 10.800000004470348,
+        "p90": 10.200000002980232
+      },
+      "nativeMs": {
+        "n": 36,
+        "median": 7.489890000000287,
+        "mean": 7.629300416666676,
+        "min": 5.026581000000078,
+        "max": 12.990626999999904,
+        "p90": 9.860055999999986
+      },
+      "browserPssMiB": [
+        713.3896484375,
+        717.640625,
+        693.822265625
+      ],
+      "nativePssMiB": [
+        174.5537109375,
+        167.9482421875,
+        157.9189453125
+      ],
+      "pixelComparisons": [
+        {
+          "run": "dom-full-compare-1",
+          "baselineReplay": {
+            "mae": 0,
+            "rmse": 0,
+            "max": 0,
+            "pixelsOver2": 0,
+            "pixelsOver8": 0,
+            "pixels": 2073600
+          },
+          "browserNative": {
+            "mae": 0,
+            "rmse": 0,
+            "max": 0,
+            "pixelsOver2": 0,
+            "pixelsOver8": 0,
+            "pixels": 2073600
+          }
+        },
+        {
+          "run": "dom-full-compare-2",
+          "baselineReplay": {
+            "mae": 0,
+            "rmse": 0,
+            "max": 0,
+            "pixelsOver2": 0,
+            "pixelsOver8": 0,
+            "pixels": 2073600
+          },
+          "browserNative": {
+            "mae": 0,
+            "rmse": 0,
+            "max": 0,
+            "pixelsOver2": 0,
+            "pixelsOver8": 0,
+            "pixels": 2073600
+          }
+        },
+        {
+          "run": "dom-full-compare-3",
+          "baselineReplay": {
+            "mae": 0,
+            "rmse": 0,
+            "max": 0,
+            "pixelsOver2": 0,
+            "pixelsOver8": 0,
+            "pixels": 2073600
+          },
+          "browserNative": {
+            "mae": 0,
+            "rmse": 0,
+            "max": 0,
+            "pixelsOver2": 0,
+            "pixelsOver8": 0,
+            "pixels": 2073600
+          }
+        }
+      ]
+    },
+    "baseline": {
+      "runs": [
+        "dom-full-baseline-1",
+        "dom-full-baseline-2",
+        "dom-full-baseline-3"
+      ],
+      "wallMs": {
+        "n": 36,
+        "median": 42.08915600000023,
+        "mean": 40.02859613888891,
+        "min": 23.63523299999997,
+        "max": 49.47730499999989,
+        "p90": 47.046745999999985
+      },
+      "fps": 22.372688495773414,
+      "runFps": [
+        21.954237537133245,
+        21.911828911300447,
+        23.307132057575128
+      ],
+      "pssMiB": [
+        841.46484375,
+        811.587890625,
+        811.05859375
+      ],
+      "cpuMsPerFrame": [
+        84.16666666666667,
+        97.5,
+        80
+      ],
+      "schedule": [
+        [
+          "0:16"
+        ],
+        [
+          "0:16"
+        ],
+        [
+          "0:16"
+        ]
+      ],
+      "renderMs": {
+        "n": 36,
+        "median": 30.69999999552965,
+        "mean": 28.37222222259475,
+        "min": 14.5,
+        "max": 38.600000001490116,
+        "p90": 37.600000001490116
+      },
+      "subs": [
+        4
+      ]
+    },
+    "hybrid": {
+      "runs": [
+        "dom-full-hybrid-1",
+        "dom-full-hybrid-2",
+        "dom-full-hybrid-3"
+      ],
+      "wallMs": {
+        "n": 36,
+        "median": 43.590106000000105,
+        "mean": 42.3387386111111,
+        "min": 27.51037099999985,
+        "max": 53.906136999999944,
+        "p90": 49.87835600000017
+      },
+      "fps": 21.378008557207075,
+      "runFps": [
+        23.34542209871353,
+        20.19067701848734,
+        20.847072567554704
+      ],
+      "pssMiB": [
+        1054.529296875,
+        1034.1142578125,
+        998.6806640625
+      ],
+      "cpuMsPerFrame": [
+        85,
+        123.33333333333333,
+        96.66666666666667
+      ],
+      "schedule": [
+        [
+          "0:16"
+        ],
+        [
+          "0:16",
+          "0:-8"
+        ],
+        [
+          "0:16"
+        ]
+      ],
+      "renderMs": {
+        "n": 36,
+        "median": 5.712353000000121,
+        "mean": 6.128039472222225,
+        "min": 4.586706999999933,
+        "max": 10.317133000000013,
+        "p90": 8.15592700000002
+      },
+      "subs": [
+        4
+      ],
+      "prepareMs": {
+        "n": 36,
+        "median": 15.400000005960464,
+        "mean": 14.016666667328941,
+        "min": 4.200000002980232,
+        "max": 24.69999999552965,
+        "p90": 20
+      },
+      "layerReadbackMs": {
+        "n": 36,
+        "median": 12,
+        "mean": 12.302777777736386,
+        "min": 9,
+        "max": 18.299999997019768,
+        "p90": 14.200000002980232
+      },
+      "serializeMs": {
+        "n": 36,
+        "median": 1.2000000029802322,
+        "mean": 1.0972222216013405,
+        "min": 0.5999999940395355,
+        "max": 1.5,
+        "p90": 1.3999999985098839
+      },
+      "browserWallMs": {
+        "n": 36,
+        "median": 31.304557999999815,
+        "mean": 30.24510325000004,
+        "min": 18.194171000000097,
+        "max": 40.73005999999987,
+        "p90": 37.22604300000012
+      },
+      "nativeMs": {
+        "n": 36,
+        "median": 7.420419999999922,
+        "mean": 7.7670236388888725,
+        "min": 5.909832999999935,
+        "max": 11.669153000000051,
+        "p90": 9.69058999999993
+      },
+      "captures": [
+        4
+      ],
+      "imageBytes": [
+        1628072
+      ],
+      "packetBytes": {
+        "n": 36,
+        "median": 1645823,
+        "mean": 1645975.9166666667,
+        "min": 1645388,
+        "max": 1646639,
+        "p90": 1646365
+      }
+    },
+    "endToEndQuality": [
+      {
+        "baseline": "dom-full-baseline-1",
+        "hybrid": "dom-full-hybrid-1",
+        "equalHashes": 12,
+        "unequalHashes": 0,
+        "missingHashes": 0,
+        "sampleCountMismatch": 0,
+        "firstFrame": {
+          "max": 0,
+          "maeRGBA": 0,
+          "changedBytes": 0
+        }
+      },
+      {
+        "baseline": "dom-full-baseline-1",
+        "hybrid": "dom-full-hybrid-2",
+        "equalHashes": 12,
+        "unequalHashes": 0,
+        "missingHashes": 0,
+        "sampleCountMismatch": 0,
+        "firstFrame": {
+          "max": 0,
+          "maeRGBA": 0,
+          "changedBytes": 0
+        }
+      },
+      {
+        "baseline": "dom-full-baseline-1",
+        "hybrid": "dom-full-hybrid-3",
+        "equalHashes": 12,
+        "unequalHashes": 0,
+        "missingHashes": 0,
+        "sampleCountMismatch": 0,
+        "firstFrame": {
+          "max": 0,
+          "maeRGBA": 0,
+          "changedBytes": 0
+        }
+      }
+    ]
+  },
+  {
+    "key": "motion-design-test-claude-2 scale=0.5 samples=4 t=18",
+    "renderer": {
+      "runs": [
+        "dom-half-compare-1",
+        "dom-half-compare-2"
+      ],
+      "browserMs": {
+        "n": 48,
+        "median": 5.600000001490116,
+        "mean": 6.310416667101284,
+        "min": 4.5999999940395355,
+        "max": 23.69999999552965,
+        "p90": 7.5
+      },
+      "nativeMs": {
+        "n": 48,
+        "median": 4.362217000000101,
+        "mean": 4.850052187499998,
+        "min": 2.6444410000001426,
+        "max": 10.306806999999935,
+        "p90": 8.59403999999995
+      },
+      "browserPssMiB": [
+        689.0595703125,
+        678.5595703125
+      ],
+      "nativePssMiB": [
+        150.796875,
+        152.5498046875
+      ],
+      "pixelComparisons": [
+        {
+          "run": "dom-half-compare-1",
+          "baselineReplay": {
+            "mae": 0,
+            "rmse": 0,
+            "max": 0,
+            "pixelsOver2": 0,
+            "pixelsOver8": 0,
+            "pixels": 518400
+          },
+          "browserNative": {
+            "mae": 0,
+            "rmse": 0,
+            "max": 0,
+            "pixelsOver2": 0,
+            "pixelsOver8": 0,
+            "pixels": 518400
+          }
+        },
+        {
+          "run": "dom-half-compare-2",
+          "baselineReplay": {
+            "mae": 0,
+            "rmse": 0,
+            "max": 0,
+            "pixelsOver2": 0,
+            "pixelsOver8": 0,
+            "pixels": 518400
+          },
+          "browserNative": {
+            "mae": 0,
+            "rmse": 0,
+            "max": 0,
+            "pixelsOver2": 0,
+            "pixelsOver8": 0,
+            "pixels": 518400
+          }
+        }
+      ]
+    },
+    "baseline": {
+      "runs": [
+        "dom-half-baseline-1",
+        "dom-half-baseline-2"
+      ],
+      "wallMs": {
+        "n": 48,
+        "median": 20.097416000000067,
+        "mean": 21.243541645833357,
+        "min": 16.771048000000064,
+        "max": 51.43952999999965,
+        "p90": 22.579275000000052
+      },
+      "fps": 44.02077041181334,
+      "runFps": [
+        42.13941811735328,
+        46.077962572572055
+      ],
+      "pssMiB": [
+        807.5478515625,
+        791.2333984375
+      ],
+      "cpuMsPerFrame": [
+        46.25,
+        42.083333333333336
+      ],
+      "schedule": [
+        [
+          "0:16"
+        ],
+        [
+          "0:16"
+        ]
+      ],
+      "renderMs": {
+        "n": 48,
+        "median": 15.600000001490116,
+        "mean": 16.847916666418314,
+        "min": 12.5,
+        "max": 44.599999994039536,
+        "p90": 18.100000001490116
+      },
+      "subs": [
+        4
+      ]
+    },
+    "hybrid": {
+      "runs": [
+        "dom-half-hybrid-1",
+        "dom-half-hybrid-2"
+      ],
+      "wallMs": {
+        "n": 48,
+        "median": 44.83875500000022,
+        "mean": 43.63239260416672,
+        "min": 27.786411000000044,
+        "max": 54.29063700000006,
+        "p90": 52.10786099999996
+      },
+      "fps": 22.15788607167519,
+      "runFps": [
+        20.983813616017898,
+        23.471127042455887
+      ],
+      "pssMiB": [
+        997.435546875,
+        926.072265625
+      ],
+      "cpuMsPerFrame": [
+        84.58333333333333,
+        77.08333333333333
+      ],
+      "schedule": [
+        [
+          "0:16",
+          "0:-8"
+        ],
+        [
+          "0:16",
+          "0:0",
+          "0:-8"
+        ]
+      ],
+      "renderMs": {
+        "n": 48,
+        "median": 4.030827000000045,
+        "mean": 4.681667583333312,
+        "min": 2.5258990000002086,
+        "max": 11.281862999999703,
+        "p90": 7.28190399999994
+      },
+      "subs": [
+        4
+      ],
+      "prepareMs": {
+        "n": 48,
+        "median": 19.69999999552965,
+        "mean": 18.04583333339542,
+        "min": 5.799999997019768,
+        "max": 26.600000001490116,
+        "p90": 24.600000001490116
+      },
+      "layerReadbackMs": {
+        "n": 48,
+        "median": 12.100000001490116,
+        "mean": 12.19583333361273,
+        "min": 10,
+        "max": 14.600000001490116,
+        "p90": 14.200000002980232
+      },
+      "serializeMs": {
+        "n": 48,
+        "median": 1.2999999970197678,
+        "mean": 1.2562500000931323,
+        "min": 0.8999999985098839,
+        "max": 1.5,
+        "p90": 1.4000000059604645
+      },
+      "browserWallMs": {
+        "n": 48,
+        "median": 36.6203230000001,
+        "mean": 35.0028156458333,
+        "min": 22.739622000000054,
+        "max": 45.356600999999955,
+        "p90": 42.873687000000245
+      },
+      "nativeMs": {
+        "n": 48,
+        "median": 5.426450000000159,
+        "mean": 6.14354027083332,
+        "min": 3.4755270000000564,
+        "max": 12.55811199999971,
+        "p90": 9.193744000000152
+      },
+      "captures": [
+        4
+      ],
+      "imageBytes": [
+        1628072
+      ],
+      "packetBytes": {
+        "n": 48,
+        "median": 1646641,
+        "mean": 1646656.2916666667,
+        "min": 1645390,
+        "max": 1647996,
+        "p90": 1647729
+      }
+    },
+    "endToEndQuality": [
+      {
+        "baseline": "dom-half-baseline-1",
+        "hybrid": "dom-half-hybrid-1",
+        "equalHashes": 24,
+        "unequalHashes": 0,
+        "missingHashes": 0,
+        "sampleCountMismatch": 0,
+        "firstFrame": {
+          "max": 0,
+          "maeRGBA": 0,
+          "changedBytes": 0
+        }
+      },
+      {
+        "baseline": "dom-half-baseline-1",
+        "hybrid": "dom-half-hybrid-2",
+        "equalHashes": 24,
+        "unequalHashes": 0,
+        "missingHashes": 0,
+        "sampleCountMismatch": 0,
+        "firstFrame": {
+          "max": 0,
+          "maeRGBA": 0,
+          "changedBytes": 0
+        }
+      }
+    ]
+  },
+  {
+    "key": "motion-design-test-claude-2 scale=0.5 samples=4 t=34",
+    "renderer": {
+      "runs": [
+        "dom-half-compare-1",
+        "dom-half-compare-2"
+      ],
+      "browserMs": {
+        "n": 48,
+        "median": 6.299999997019768,
+        "mean": 6.4249999998137355,
+        "min": 4.5,
+        "max": 11.600000001490116,
+        "p90": 7.699999995529652
+      },
+      "nativeMs": {
+        "n": 48,
+        "median": 3.658089000000018,
+        "mean": 4.196737354166705,
+        "min": 2.6651899999997113,
+        "max": 9.677519000000302,
+        "p90": 7.190382000000227
+      },
+      "browserPssMiB": [
+        704.576171875,
+        727.845703125
+      ],
+      "nativePssMiB": [
+        151.03125,
+        155.201171875
+      ],
+      "pixelComparisons": [
+        {
+          "run": "dom-half-compare-1",
+          "baselineReplay": {
+            "mae": 0,
+            "rmse": 0,
+            "max": 0,
+            "pixelsOver2": 0,
+            "pixelsOver8": 0,
+            "pixels": 518400
+          },
+          "browserNative": {
+            "mae": 0,
+            "rmse": 0,
+            "max": 0,
+            "pixelsOver2": 0,
+            "pixelsOver8": 0,
+            "pixels": 518400
+          }
+        },
+        {
+          "run": "dom-half-compare-2",
+          "baselineReplay": {
+            "mae": 0,
+            "rmse": 0,
+            "max": 0,
+            "pixelsOver2": 0,
+            "pixelsOver8": 0,
+            "pixels": 518400
+          },
+          "browserNative": {
+            "mae": 0,
+            "rmse": 0,
+            "max": 0,
+            "pixelsOver2": 0,
+            "pixelsOver8": 0,
+            "pixels": 518400
+          }
+        }
+      ]
+    },
+    "baseline": {
+      "runs": [
+        "dom-half-baseline-1",
+        "dom-half-baseline-2"
+      ],
+      "wallMs": {
+        "n": 48,
+        "median": 21.982814999999846,
+        "mean": 21.493024395833334,
+        "min": 14.998811999999816,
+        "max": 29.12862300000006,
+        "p90": 25.302369999999883
+      },
+      "fps": 43.619539381753484,
+      "runFps": [
+        46.08202289020807,
+        41.40688125949657
+      ],
+      "pssMiB": [
+        876.5791015625,
+        811.552734375
+      ],
+      "cpuMsPerFrame": [
+        45,
+        48.333333333333336
+      ],
+      "schedule": [
+        [
+          "0:16",
+          "0:-8"
+        ],
+        [
+          "0:16"
+        ]
+      ],
+      "renderMs": {
+        "n": 48,
+        "median": 17,
+        "mean": 17.097916667504858,
+        "min": 11.599999994039536,
+        "max": 25.100000001490116,
+        "p90": 21.399999998509884
+      },
+      "subs": [
+        4
+      ]
+    },
+    "hybrid": {
+      "runs": [
+        "dom-half-hybrid-1",
+        "dom-half-hybrid-2"
+      ],
+      "wallMs": {
+        "n": 48,
+        "median": 43.90711099999953,
+        "mean": 43.9647948125,
+        "min": 31.671633999999358,
+        "max": 54.21812499999987,
+        "p90": 51.57854899999984
+      },
+      "fps": 21.918100500551144,
+      "runFps": [
+        21.009168088442415,
+        22.90923673783736
+      ],
+      "pssMiB": [
+        1066.9482421875,
+        1007.6357421875
+      ],
+      "cpuMsPerFrame": [
+        64.58333333333333,
+        61.666666666666664
+      ],
+      "schedule": [
+        [
+          "0:16"
+        ],
+        [
+          "0:16"
+        ]
+      ],
+      "renderMs": {
+        "n": 48,
+        "median": 3.7591780000002473,
+        "mean": 4.325820958333281,
+        "min": 3.3990539999995235,
+        "max": 8.654132000000118,
+        "p90": 7.2394030000000384
+      },
+      "subs": [
+        4
+      ],
+      "prepareMs": {
+        "n": 48,
+        "median": 21.600000001490116,
+        "mean": 19.802083333954215,
+        "min": 7,
+        "max": 26.799999997019768,
+        "p90": 26.299999997019768
+      },
+      "layerReadbackMs": {
+        "n": 48,
+        "median": 11,
+        "mean": 10.916666666201005,
+        "min": 8.300000004470348,
+        "max": 14.899999998509884,
+        "p90": 12.099999994039536
+      },
+      "serializeMs": {
+        "n": 48,
+        "median": 1.4000000059604645,
+        "mean": 1.4270833337989945,
+        "min": 1.0999999940395355,
+        "max": 1.6999999955296516,
+        "p90": 1.6000000014901161
+      },
+      "browserWallMs": {
+        "n": 48,
+        "median": 37.7172470000005,
+        "mean": 35.980499375000015,
+        "min": 24.612658999999894,
+        "max": 43.52358899999945,
+        "p90": 42.887788
+      },
+      "nativeMs": {
+        "n": 48,
+        "median": 5.060594999999921,
+        "mean": 5.803482333333345,
+        "min": 4.658192000000781,
+        "max": 11.105782999999974,
+        "p90": 9.339495999999599
+      },
+      "captures": [
+        3
+      ],
+      "imageBytes": [
+        1959340
+      ],
+      "packetBytes": {
+        "n": 48,
+        "median": 1975898,
+        "mean": 1975878.375,
+        "min": 1975216,
+        "max": 1975963,
+        "p90": 1975953
+      }
+    },
+    "endToEndQuality": [
+      {
+        "baseline": "dom-half-baseline-1",
+        "hybrid": "dom-half-hybrid-1",
+        "equalHashes": 24,
+        "unequalHashes": 0,
+        "missingHashes": 0,
+        "sampleCountMismatch": 0,
+        "firstFrame": {
+          "max": 0,
+          "maeRGBA": 0,
+          "changedBytes": 0
+        }
+      },
+      {
+        "baseline": "dom-half-baseline-1",
+        "hybrid": "dom-half-hybrid-2",
+        "equalHashes": 24,
+        "unequalHashes": 0,
+        "missingHashes": 0,
+        "sampleCountMismatch": 0,
+        "firstFrame": {
+          "max": 0,
+          "maeRGBA": 0,
+          "changedBytes": 0
+        }
+      }
+    ]
+  }
+]

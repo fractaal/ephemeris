@@ -1,0 +1,11 @@
+# the films: each a folder of its own, with its own history
+projects/
+node_modules
+# the app's build (npm run dist: app/build.mjs)
+dist/
+build/
+build-windows/
+app/icons/
+version.json
+# a checkout used as the workspace: its presets (tools/presets.mjs: Your presets)
+/presets/

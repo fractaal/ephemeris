@@ -1,0 +1,1695 @@
+{
+  "created": "2026-10-23T22:42:57.213Z",
+  "mode": "baseline",
+  "film": "doctor-who-intro-max",
+  "settings": {
+    "sub": 4,
+    "scale": 0.5,
+    "fps": 24,
+    "shutter": 0.25
+  },
+  "chromeVersion": "153.0.8010.47",
+  "node": "v24.15.0",
+  "platform": "linux 7.2.5-1-cachyos",
+  "cpu": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
+  "root": "/home/benjude/.cache/ephemeris-native-bench/study",
+  "options": {
+    "gi": null,
+    "shadows": true
+  },
+  "clockTicks": 100,
+  "rows": [
+    {
+      "t": 10,
+      "first": {
+        "time": 10,
+        "wallMs": 32.43554200000017,
+        "renderMs": 28.900000005960464,
+        "width": 960,
+        "height": 540,
+        "subs": 4,
+        "bands": 1,
+        "hash": "613abd3ff8a0ab470c4b8f6d88bcb4c12fef9b4f89cb2ef64f6e5c9f7d886379"
+      },
+      "samples": [
+        {
+          "time": 10,
+          "wallMs": 33.5368940000003,
+          "renderMs": 27,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "613abd3ff8a0ab470c4b8f6d88bcb4c12fef9b4f89cb2ef64f6e5c9f7d886379"
+        },
+        {
+          "time": 10.041666666666666,
+          "wallMs": 30.338506999999936,
+          "renderMs": 26.899999998509884,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "5494045473c88ddb686e3b18fe98e67a01255b00152e6b8ce2c604fb0ccc3ad8"
+        },
+        {
+          "time": 10.083333333333334,
+          "wallMs": 26.491283999999723,
+          "renderMs": 23.30000000447035,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "ff0e09fc2281bcc752ebe5badd887169f3dadf6e7a0ff78134655ec5d6ba919f"
+        },
+        {
+          "time": 10.125,
+          "wallMs": 29.661548999999923,
+          "renderMs": 25.400000005960464,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "1ec476fa5c06b42bbc74597bc5bbb14209f085c3ae75a451be9ca8846707a289"
+        },
+        {
+          "time": 10.166666666666666,
+          "wallMs": 29.58514699999978,
+          "renderMs": 26.299999997019768,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "ed7da09fa894a53ff7152cb4458b00cd5d823ef4b050d824012ad1c109a8df31"
+        },
+        {
+          "time": 10.208333333333334,
+          "wallMs": 30.398839999999836,
+          "renderMs": 26.900000005960464,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "be65d6f8bdb7869c62bb618f0d7b94875d0861d0e46209c314b1032df62df172"
+        },
+        {
+          "time": 10.25,
+          "wallMs": 28.58065600000009,
+          "renderMs": 25.299999997019768,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "7a745a13e43845a7c6e07b19e01c61548c88ce63800176cc0b069187eb137278"
+        },
+        {
+          "time": 10.291666666666666,
+          "wallMs": 30.725060000000212,
+          "renderMs": 26.899999998509884,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "427a92d0d7b3ad4caa5176305649051c5f99fc5cd1a620bd74212ebd700c4ced"
+        },
+        {
+          "time": 10.333333333333334,
+          "wallMs": 26.260351999999784,
+          "renderMs": 22.80000000447035,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "aa46084add41aed2c534e1c6d3480794a89a8a9b807973abda321eaf325d5c55"
+        },
+        {
+          "time": 10.375,
+          "wallMs": 26.881744999999682,
+          "renderMs": 23.700000002980232,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "d7a00957b0f248441a06aedafa699b2ba5cbfff998c0c913b3a53e0b9e92ef54"
+        },
+        {
+          "time": 10.416666666666666,
+          "wallMs": 29.33325500000001,
+          "renderMs": 25.80000000447035,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "2a811a8c63881bf39a0416736c2e1fef42c680628f8eb96fb5e9cbdd7c461fa4"
+        },
+        {
+          "time": 10.458333333333334,
+          "wallMs": 29.62722500000018,
+          "renderMs": 25.700000002980232,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "8b0199132c586e0feba5fdf36b7f09ca113e14a5fdd970607626f1fab37bd236"
+        },
+        {
+          "time": 10.5,
+          "wallMs": 34.12570700000015,
+          "renderMs": 30.69999999552965,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "2fd5189d876811405246fb4883099abb53307dbeaf33a25098174a56f60ebab4"
+        },
+        {
+          "time": 10.541666666666666,
+          "wallMs": 34.10709200000019,
+          "renderMs": 30.899999998509884,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "cb6290e8e6d6d68d190f1264c8ac88cabc301568d49366060da754fcbe213cd9"
+        },
+        {
+          "time": 10.583333333333334,
+          "wallMs": 33.83580400000028,
+          "renderMs": 30.200000002980232,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "1d7bd585f1e4409e3179f6020fc35fd21374e5c418b599e85baaea67bc20db15"
+        },
+        {
+          "time": 10.625,
+          "wallMs": 34.84265899999991,
+          "renderMs": 30.299999997019768,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "e7f59e146e3ba2bff80c4e134228f3f9b18c65287938e8e2a22ad4cf9c330bc8"
+        },
+        {
+          "time": 10.666666666666666,
+          "wallMs": 28.829873000000134,
+          "renderMs": 25.600000001490116,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "206dc2a06954c959a527decdf33710aa855ec9560cf6b85aea60b22f762b8682"
+        },
+        {
+          "time": 10.708333333333334,
+          "wallMs": 33.487431000000015,
+          "renderMs": 30.30000000447035,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "fc88500015d6405dc5beb8d0f6b9ab1a4086848c56028ec10431c095a49a8c6c"
+        },
+        {
+          "time": 10.75,
+          "wallMs": 34.75896200000034,
+          "renderMs": 31.30000000447035,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "3f78fc00667db86d8f565fe27d192d52f43ac144af21cbdec8444e15ff92de98"
+        },
+        {
+          "time": 10.791666666666666,
+          "wallMs": 38.420888000000105,
+          "renderMs": 34.899999998509884,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "a671eaa75a338af36b4f3f957dbc3b8ce3dad20fe417c8741e1de316732d389a"
+        },
+        {
+          "time": 10.833333333333334,
+          "wallMs": 32.744120000000294,
+          "renderMs": 29.5,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "13d97ef2ddd3a08433a1bb9ad7195db27fd97d3e9c0f15f17f81592e47f6858a"
+        },
+        {
+          "time": 10.875,
+          "wallMs": 29.208200000000033,
+          "renderMs": 25.600000001490116,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "92dbe141311c56b73c02c7d6582f3f4d3e21f9d1c5e98fe81bc54cce59a3d1e3"
+        },
+        {
+          "time": 10.916666666666666,
+          "wallMs": 27.428829999999834,
+          "renderMs": 24.30000000447035,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "fcc7758eebe3aa483124c818cb48d5032ad61128bca02c2d87476b05819a4e08"
+        },
+        {
+          "time": 10.958333333333334,
+          "wallMs": 30.314210999999887,
+          "renderMs": 27.200000002980232,
+          "width": 960,
+          "height": 540,
+          "subs": 4,
+          "bands": 1,
+          "hash": "2993cd4902cd71974625cbecf3a5c31974da8c91b6731260ed38f0a670f83fd8"
+        }
+      ],
+      "elapsedMs": 771.328673,
+      "fps": 31.115140458417784,
+      "wall": {
+        "n": 24,
+        "median": 30.338506999999936,
+        "p90": 34.75896200000034,
+        "mean": 30.98017879166669
+      },
+      "before": {
+        "at": 2777.823222,
+        "ticks": 506,
+        "pssKB": 1443033,
+        "processes": [
+          {
+            "pid": 2041274,
+            "ppid": 2027520,
+            "ticks": 80,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 126240,
+            "rssKB": 177952
+          },
+          {
+            "pid": 2041288,
+            "ppid": 2041274,
+            "ticks": 49,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 126255,
+            "rssKB": 239124
+          },
+          {
+            "pid": 2041304,
+            "ppid": 2041288,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 19723,
+            "rssKB": 77700
+          },
+          {
+            "pid": 2041305,
+            "ppid": 2041288,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 11811,
+            "rssKB": 76508
+          },
+          {
+            "pid": 2041314,
+            "ppid": 2041305,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 2738,
+            "rssKB": 22952
+          },
+          {
+            "pid": 2041337,
+            "ppid": 2041304,
+            "ticks": 198,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 365518,
+            "rssKB": 622728
+          },
+          {
+            "pid": 2041339,
+            "ppid": 2041288,
+            "ticks": 18,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 47472,
+            "rssKB": 143924
+          },
+          {
+            "pid": 2041340,
+            "ppid": 2041339,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 9575,
+            "rssKB": 23388
+          },
+          {
+            "pid": 2041352,
+            "ppid": 2041314,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 7566,
+            "rssKB": 56696
+          },
+          {
+            "pid": 2041397,
+            "ppid": 2041314,
+            "ticks": 21,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 76716,
+            "rssKB": 176744
+          },
+          {
+            "pid": 2041411,
+            "ppid": 2041314,
+            "ticks": 132,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 569801,
+            "rssKB": 812036
+          },
+          {
+            "pid": 2041424,
+            "ppid": 2041314,
+            "ticks": 3,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21578,
+            "rssKB": 103456
+          },
+          {
+            "pid": 2041436,
+            "ppid": 2041314,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 15104,
+            "rssKB": 81772
+          },
+          {
+            "pid": 2041450,
+            "ppid": 2041314,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21581,
+            "rssKB": 99748
+          },
+          {
+            "pid": 2041454,
+            "ppid": 2041314,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21355,
+            "rssKB": 99812
+          }
+        ]
+      },
+      "after": {
+        "at": 3624.402542,
+        "ticks": 596,
+        "pssKB": 1511585,
+        "processes": [
+          {
+            "pid": 2041274,
+            "ppid": 2027520,
+            "ticks": 125,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 133272,
+            "rssKB": 184984
+          },
+          {
+            "pid": 2041288,
+            "ppid": 2041274,
+            "ticks": 50,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 126255,
+            "rssKB": 239124
+          },
+          {
+            "pid": 2041304,
+            "ppid": 2041288,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 19723,
+            "rssKB": 77700
+          },
+          {
+            "pid": 2041305,
+            "ppid": 2041288,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 11811,
+            "rssKB": 76508
+          },
+          {
+            "pid": 2041314,
+            "ppid": 2041305,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 2738,
+            "rssKB": 22952
+          },
+          {
+            "pid": 2041337,
+            "ppid": 2041304,
+            "ticks": 205,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 368884,
+            "rssKB": 626096
+          },
+          {
+            "pid": 2041339,
+            "ppid": 2041288,
+            "ticks": 18,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 47804,
+            "rssKB": 144256
+          },
+          {
+            "pid": 2041340,
+            "ppid": 2041339,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 9575,
+            "rssKB": 23388
+          },
+          {
+            "pid": 2041352,
+            "ppid": 2041314,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 7566,
+            "rssKB": 56696
+          },
+          {
+            "pid": 2041397,
+            "ppid": 2041314,
+            "ticks": 21,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 76716,
+            "rssKB": 176744
+          },
+          {
+            "pid": 2041411,
+            "ppid": 2041314,
+            "ticks": 169,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 627623,
+            "rssKB": 869860
+          },
+          {
+            "pid": 2041424,
+            "ppid": 2041314,
+            "ticks": 3,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21578,
+            "rssKB": 103456
+          },
+          {
+            "pid": 2041436,
+            "ppid": 2041314,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 15104,
+            "rssKB": 81772
+          },
+          {
+            "pid": 2041450,
+            "ppid": 2041314,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21581,
+            "rssKB": 99748
+          },
+          {
+            "pid": 2041454,
+            "ppid": 2041314,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21355,
+            "rssKB": 99812
+          }
+        ]
+      }
+    },
+    {
+      "t": 30,
+      "first": {
+        "time": 30,
+        "wallMs": 241.15916300000026,
+        "renderMs": 236.69999999552965,
+        "width": 960,
+        "height": 540,
+        "subs": 42,
+        "bands": 1,
+        "hash": "e7fc574306363574f51cf7ef61f21f7fa7abb23cfe7d59124ea687c462ef7e80"
+      },
+      "samples": [
+        {
+          "time": 30,
+          "wallMs": 203.84220199999982,
+          "renderMs": 198.70000000298023,
+          "width": 960,
+          "height": 540,
+          "subs": 42,
+          "bands": 1,
+          "hash": "e7fc574306363574f51cf7ef61f21f7fa7abb23cfe7d59124ea687c462ef7e80"
+        },
+        {
+          "time": 30.041666666666668,
+          "wallMs": 215.73928500000056,
+          "renderMs": 211.5,
+          "width": 960,
+          "height": 540,
+          "subs": 46,
+          "bands": 1,
+          "hash": "ac380a57f3dcea508136d207495fc5210e2af3f8bf644936af77a4eb6b066121"
+        },
+        {
+          "time": 30.083333333333332,
+          "wallMs": 238.4222290000007,
+          "renderMs": 235.5,
+          "width": 960,
+          "height": 540,
+          "subs": 47,
+          "bands": 1,
+          "hash": "9b69e4a9136dc39987b433f4a657eb5a63002992e4ecf98b7a008f7549fa68b1"
+        },
+        {
+          "time": 30.125,
+          "wallMs": 260.4333459999998,
+          "renderMs": 257.5,
+          "width": 960,
+          "height": 540,
+          "subs": 49,
+          "bands": 1,
+          "hash": "9d1a4c895140208f3760def412b00e28de1fa693bec4a11e6e085128b9d15c8b"
+        },
+        {
+          "time": 30.166666666666668,
+          "wallMs": 262.5736730000008,
+          "renderMs": 259.80000000447035,
+          "width": 960,
+          "height": 540,
+          "subs": 49,
+          "bands": 1,
+          "hash": "1245912cc0aac05a46b631552b6ff6a7721d86275c0473e5baff22a56c6aa23b"
+        },
+        {
+          "time": 30.208333333333332,
+          "wallMs": 220.99511399999938,
+          "renderMs": 218.5,
+          "width": 960,
+          "height": 540,
+          "subs": 49,
+          "bands": 1,
+          "hash": "1e75bfd6035e42ccaa167b2683bd956a65333920485598ddc09f520aa9eabbe3"
+        },
+        {
+          "time": 30.25,
+          "wallMs": 218.88286000000062,
+          "renderMs": 215.5,
+          "width": 960,
+          "height": 540,
+          "subs": 48,
+          "bands": 1,
+          "hash": "cb71a2e685b798bb411cf923a3a9a601cc51a4f234ab54629e1eb0fdaf0a96b8"
+        },
+        {
+          "time": 30.291666666666668,
+          "wallMs": 217.5350159999998,
+          "renderMs": 213,
+          "width": 960,
+          "height": 540,
+          "subs": 47,
+          "bands": 1,
+          "hash": "9bdc2ed0d0e70e2b53c9d59edcfba7b37e0b1085efb03f6223f48cbfce2200af"
+        },
+        {
+          "time": 30.333333333333332,
+          "wallMs": 201.36987399999998,
+          "renderMs": 198.19999999552965,
+          "width": 960,
+          "height": 540,
+          "subs": 44,
+          "bands": 1,
+          "hash": "f0ccf7e54007172bedf1c4feb4d5cf8128b0d5d37ea5c499a8e0b841784bd701"
+        },
+        {
+          "time": 30.375,
+          "wallMs": 176.63031800000044,
+          "renderMs": 173.29999999701977,
+          "width": 960,
+          "height": 540,
+          "subs": 41,
+          "bands": 1,
+          "hash": "079900a0d0f11f236585e1783fe5ca369a50817c9285f1581714129b5ce1156d"
+        },
+        {
+          "time": 30.416666666666668,
+          "wallMs": 167.13544300000012,
+          "renderMs": 162.69999999552965,
+          "width": 960,
+          "height": 540,
+          "subs": 38,
+          "bands": 1,
+          "hash": "e3d3a0ab326a8f907c01c470920cc219e9d6fcffb53466c61e6f17ed9797cf36"
+        },
+        {
+          "time": 30.458333333333332,
+          "wallMs": 153.3447159999996,
+          "renderMs": 149.60000000149012,
+          "width": 960,
+          "height": 540,
+          "subs": 33,
+          "bands": 1,
+          "hash": "455bc076fa61123fd991622e89e1246390994cc75eb82fea9e11d2633396817d"
+        },
+        {
+          "time": 30.5,
+          "wallMs": 145.8850910000001,
+          "renderMs": 141.5,
+          "width": 960,
+          "height": 540,
+          "subs": 30,
+          "bands": 1,
+          "hash": "6195e9bd2a73e89366f509bcd866db990d017d9d62edca7f46deb2363ec3073b"
+        },
+        {
+          "time": 30.541666666666668,
+          "wallMs": 132.82353799999873,
+          "renderMs": 127.39999999850988,
+          "width": 960,
+          "height": 540,
+          "subs": 25,
+          "bands": 1,
+          "hash": "eca0cf1cbd25faee06761dd950675a5683e061b548dd320c8bdf23fac5b2d8b5"
+        },
+        {
+          "time": 30.583333333333332,
+          "wallMs": 113.67838699999993,
+          "renderMs": 109.5,
+          "width": 960,
+          "height": 540,
+          "subs": 23,
+          "bands": 1,
+          "hash": "0d2635e3696b777f50c319344de1812d0a42bb3523ad8aa059c7aaab5d43e4ff"
+        },
+        {
+          "time": 30.625,
+          "wallMs": 96.21923100000095,
+          "renderMs": 91.10000000149012,
+          "width": 960,
+          "height": 540,
+          "subs": 20,
+          "bands": 1,
+          "hash": "785e2ccb9c533e95ce20764ac16cbcf8b3396e189a53afd286103b541faa62b8"
+        },
+        {
+          "time": 30.666666666666668,
+          "wallMs": 85.7829440000005,
+          "renderMs": 82.29999999701977,
+          "width": 960,
+          "height": 540,
+          "subs": 18,
+          "bands": 1,
+          "hash": "0f1b2044e7d09383d7757dceae8b893d88273bbcc795a1330c9baee8e07fd043"
+        },
+        {
+          "time": 30.708333333333332,
+          "wallMs": 76.72877399999925,
+          "renderMs": 73.80000000447035,
+          "width": 960,
+          "height": 540,
+          "subs": 17,
+          "bands": 1,
+          "hash": "19adcdff5fc3b5c4d1f985d60fc70b286b94866b36edb56795bb5754920c2921"
+        },
+        {
+          "time": 30.75,
+          "wallMs": 69.58727400000134,
+          "renderMs": 67.10000000149012,
+          "width": 960,
+          "height": 540,
+          "subs": 16,
+          "bands": 1,
+          "hash": "00e15d4a6c0a6f4624ca9383bd82f83d47fb2be338858b0cb8097bdb42528d10"
+        },
+        {
+          "time": 30.791666666666668,
+          "wallMs": 70.92465700000139,
+          "renderMs": 68,
+          "width": 960,
+          "height": 540,
+          "subs": 16,
+          "bands": 1,
+          "hash": "47ec93853d97d045fb0a6cd26ec0f658b052d137a2073d9f3eb6087db33067d5"
+        },
+        {
+          "time": 30.833333333333332,
+          "wallMs": 68.82412499999919,
+          "renderMs": 65,
+          "width": 960,
+          "height": 540,
+          "subs": 16,
+          "bands": 1,
+          "hash": "560bf4724b2c05706360dd4e64d153217caf555b8ecec004d34df22a277f4e91"
+        },
+        {
+          "time": 30.875,
+          "wallMs": 71.05500100000063,
+          "renderMs": 67,
+          "width": 960,
+          "height": 540,
+          "subs": 16,
+          "bands": 1,
+          "hash": "51b5b89d3ce4e1cbc59ca317a5dbf8eac59925cbbb83371f79202491da0e38ae"
+        },
+        {
+          "time": 30.916666666666668,
+          "wallMs": 80.83792600000015,
+          "renderMs": 77.79999999701977,
+          "width": 960,
+          "height": 540,
+          "subs": 17,
+          "bands": 1,
+          "hash": "5ff7b025e33d1cccf8c7b5b53ef64165378f164c752fafb1252d80982d4e5d2c"
+        },
+        {
+          "time": 30.958333333333332,
+          "wallMs": 82.88640100000157,
+          "renderMs": 79.89999999850988,
+          "width": 960,
+          "height": 540,
+          "subs": 19,
+          "bands": 1,
+          "hash": "f4166938b3f046d11a38fbfa6d3253595f4aee815342f74bc1e37758b66ccbb3"
+        }
+      ],
+      "elapsedMs": 3659.621408000001,
+      "fps": 6.5580554172996015,
+      "wall": {
+        "n": 24,
+        "median": 153.3447159999996,
+        "p90": 238.4222290000007,
+        "mean": 151.33905937500023
+      },
+      "before": {
+        "at": 5821.580893,
+        "ticks": 813,
+        "pssKB": 1472400,
+        "processes": [
+          {
+            "pid": 2041274,
+            "ppid": 2027520,
+            "ticks": 163,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 135103,
+            "rssKB": 186868
+          },
+          {
+            "pid": 2041288,
+            "ppid": 2041274,
+            "ticks": 51,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 114566,
+            "rssKB": 227428
+          },
+          {
+            "pid": 2041304,
+            "ppid": 2041288,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 19723,
+            "rssKB": 77700
+          },
+          {
+            "pid": 2041305,
+            "ppid": 2041288,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 11811,
+            "rssKB": 76508
+          },
+          {
+            "pid": 2041314,
+            "ppid": 2041305,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 2738,
+            "rssKB": 22952
+          },
+          {
+            "pid": 2041337,
+            "ppid": 2041304,
+            "ticks": 251,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 354214,
+            "rssKB": 613264
+          },
+          {
+            "pid": 2041339,
+            "ppid": 2041288,
+            "ticks": 20,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 47795,
+            "rssKB": 144256
+          },
+          {
+            "pid": 2041340,
+            "ppid": 2041339,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 9575,
+            "rssKB": 23388
+          },
+          {
+            "pid": 2041352,
+            "ppid": 2041314,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 7566,
+            "rssKB": 56696
+          },
+          {
+            "pid": 2041397,
+            "ppid": 2041314,
+            "ticks": 21,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 76724,
+            "rssKB": 176752
+          },
+          {
+            "pid": 2041411,
+            "ppid": 2041314,
+            "ticks": 299,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 612967,
+            "rssKB": 857124
+          },
+          {
+            "pid": 2041424,
+            "ppid": 2041314,
+            "ticks": 3,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21578,
+            "rssKB": 103456
+          },
+          {
+            "pid": 2041436,
+            "ppid": 2041314,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 15104,
+            "rssKB": 81772
+          },
+          {
+            "pid": 2041450,
+            "ppid": 2041314,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21581,
+            "rssKB": 99748
+          },
+          {
+            "pid": 2041454,
+            "ppid": 2041314,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21355,
+            "rssKB": 99812
+          }
+        ]
+      },
+      "after": {
+        "at": 9587.360148,
+        "ticks": 1339,
+        "pssKB": 1496165,
+        "processes": [
+          {
+            "pid": 2041274,
+            "ppid": 2027520,
+            "ticks": 205,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 140196,
+            "rssKB": 192016
+          },
+          {
+            "pid": 2041288,
+            "ppid": 2041274,
+            "ticks": 52,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 113754,
+            "rssKB": 226356
+          },
+          {
+            "pid": 2041304,
+            "ppid": 2041288,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 19723,
+            "rssKB": 77700
+          },
+          {
+            "pid": 2041305,
+            "ppid": 2041288,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 11811,
+            "rssKB": 76508
+          },
+          {
+            "pid": 2041314,
+            "ppid": 2041305,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 2738,
+            "rssKB": 22952
+          },
+          {
+            "pid": 2041337,
+            "ppid": 2041304,
+            "ticks": 566,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 357796,
+            "rssKB": 616600
+          },
+          {
+            "pid": 2041339,
+            "ppid": 2041288,
+            "ticks": 21,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 47795,
+            "rssKB": 144256
+          },
+          {
+            "pid": 2041340,
+            "ppid": 2041339,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 9575,
+            "rssKB": 23388
+          },
+          {
+            "pid": 2041352,
+            "ppid": 2041314,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 7566,
+            "rssKB": 56696
+          },
+          {
+            "pid": 2041397,
+            "ppid": 2041314,
+            "ticks": 21,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 76724,
+            "rssKB": 176752
+          },
+          {
+            "pid": 2041411,
+            "ppid": 2041314,
+            "ticks": 466,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 628869,
+            "rssKB": 873040
+          },
+          {
+            "pid": 2041424,
+            "ppid": 2041314,
+            "ticks": 3,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21578,
+            "rssKB": 103456
+          },
+          {
+            "pid": 2041436,
+            "ppid": 2041314,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 15104,
+            "rssKB": 81772
+          },
+          {
+            "pid": 2041450,
+            "ppid": 2041314,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21581,
+            "rssKB": 99748
+          },
+          {
+            "pid": 2041454,
+            "ppid": 2041314,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21355,
+            "rssKB": 99812
+          }
+        ]
+      }
+    },
+    {
+      "t": 55,
+      "first": {
+        "time": 55,
+        "wallMs": 106.3148310000015,
+        "renderMs": 102.69999999552965,
+        "width": 960,
+        "height": 540,
+        "subs": 15,
+        "bands": 1,
+        "hash": "5b07564c27eff6d8b4e041b788e32a0441d26bee91859d57e55c26e9cf73c70f"
+      },
+      "samples": [
+        {
+          "time": 55,
+          "wallMs": 106.74807200000032,
+          "renderMs": 102.59999999403954,
+          "width": 960,
+          "height": 540,
+          "subs": 15,
+          "bands": 1,
+          "hash": "5b07564c27eff6d8b4e041b788e32a0441d26bee91859d57e55c26e9cf73c70f"
+        },
+        {
+          "time": 55.041666666666664,
+          "wallMs": 93.72086500000114,
+          "renderMs": 90.29999999701977,
+          "width": 960,
+          "height": 540,
+          "subs": 15,
+          "bands": 1,
+          "hash": "a05490684ebfb75e71ea6b536f63dcd1c842d8084bf1823aa46f9bd6936e40bb"
+        },
+        {
+          "time": 55.083333333333336,
+          "wallMs": 101.92177700000138,
+          "renderMs": 98.40000000596046,
+          "width": 960,
+          "height": 540,
+          "subs": 15,
+          "bands": 1,
+          "hash": "50d2dedc46e49471ce719a87ed9aba22dbd0319a9ffe76936c914857b08754d9"
+        },
+        {
+          "time": 55.125,
+          "wallMs": 99.8530439999995,
+          "renderMs": 94.19999999552965,
+          "width": 960,
+          "height": 540,
+          "subs": 15,
+          "bands": 1,
+          "hash": "3784945892b6913531a11f8293231e3809a12a75fd520b765efe663985a556dc"
+        },
+        {
+          "time": 55.166666666666664,
+          "wallMs": 112.56014299999879,
+          "renderMs": 107.80000000447035,
+          "width": 960,
+          "height": 540,
+          "subs": 15,
+          "bands": 1,
+          "hash": "ee00d31492b218171bd7b256a7659fdf7376aa58408fb7a719186ae66922233e"
+        },
+        {
+          "time": 55.208333333333336,
+          "wallMs": 108.99763300000086,
+          "renderMs": 104.30000000447035,
+          "width": 960,
+          "height": 540,
+          "subs": 15,
+          "bands": 1,
+          "hash": "014b033d90e013168325c4f46849e56ae27edda59a0b51a8685793d9362f70cb"
+        },
+        {
+          "time": 55.25,
+          "wallMs": 112.93700799999897,
+          "renderMs": 108.30000000447035,
+          "width": 960,
+          "height": 540,
+          "subs": 15,
+          "bands": 1,
+          "hash": "cdf6dc56a436c0bfd5b50f121baf6e99f518dc6395a3394a4868999a917a1c78"
+        },
+        {
+          "time": 55.291666666666664,
+          "wallMs": 103.97206500000175,
+          "renderMs": 99.10000000149012,
+          "width": 960,
+          "height": 540,
+          "subs": 15,
+          "bands": 1,
+          "hash": "25ba8458fd7baab8dc4530f5f3aa9a797cb8c4c9ffa73d47c25048fdf8f2931e"
+        },
+        {
+          "time": 55.333333333333336,
+          "wallMs": 111.47315700000036,
+          "renderMs": 106.80000000447035,
+          "width": 960,
+          "height": 540,
+          "subs": 15,
+          "bands": 1,
+          "hash": "cb78d2e965cfc75bd81279dbed7a67a811f430424a0b2b04a1ee304a234f230d"
+        },
+        {
+          "time": 55.375,
+          "wallMs": 109.31221300000107,
+          "renderMs": 104.5,
+          "width": 960,
+          "height": 540,
+          "subs": 15,
+          "bands": 1,
+          "hash": "1c9d285a43b3ae51e0a8da581ad1aefbc4817cfc618c8d3d2df4779d3976b0db"
+        },
+        {
+          "time": 55.416666666666664,
+          "wallMs": 116.43369399999938,
+          "renderMs": 111.39999999850988,
+          "width": 960,
+          "height": 540,
+          "subs": 15,
+          "bands": 1,
+          "hash": "71d52b30f1b5f246a0935c6202a48ff4b27a5249f05276067ffd8b245863f614"
+        },
+        {
+          "time": 55.458333333333336,
+          "wallMs": 113.86246100000062,
+          "renderMs": 109.30000000447035,
+          "width": 960,
+          "height": 540,
+          "subs": 15,
+          "bands": 1,
+          "hash": "6e9fbe054a8a9d6a7f54c9be348cad7517cb2b7792a7ef9fbbc90fb305a5ff67"
+        },
+        {
+          "time": 55.5,
+          "wallMs": 111.22412200000144,
+          "renderMs": 107.10000000149012,
+          "width": 960,
+          "height": 540,
+          "subs": 15,
+          "bands": 1,
+          "hash": "792cf1e60362ced17a7cdc6bcde4d922d45c98a07513e668e99089121358df12"
+        },
+        {
+          "time": 55.541666666666664,
+          "wallMs": 109.76249499999903,
+          "renderMs": 105.80000000447035,
+          "width": 960,
+          "height": 540,
+          "subs": 15,
+          "bands": 1,
+          "hash": "265edf8c0f89ede69d1c256811b58f87a9ba2ecd23c2481e740b529dae62bc2e"
+        },
+        {
+          "time": 55.583333333333336,
+          "wallMs": 111.38171699999839,
+          "renderMs": 107.29999999701977,
+          "width": 960,
+          "height": 540,
+          "subs": 15,
+          "bands": 1,
+          "hash": "319c0f19e340497400c0a81db88e14b55d701bfe7ad756aa305c161264dde2ce"
+        },
+        {
+          "time": 55.625,
+          "wallMs": 104.05935899999895,
+          "renderMs": 100.29999999701977,
+          "width": 960,
+          "height": 540,
+          "subs": 15,
+          "bands": 1,
+          "hash": "6f3dffd8290eaaa9a689b3daa08b019d94a42462279b195101db5c644b1d1cb7"
+        },
+        {
+          "time": 55.666666666666664,
+          "wallMs": 109.85174199999892,
+          "renderMs": 106,
+          "width": 960,
+          "height": 540,
+          "subs": 15,
+          "bands": 1,
+          "hash": "2a3cae470b9ee42f981d419c1d14092d6c33bb52a85cad27bf400b16c0db4990"
+        },
+        {
+          "time": 55.708333333333336,
+          "wallMs": 114.5189500000015,
+          "renderMs": 109.60000000149012,
+          "width": 960,
+          "height": 540,
+          "subs": 15,
+          "bands": 1,
+          "hash": "f0903061226184a74731f9a4d1accecb91439a3e69cbfeed838bbeb6dfcc4b67"
+        },
+        {
+          "time": 55.75,
+          "wallMs": 107.15822000000117,
+          "renderMs": 103.10000000149012,
+          "width": 960,
+          "height": 540,
+          "subs": 15,
+          "bands": 1,
+          "hash": "2221a2617d85bf24e1f99405c22885712a6450d465c02bf6fa2311f1db4120ba"
+        },
+        {
+          "time": 55.791666666666664,
+          "wallMs": 98.37464600000021,
+          "renderMs": 94.5,
+          "width": 960,
+          "height": 540,
+          "subs": 15,
+          "bands": 1,
+          "hash": "b12acc757d3b2b198b86e772276f2293a836e856508cf8a12e3ea60cbb7bb124"
+        },
+        {
+          "time": 55.833333333333336,
+          "wallMs": 113.43984999999884,
+          "renderMs": 109.5,
+          "width": 960,
+          "height": 540,
+          "subs": 15,
+          "bands": 1,
+          "hash": "92beb1c3d5ac62a45b05acb6b0aeab69586e0d0755a956d65a7986056dd3d063"
+        },
+        {
+          "time": 55.875,
+          "wallMs": 114.78837399999975,
+          "renderMs": 110.39999999850988,
+          "width": 960,
+          "height": 540,
+          "subs": 15,
+          "bands": 1,
+          "hash": "1e600fc12e39fae82d21dc4d61b340402199022673eb30fc05735f4e082dbbd5"
+        },
+        {
+          "time": 55.916666666666664,
+          "wallMs": 116.3323249999994,
+          "renderMs": 112.29999999701977,
+          "width": 960,
+          "height": 540,
+          "subs": 15,
+          "bands": 1,
+          "hash": "8e5154cb5a67f5fa8dfb2399c736c76b22b79c0291fe1b0a1ec60ab4333d23c3"
+        },
+        {
+          "time": 55.958333333333336,
+          "wallMs": 119.72445499999958,
+          "renderMs": 115.30000000447035,
+          "width": 960,
+          "height": 540,
+          "subs": 15,
+          "bands": 1,
+          "hash": "00e93a16dcdc645137f1fcedef8974b96f923f2de318cc0edfb7a46811065e65"
+        }
+      ],
+      "elapsedMs": 2659.7881940000007,
+      "fps": 9.023274881112581,
+      "wall": {
+        "n": 24,
+        "median": 111.22412200000144,
+        "p90": 116.3323249999994,
+        "mean": 109.26701612500005
+      },
+      "before": {
+        "at": 11496.799214,
+        "ticks": 1540,
+        "pssKB": 1523285,
+        "processes": [
+          {
+            "pid": 2041274,
+            "ppid": 2027520,
+            "ticks": 235,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 140200,
+            "rssKB": 192020
+          },
+          {
+            "pid": 2041288,
+            "ppid": 2041274,
+            "ticks": 53,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 113903,
+            "rssKB": 226532
+          },
+          {
+            "pid": 2041304,
+            "ppid": 2041288,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 19723,
+            "rssKB": 77700
+          },
+          {
+            "pid": 2041305,
+            "ppid": 2041288,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 11811,
+            "rssKB": 76508
+          },
+          {
+            "pid": 2041314,
+            "ppid": 2041305,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 2738,
+            "rssKB": 22952
+          },
+          {
+            "pid": 2041337,
+            "ppid": 2041304,
+            "ticks": 656,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 413578,
+            "rssKB": 672384
+          },
+          {
+            "pid": 2041339,
+            "ppid": 2041288,
+            "ticks": 22,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 47834,
+            "rssKB": 144336
+          },
+          {
+            "pid": 2041340,
+            "ppid": 2041339,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 9575,
+            "rssKB": 23388
+          },
+          {
+            "pid": 2041352,
+            "ppid": 2041314,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 7577,
+            "rssKB": 56764
+          },
+          {
+            "pid": 2041397,
+            "ppid": 2041314,
+            "ticks": 21,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 76729,
+            "rssKB": 176760
+          },
+          {
+            "pid": 2041411,
+            "ppid": 2041314,
+            "ticks": 545,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 600815,
+            "rssKB": 845000
+          },
+          {
+            "pid": 2041424,
+            "ppid": 2041314,
+            "ticks": 3,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 20759,
+            "rssKB": 102640
+          },
+          {
+            "pid": 2041436,
+            "ppid": 2041314,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 15105,
+            "rssKB": 81776
+          },
+          {
+            "pid": 2041450,
+            "ppid": 2041314,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21582,
+            "rssKB": 99752
+          },
+          {
+            "pid": 2041454,
+            "ppid": 2041314,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21356,
+            "rssKB": 99816
+          }
+        ]
+      },
+      "after": {
+        "at": 14263.101993,
+        "ticks": 1892,
+        "pssKB": 1575353,
+        "processes": [
+          {
+            "pid": 2041274,
+            "ppid": 2027520,
+            "ticks": 274,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 140204,
+            "rssKB": 192024
+          },
+          {
+            "pid": 2041288,
+            "ppid": 2041274,
+            "ticks": 54,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 113899,
+            "rssKB": 226532
+          },
+          {
+            "pid": 2041304,
+            "ppid": 2041288,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 19723,
+            "rssKB": 77700
+          },
+          {
+            "pid": 2041305,
+            "ppid": 2041288,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 11811,
+            "rssKB": 76508
+          },
+          {
+            "pid": 2041314,
+            "ppid": 2041305,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 2738,
+            "rssKB": 22952
+          },
+          {
+            "pid": 2041337,
+            "ppid": 2041304,
+            "ticks": 842,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 424935,
+            "rssKB": 683744
+          },
+          {
+            "pid": 2041339,
+            "ppid": 2041288,
+            "ticks": 24,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 47835,
+            "rssKB": 144340
+          },
+          {
+            "pid": 2041340,
+            "ppid": 2041339,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 9575,
+            "rssKB": 23388
+          },
+          {
+            "pid": 2041352,
+            "ppid": 2041314,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 7577,
+            "rssKB": 56764
+          },
+          {
+            "pid": 2041397,
+            "ppid": 2041314,
+            "ticks": 21,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 76726,
+            "rssKB": 176760
+          },
+          {
+            "pid": 2041411,
+            "ppid": 2041314,
+            "ticks": 669,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 641528,
+            "rssKB": 885764
+          },
+          {
+            "pid": 2041424,
+            "ppid": 2041314,
+            "ticks": 3,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 20759,
+            "rssKB": 102640
+          },
+          {
+            "pid": 2041436,
+            "ppid": 2041314,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 15105,
+            "rssKB": 81776
+          },
+          {
+            "pid": 2041450,
+            "ppid": 2041314,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21582,
+            "rssKB": 99752
+          },
+          {
+            "pid": 2041454,
+            "ppid": 2041314,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21356,
+            "rssKB": 99816
+          }
+        ]
+      }
+    }
+  ],
+  "harness": {
+    "run.mjs": "bf2933351acc79ea6244f6fc23295ed9e157b725395a7a1f87aae87cb84a7402",
+    "browser.mjs": "bba09c3b2f87cabe2fe2838f6fa1e4f35d1a460359dadfd8aa0cef461564d617",
+    "producer.mjs": "a44688fa283ee22fb8dc6d00801c04a5493bb3a31aba5a6df3c4796c3e745eb9",
+    "native.mjs": "7d76ecba213aeecc8c1eb251f20fca4a4c2dfc60bd21f6b657819a29c1ab9da8",
+    "codec.mjs": "8ada2794e421ab994dbe9d0a62bd0ba20c2db942ac441f7f73def8f794b29013"
+  },
+  "bootMs": 684.844809,
+  "visibility": "visible",
+  "browser": {
+    "size": [
+      1920,
+      1080
+    ],
+    "duration": 74.35,
+    "limits": {
+      "maxTextureDimension2D": 16384,
+      "maxStorageBufferBindingSize": 2147483644,
+      "maxBufferSize": 4294967292,
+      "maxColorAttachmentBytesPerSample": 128,
+      "maxSampledTexturesPerShaderStage": 48,
+      "maxStorageBuffersPerShaderStage": 16
+    },
+    "adapter": {
+      "vendor": "nvidia",
+      "architecture": "blackwell",
+      "device": "",
+      "description": ""
+    },
+    "layers": []
+  }
+}

@@ -1,0 +1,31 @@
+diff --git a/src/common/synth_parameters.cpp b/src/common/synth_parameters.cpp
+index 0f92857..0add102 100644
+--- a/src/common/synth_parameters.cpp
++++ b/src/common/synth_parameters.cpp
+@@ -345,7 +345,7 @@ namespace vital {
+     { "mpe_enabled", 0x000501, 0.0, 1.0, 0.0, 0.0, 1.0,
+       ValueDetails::kIndexed, false, "", "MPE Enabled", strings::kOffOnNames },
+     { "view_spectrogram", 0x000803, 0.0, 2.0, 0.0, 0.0, 1.0,
+-      ValueDetails::kIndexed, false, "", "View Spectrogram", strings::kOffOnNames },
++      ValueDetails::kIndexed, false, "", "View Spectrogram", nullptr },
+   };
+ 
+   const ValueDetails ValueDetailsLookup::env_parameter_list[] = {
+@@ -427,7 +427,7 @@ namespace vital {
+     { "blend", 0x000000, 0.0, 2.0, 0.0, 0.0, 1.0,
+       ValueDetails::kLinear, false, "", "Blend", nullptr },
+     { "style", 0x000000, 0.0, 9.0, 0.0, 0.0, 1.0,
+-      ValueDetails::kIndexed, false, "", "Style", strings::kFilterStyleNames },
++      ValueDetails::kIndexed, false, "", "Style", nullptr },
+     { "model", 0x000000, 0.0, kNumFilterModels - 1.0, 0.0, 0.0, 1.0,
+       ValueDetails::kIndexed, false, "", "Model", strings::kFilterModelNames },
+     { "on", 0x000000, 0.0, 1.0, 0.0, 0.0, 1.0,
+@@ -516,7 +516,7 @@ namespace vital {
+     { "destination", 0x000500, 0.0, constants::kNumSourceDestinations + constants::kNumEffects, 0.0, 0.0, 1.0,
+       ValueDetails::kIndexed, false, "", "Destination", strings::kDestinationNames },
+     { "view_2d", 0x000402, 0.0, 2.0, 1.0, 0.0, 1.0,
+-      ValueDetails::kIndexed, false, "", "View 2D", strings::kOffOnNames },
++      ValueDetails::kIndexed, false, "", "View 2D", nullptr },
+   };
+ 
+   const ValueDetails ValueDetailsLookup::mod_parameter_list[] = {

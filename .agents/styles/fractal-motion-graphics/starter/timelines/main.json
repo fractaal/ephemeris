@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "fps": 24,
+  "shutter": 45,
+  "url": "http://localhost:5320/projects/{{name}}/",
+  "grid": { "auto": true, "bpm": 120, "offset": 0, "beatsPerBar": 4 },
+  "media": {},
+  "tracks": [ { "id": "a1", "name": "Music", "clips": [] } ],
+  "cues": [
+    { "id": "title", "t": 0, "dur": 0, "label": "Title", "note": "Placeholder: the opening line." },
+    { "id": "card", "t": 3, "dur": 0, "label": "The product", "note": "Placeholder: swish to the card; the pointer glides in and presses it." },
+    { "id": "end", "t": 8, "dur": 0, "label": "End", "note": "Placeholder: the end title." },
+    { "id": "out", "t": 11, "dur": 0, "label": "Out", "note": "Placeholder: where the film ends (until there is music, its length)." }
+  ]
+}

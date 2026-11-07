@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "fps": 24,
+  "shutter": 180,
+  "url": "http://localhost:5320/projects/{{name}}/",
+  "grid": { "auto": true, "bpm": 120, "offset": 0, "beatsPerBar": 4 },
+  "media": {},
+  "tracks": [ { "id": "a1", "name": "Music", "clips": [] } ],
+  "cues": []
+}

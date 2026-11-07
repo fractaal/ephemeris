@@ -1,0 +1,22 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>html,body{margin:0;background:#111}canvas{display:block;width:1472px;height:828px}</style></head>
+<body><canvas id="c" width="1472" height="828"></canvas>
+<script>
+// each frame the producer finished: drawn as it comes (2D drawImage of the VideoFrame), its pixels checked every 20th
+const c = document.getElementById('c'), g = c.getContext('2d', { willReadFrequently: false });
+const probe = (x, y) => { const d = g.getImageData(x, y, 1, 1).data; return [d[0], d[1], d[2]]; };
+let n = 0;
+window.zc.onFrame(async (imported, a) => {
+  const t0 = performance.now();
+  const vf = imported.getVideoFrame();
+  g.drawImage(vf, 0, 0);
+  vf.close();
+  const r = { frame: a.frame, made: a.made, sentAt: a.sentAt, got: Date.now(), drawMs: +(performance.now() - t0).toFixed(2) };
+  if (n++ % 20 === 0) {
+    // (corner: red is the frame number, green full; the bar: white; beside it: the background)
+    r.corner = probe(8, 8); r.bar = probe(a.bar + 32, 400); r.bg = probe((a.bar + 400) % 1472, 400);
+  }
+  window.zc.drawn(r);
+});
+window.zc.report({ ready: true });
+</script></body></html>

@@ -1,0 +1,35 @@
+From 310de18f7ed6e5ee1de0f21d4a53427de432130a Mon Sep 17 00:00:00 2001
+From: Ben Jude <19900120+fractaal@users.noreply.github.com>
+Date: Sat, 7 Nov 2026 09:51:10 +0800
+Subject: [PATCH] sharedTexture imports WebGPU-only where the process has
+ --shared-texture-webgpu (Linux)
+
+A render worker writes its frames into imported DMA-BUFs with WebGPU (importSharedTexture); WebGPU alone, so no GL use
+needs fences with it. Windows and macOS already import with WebGPU use.
+---
+ shell/common/api/electron_api_shared_texture.cc | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/shell/common/api/electron_api_shared_texture.cc b/shell/common/api/electron_api_shared_texture.cc
+index 76fe5ba..88f103b 100644
+--- a/shell/common/api/electron_api_shared_texture.cc
++++ b/shell/common/api/electron_api_shared_texture.cc
+@@ -808,6 +808,15 @@ v8::Local<v8::Value> ImportSharedTexture(v8::Isolate* isolate,
+       gpu::SHARED_IMAGE_USAGE_GLES2_READ | gpu::SHARED_IMAGE_USAGE_GLES2_WRITE |
+       gpu::SHARED_IMAGE_USAGE_RASTER_READ |
+       gpu::SHARED_IMAGE_USAGE_DISPLAY_READ;
++  // (Ephemeris: WebGPU alone where asked, so a page can write an imported
++  // DMA-BUF through importSharedTexture: a render worker drawing the frames it
++  // shares. Alone, so no GL use needs fences with it; the GPU process must allow
++  // it, --enable-features=EphemerisWebGPUNativePixmap)
++  if (base::CommandLine::ForCurrentProcess()->HasSwitch(
++          "shared-texture-webgpu")) {
++    shared_image_usage = gpu::SHARED_IMAGE_USAGE_WEBGPU_READ |
++                         gpu::SHARED_IMAGE_USAGE_WEBGPU_WRITE;
++  }
+ #endif
+   auto si =
+       sii->CreateSharedImage({si_format.value(), coded_size, color_space,
+-- 
+2.55.0
+

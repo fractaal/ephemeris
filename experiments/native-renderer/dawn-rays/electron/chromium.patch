@@ -1,0 +1,1231 @@
+From a0c90525a1acd9d6402e3c87f597e573995cb896 Mon Sep 17 00:00:00 2001
+From: Ben Jude <19900120+fractaal@users.noreply.github.com>
+Date: Tue, 3 Nov 2026 14:01:15 +0800
+Subject: [PATCH 1/5] [feat][ben] Acceleration structures in Blink's WebGPU,
+ and compiled shaders in a folder every browser shares
+
+---
+ content/browser/gpu/gpu_process_host.cc       |  2 +
+ .../service/dawn_caching_interface.cc         | 55 +++++++++++++++++++
+ .../service/webgpu_decoder_impl.cc            |  1 +
+ gpu/config/gpu_switches.cc                    |  5 ++
+ gpu/config/gpu_switches.h                     |  1 +
+ .../bindings/generated_in_modules.gni         | 14 ++++-
+ .../renderer/bindings/idl_in_modules.gni      |  4 ++
+ .../blink/renderer/modules/webgpu/BUILD.gn    |  2 +
+ .../modules/webgpu/dawn_enum_conversions.cc   |  2 +
+ .../webgpu/gpu_acceleration_structure.cc      | 52 ++++++++++++++++++
+ .../webgpu/gpu_acceleration_structure.h       | 41 ++++++++++++++
+ .../webgpu/gpu_acceleration_structure.idl     | 11 ++++
+ ..._acceleration_structure_binding_layout.idl |  6 ++
+ ...cceleration_structure_build_descriptor.idl | 21 +++++++
+ .../gpu_acceleration_structure_descriptor.idl | 16 ++++++
+ .../renderer/modules/webgpu/gpu_bind_group.cc | 28 ++++++++--
+ .../modules/webgpu/gpu_bind_group_entry.idl   |  3 +-
+ .../modules/webgpu/gpu_bind_group_layout.cc   |  6 ++
+ .../webgpu/gpu_bind_group_layout_entry.idl    |  1 +
+ .../modules/webgpu/gpu_command_encoder.cc     | 40 ++++++++++++++
+ .../modules/webgpu/gpu_command_encoder.h      |  3 +
+ .../modules/webgpu/gpu_command_encoder.idl    |  1 +
+ .../renderer/modules/webgpu/gpu_device.cc     |  6 ++
+ .../renderer/modules/webgpu/gpu_device.h      |  4 ++
+ .../renderer/modules/webgpu/gpu_device.idl    |  1 +
+ .../modules/webgpu/gpu_resource_table.cc      |  6 +-
+ .../modules/webgpu/gpu_supported_features.cc  |  2 +
+ .../modules/webgpu/gpu_supported_features.idl |  1 +
+ 28 files changed, 326 insertions(+), 9 deletions(-)
+ create mode 100644 third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure.cc
+ create mode 100644 third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure.h
+ create mode 100644 third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure.idl
+ create mode 100644 third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure_binding_layout.idl
+ create mode 100644 third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure_build_descriptor.idl
+ create mode 100644 third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure_descriptor.idl
+
+diff --git a/content/browser/gpu/gpu_process_host.cc b/content/browser/gpu/gpu_process_host.cc
+index 9805811404..57af634101 100644
+--- a/content/browser/gpu/gpu_process_host.cc
++++ b/content/browser/gpu/gpu_process_host.cc
+@@ -73,6 +73,7 @@
+ #include "gpu/config/gpu_driver_bug_list.h"
+ #include "gpu/config/gpu_driver_bug_workaround_type.h"
+ #include "gpu/config/gpu_finch_features.h"
++#include "gpu/config/gpu_switches.h"
+ #include "gpu/config/gpu_preferences.h"
+ #include "gpu/config/gpu_switches.h"
+ #include "gpu/ipc/common/gpu_client_ids.h"
+@@ -250,6 +251,7 @@ GpuTerminationStatus ConvertToGpuTerminationStatus(
+ 
+ // Command-line switches to propagate to the GPU process.
+ static const char* const kSwitchNames[] = {
++    switches::kGpuSharedShaderCache,
+     sandbox::policy::switches::kDisableSeccompFilterSandbox,
+     sandbox::policy::switches::kGpuSandboxAllowSysVShm,
+     sandbox::policy::switches::kGpuSandboxFailuresFatal,
+diff --git a/gpu/command_buffer/service/dawn_caching_interface.cc b/gpu/command_buffer/service/dawn_caching_interface.cc
+index 8c9224d2a3..0397626220 100644
+--- a/gpu/command_buffer/service/dawn_caching_interface.cc
++++ b/gpu/command_buffer/service/dawn_caching_interface.cc
+@@ -8,19 +8,52 @@
+ #include <string_view>
+ #include <variant>
+ 
++#include "base/command_line.h"
+ #include "base/compiler_specific.h"
+ #include "base/containers/heap_array.h"
++#include "base/files/file.h"
++#include "base/files/file_path.h"
++#include "base/files/file_util.h"
++#include "base/hash/sha1.h"
+ #include "base/memory/ptr_util.h"
++#include "base/no_destructor.h"
++#include "base/strings/string_number_conversions.h"
+ #include "base/strings/stringprintf.h"
+ #include "base/task/single_thread_task_runner.h"
+ #include "base/trace_event/memory_dump_manager.h"
+ #include "base/trace_event/memory_dump_request_args.h"
+ #include "base/trace_event/trace_event.h"
+ #include "gpu/config/gpu_preferences.h"
++#include "gpu/config/gpu_switches.h"
+ #include "net/base/io_buffer.h"
+ 
+ namespace gpu::webgpu {
+ 
++namespace {
++
++// The folder --gpu-shared-shader-cache names, empty if none. It holds one file
++// per entry, named by a hash of its key: an entry appears whole (written beside
++// it, then renamed), so that another browser can read it the moment it exists.
++const base::FilePath& SharedFolder() {
++  static const base::NoDestructor<base::FilePath> folder([] {
++    base::FilePath path =
++        base::CommandLine::ForCurrentProcess()->GetSwitchValuePath(
++            switches::kGpuSharedShaderCache);
++    if (!path.empty()) {
++      base::CreateDirectory(path);
++    }
++    return path;
++  }());
++  return *folder;
++}
++
++base::FilePath SharedEntry(std::string_view key) {
++  return SharedFolder().AppendASCII(
++      base::HexEncode(base::SHA1Hash(base::as_byte_span(key))));
++}
++
++}  // namespace
++
+ DawnCachingInterface::DawnCachingInterface(scoped_refptr<MemoryCache> backend,
+                                            CacheBlobCallback callback)
+     : memory_cache_backend_(std::move(backend)),
+@@ -55,6 +88,9 @@ void DawnCachingInterface::StoreData(std::span<const std::byte> key,
+ }
+ 
+ size_t DawnCachingInterface::FindKey(std::string_view key) {
++  if (!SharedFolder().empty()) {
++    return base::GetFileSize(SharedEntry(key)).value_or(0);
++  }
+   if (memory_cache() == nullptr) {
+     return 0u;
+   }
+@@ -67,6 +103,16 @@ size_t DawnCachingInterface::FindKey(std::string_view key) {
+ 
+ size_t DawnCachingInterface::LoadData(std::string_view key,
+                                       base::span<uint8_t> dst) {
++  if (!SharedFolder().empty()) {
++    base::File file(SharedEntry(key),
++                    base::File::FLAG_OPEN | base::File::FLAG_READ);
++    const int64_t size = file.IsValid() ? file.GetLength() : 0;
++    if (size <= 0 || static_cast<size_t>(size) > dst.size() ||
++        !file.ReadAndCheck(0, dst.first(static_cast<size_t>(size)))) {
++      return 0u;
++    }
++    return static_cast<size_t>(size);
++  }
+   if (memory_cache() == nullptr) {
+     return 0u;
+   }
+@@ -85,6 +131,15 @@ size_t DawnCachingInterface::LoadData(std::string_view key,
+ 
+ void DawnCachingInterface::StoreData(std::string_view key,
+                                      base::span<const uint8_t> src) {
++  if (!SharedFolder().empty()) {
++    base::FilePath temp;
++    if (!src.empty() && base::CreateTemporaryFileInDir(SharedFolder(), &temp) &&
++        (!base::WriteFile(temp, src) ||
++         !base::ReplaceFile(temp, SharedEntry(key), nullptr))) {
++      base::DeleteFile(temp);
++    }
++    return;
++  }
+   if (memory_cache() == nullptr || src.empty()) {
+     return;
+   }
+diff --git a/gpu/command_buffer/service/webgpu_decoder_impl.cc b/gpu/command_buffer/service/webgpu_decoder_impl.cc
+index 57a3b79bc7..a7d4f8792e 100644
+--- a/gpu/command_buffer/service/webgpu_decoder_impl.cc
++++ b/gpu/command_buffer/service/webgpu_decoder_impl.cc
+@@ -1265,6 +1265,7 @@ bool WebGPUDecoderImpl::IsFeatureExposed(wgpu::FeatureName feature) const {
+   switch (feature) {
+     case wgpu::FeatureName::ChromiumExperimentalTimestampQueryInsidePasses:
+     case wgpu::FeatureName::ChromiumExperimentalSamplingResourceTable:
++    case wgpu::FeatureName::AccelerationStructure:
+     case wgpu::FeatureName::MultiDrawIndirect:
+     case wgpu::FeatureName::SharedBufferMemoryD3D12Resource:
+     case wgpu::FeatureName::ChromiumExperimentalSubgroupMatrix:
+diff --git a/gpu/config/gpu_switches.cc b/gpu/config/gpu_switches.cc
+index 08e9f398f9..3af3b71ef1 100644
+--- a/gpu/config/gpu_switches.cc
++++ b/gpu/config/gpu_switches.cc
+@@ -172,4 +172,9 @@ const char kEnableGpuMainTimeKeeperMetrics[] =
+ // log expectation comparisons.
+ const char kSuppressPerformanceLogs[] = "suppress-performance-logs";
+ 
++// A folder that keeps WebGPU's compiled shaders and pipelines instead of each
++// profile's disk cache. Every browser given the same folder shares them, while
++// it runs as well as after it has gone.
++const char kGpuSharedShaderCache[] = "gpu-shared-shader-cache";
++
+ }  // namespace switches
+diff --git a/gpu/config/gpu_switches.h b/gpu/config/gpu_switches.h
+index 408987d74c..73a87870a1 100644
+--- a/gpu/config/gpu_switches.h
++++ b/gpu/config/gpu_switches.h
+@@ -18,6 +18,7 @@ GPU_CONFIG_EXPORT extern const char kGpuPreferences[];
+ GPU_CONFIG_EXPORT extern const char kIgnoreGpuBlocklist[];
+ GPU_CONFIG_EXPORT extern const char kGpuDiskCacheSizeKB[];
+ GPU_CONFIG_EXPORT extern const char kDisableGpuShaderDiskCache[];
++GPU_CONFIG_EXPORT extern const char kGpuSharedShaderCache[];
+ GPU_CONFIG_EXPORT extern const char kDisableGpuProcessForDX12InfoCollection[];
+ GPU_CONFIG_EXPORT extern const char kEnableWebGLDraftExtensions[];
+ GPU_CONFIG_EXPORT extern const char kEnableUnsafeWebGPU[];
+diff --git a/third_party/blink/renderer/bindings/generated_in_modules.gni b/third_party/blink/renderer/bindings/generated_in_modules.gni
+index 065779e15a..b96c607b3d 100644
+--- a/third_party/blink/renderer/bindings/generated_in_modules.gni
++++ b/third_party/blink/renderer/bindings/generated_in_modules.gni
+@@ -466,6 +466,12 @@ generated_dictionary_sources_in_modules = [
+   "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_get_notification_options.h",
+   "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_google_play_billing_method_data.cc",
+   "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_google_play_billing_method_data.h",
++  "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_gpu_acceleration_structure_binding_layout.cc",
++  "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_gpu_acceleration_structure_binding_layout.h",
++  "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_gpu_acceleration_structure_build_descriptor.cc",
++  "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_gpu_acceleration_structure_build_descriptor.h",
++  "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_gpu_acceleration_structure_descriptor.cc",
++  "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_gpu_acceleration_structure_descriptor.h",
+   "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_gpu_bind_group_descriptor.cc",
+   "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_gpu_bind_group_descriptor.h",
+   "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_gpu_bind_group_entry.cc",
+@@ -1668,6 +1674,8 @@ generated_enumeration_sources_in_modules = [
+   "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_gpu_power_preference.h",
+   "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_gpu_primitive_topology.cc",
+   "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_gpu_primitive_topology.h",
++  "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_gpu_acceleration_structure_type.cc",
++  "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_gpu_acceleration_structure_type.h",
+   "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_gpu_query_type.cc",
+   "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_gpu_query_type.h",
+   "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_gpu_sampler_binding_type.cc",
+@@ -2391,6 +2399,8 @@ generated_interface_sources_in_modules = [
+   "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_gpu.h",
+   "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_gpu_adapter.cc",
+   "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_gpu_adapter.h",
++  "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_gpu_acceleration_structure.cc",
++  "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_gpu_acceleration_structure.h",
+   "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_gpu_adapter_info.cc",
+   "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_gpu_adapter_info.h",
+   "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_gpu_bind_group.cc",
+@@ -3452,8 +3462,8 @@ generated_union_sources_in_modules = [
+   "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_union_filesystemhandle_wellknowndirectory.h",
+   "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_union_gpuautolayoutmode_gpupipelinelayout.cc",
+   "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_union_gpuautolayoutmode_gpupipelinelayout.h",
+-  "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_union_gpubuffer_gpubufferbinding_gpuexternaltexture_gpusampler_gputexture_gputextureview.cc",
+-  "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_union_gpubuffer_gpubufferbinding_gpuexternaltexture_gpusampler_gputexture_gputextureview.h",
++  "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_union_gpuaccelerationstructure_gpubuffer_gpubufferbinding_gpuexternaltexture_gpusampler_gputexture_gputextureview.cc",
++  "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_union_gpuaccelerationstructure_gpubuffer_gpubufferbinding_gpuexternaltexture_gpusampler_gputexture_gputextureview.h",
+   "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_union_gputexture_gputextureview.cc",
+   "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_union_gputexture_gputextureview.h",
+   "$root_gen_dir/third_party/blink/renderer/bindings/modules/v8/v8_union_offscreen_rendering_context.cc",
+diff --git a/third_party/blink/renderer/bindings/idl_in_modules.gni b/third_party/blink/renderer/bindings/idl_in_modules.gni
+index 04825bb72d..7b58096caf 100644
+--- a/third_party/blink/renderer/bindings/idl_in_modules.gni
++++ b/third_party/blink/renderer/bindings/idl_in_modules.gni
+@@ -1044,6 +1044,10 @@ static_idl_files_in_modules = [
+   "//third_party/blink/renderer/modules/webgpu/gpu_adapter_info.idl",
+   "//third_party/blink/renderer/modules/webgpu/gpu_bind_group.idl",
+   "//third_party/blink/renderer/modules/webgpu/gpu_bind_group_descriptor.idl",
++  "//third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure.idl",
++  "//third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure_binding_layout.idl",
++  "//third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure_build_descriptor.idl",
++  "//third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure_descriptor.idl",
+   "//third_party/blink/renderer/modules/webgpu/gpu_bind_group_entry.idl",
+   "//third_party/blink/renderer/modules/webgpu/gpu_bind_group_layout.idl",
+   "//third_party/blink/renderer/modules/webgpu/gpu_bind_group_layout_descriptor.idl",
+diff --git a/third_party/blink/renderer/modules/webgpu/BUILD.gn b/third_party/blink/renderer/modules/webgpu/BUILD.gn
+index f883ab27a4..004e2e5d34 100644
+--- a/third_party/blink/renderer/modules/webgpu/BUILD.gn
++++ b/third_party/blink/renderer/modules/webgpu/BUILD.gn
+@@ -69,6 +69,8 @@ blink_modules_sources("webgpu") {
+     "gpu_programmable_pass_encoder.h",
+     "gpu_programmable_stage.cc",
+     "gpu_programmable_stage.h",
++    "gpu_acceleration_structure.cc",
++    "gpu_acceleration_structure.h",
+     "gpu_query_set.cc",
+     "gpu_query_set.h",
+     "gpu_queue.cc",
+diff --git a/third_party/blink/renderer/modules/webgpu/dawn_enum_conversions.cc b/third_party/blink/renderer/modules/webgpu/dawn_enum_conversions.cc
+index 71b117aace..3e750062d3 100644
+--- a/third_party/blink/renderer/modules/webgpu/dawn_enum_conversions.cc
++++ b/third_party/blink/renderer/modules/webgpu/dawn_enum_conversions.cc
+@@ -740,6 +740,8 @@ wgpu::FeatureName AsDawnEnum(const V8GPUFeatureName& webgpu_enum) {
+       return wgpu::FeatureName::Float32Filterable;
+     case V8GPUFeatureName::Enum::kFloat32Blendable:
+       return wgpu::FeatureName::Float32Blendable;
++    case V8GPUFeatureName::Enum::kAccelerationStructure:
++      return wgpu::FeatureName::AccelerationStructure;
+     case V8GPUFeatureName::Enum::kDualSourceBlending:
+       return wgpu::FeatureName::DualSourceBlending;
+     case V8GPUFeatureName::Enum::kSubgroups:
+diff --git a/third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure.cc b/third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure.cc
+new file mode 100644
+index 0000000000..e10540c521
+--- /dev/null
++++ b/third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure.cc
+@@ -0,0 +1,52 @@
++// Copyright 2026 The Chromium Authors
++// Use of this source code is governed by a BSD-style license that can be
++// found in the LICENSE file.
++
++#include "third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure.h"
++
++#include "third_party/blink/renderer/bindings/modules/v8/v8_gpu_acceleration_structure_descriptor.h"
++#include "third_party/blink/renderer/bindings/modules/v8/v8_gpu_acceleration_structure_type.h"
++#include "third_party/blink/renderer/modules/webgpu/gpu_device.h"
++
++namespace blink {
++
++// static
++GPUAccelerationStructure* GPUAccelerationStructure::Create(
++    GPUDevice* device,
++    const GPUAccelerationStructureDescriptor* webgpu_desc) {
++  DCHECK(device);
++  DCHECK(webgpu_desc);
++
++  wgpu::AccelerationStructureDescriptor dawn_desc = {};
++  dawn_desc.type = webgpu_desc->type() ==
++                           V8GPUAccelerationStructureType::Enum::kBottomLevel
++                       ? wgpu::AccelerationStructureType::BottomLevel
++                       : wgpu::AccelerationStructureType::TopLevel;
++  dawn_desc.maxVertexCount = webgpu_desc->maxVertexCount();
++  dawn_desc.maxIndexCount = webgpu_desc->maxIndexCount();
++  dawn_desc.maxAABBCount = webgpu_desc->maxAABBCount();
++  dawn_desc.maxInstanceCount = webgpu_desc->maxInstanceCount();
++
++  std::string label = webgpu_desc->label().Utf8();
++  if (!label.empty()) {
++    dawn_desc.label = label.c_str();
++  }
++
++  return MakeGarbageCollected<GPUAccelerationStructure>(
++      device, device->GetHandle().CreateAccelerationStructure(&dawn_desc),
++      webgpu_desc->label());
++}
++
++GPUAccelerationStructure::GPUAccelerationStructure(
++    GPUDevice* device,
++    wgpu::AccelerationStructure structure,
++    const String& label)
++    : DawnObject<wgpu::AccelerationStructure>(device,
++                                              std::move(structure),
++                                              label) {}
++
++void GPUAccelerationStructure::destroy() {
++  GetHandle().Destroy();
++}
++
++}  // namespace blink
+diff --git a/third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure.h b/third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure.h
+new file mode 100644
+index 0000000000..d65ea2a2e2
+--- /dev/null
++++ b/third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure.h
+@@ -0,0 +1,41 @@
++// Copyright 2026 The Chromium Authors
++// Use of this source code is governed by a BSD-style license that can be
++// found in the LICENSE file.
++
++#ifndef THIRD_PARTY_BLINK_RENDERER_MODULES_WEBGPU_GPU_ACCELERATION_STRUCTURE_H_
++#define THIRD_PARTY_BLINK_RENDERER_MODULES_WEBGPU_GPU_ACCELERATION_STRUCTURE_H_
++
++#include "third_party/blink/renderer/modules/webgpu/dawn_object.h"
++
++namespace blink {
++
++class GPUAccelerationStructureDescriptor;
++
++class GPUAccelerationStructure
++    : public DawnObject<wgpu::AccelerationStructure> {
++  DEFINE_WRAPPERTYPEINFO();
++
++ public:
++  static GPUAccelerationStructure* Create(
++      GPUDevice* device,
++      const GPUAccelerationStructureDescriptor* webgpu_desc);
++  explicit GPUAccelerationStructure(GPUDevice* device,
++                                    wgpu::AccelerationStructure structure,
++                                    const String& label);
++
++  GPUAccelerationStructure(const GPUAccelerationStructure&) = delete;
++  GPUAccelerationStructure& operator=(const GPUAccelerationStructure&) = delete;
++
++  // gpu_acceleration_structure.idl {{{
++  void destroy();
++  // }}} End of WebIDL binding implementation.
++
++ private:
++  void SetLabelImpl(std::string_view value) override {
++    GetHandle().SetLabel(value);
++  }
++};
++
++}  // namespace blink
++
++#endif  // THIRD_PARTY_BLINK_RENDERER_MODULES_WEBGPU_GPU_ACCELERATION_STRUCTURE_H_
+diff --git a/third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure.idl b/third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure.idl
+new file mode 100644
+index 0000000000..e707a9d3c2
+--- /dev/null
++++ b/third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure.idl
+@@ -0,0 +1,11 @@
++// Copyright 2026 The Chromium Authors
++// Use of this source code is governed by a BSD-style license that can be
++// found in the LICENSE file.
++
++[
++    Exposed=(Window, Worker),
++    SecureContext
++] interface GPUAccelerationStructure {
++    void destroy();
++};
++GPUAccelerationStructure includes GPUObjectBase;
+diff --git a/third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure_binding_layout.idl b/third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure_binding_layout.idl
+new file mode 100644
+index 0000000000..b8772fdc97
+--- /dev/null
++++ b/third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure_binding_layout.idl
+@@ -0,0 +1,6 @@
++// Copyright 2026 The Chromium Authors
++// Use of this source code is governed by a BSD-style license that can be
++// found in the LICENSE file.
++
++dictionary GPUAccelerationStructureBindingLayout {
++};
+diff --git a/third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure_build_descriptor.idl b/third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure_build_descriptor.idl
+new file mode 100644
+index 0000000000..9e3e327b15
+--- /dev/null
++++ b/third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure_build_descriptor.idl
+@@ -0,0 +1,21 @@
++// Copyright 2026 The Chromium Authors
++// Use of this source code is governed by a BSD-style license that can be
++// found in the LICENSE file.
++
++dictionary GPUAccelerationStructureBuildDescriptor {
++    GPUBuffer vertexBuffer;
++    GPUSize64 vertexOffset = 0;
++    GPUSize64 vertexStride = 12;
++    GPUSize32 vertexCount = 0;
++    GPUBuffer indexBuffer;
++    GPUSize64 indexOffset = 0;
++    GPUSize32 indexCount = 0;
++    GPUBuffer aabbBuffer;
++    GPUSize64 aabbOffset = 0;
++    GPUSize64 aabbStride = 24;
++    GPUSize32 aabbCount = 0;
++    boolean opaque = true;
++    sequence<GPUAccelerationStructure> sources = [];
++    // 16 words per instance: see Dawn's AccelerationStructure.h.
++    ArrayBuffer instanceData;
++};
+diff --git a/third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure_descriptor.idl b/third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure_descriptor.idl
+new file mode 100644
+index 0000000000..b79d057936
+--- /dev/null
++++ b/third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure_descriptor.idl
+@@ -0,0 +1,16 @@
++// Copyright 2026 The Chromium Authors
++// Use of this source code is governed by a BSD-style license that can be
++// found in the LICENSE file.
++
++dictionary GPUAccelerationStructureDescriptor : GPUObjectDescriptorBase {
++    required GPUAccelerationStructureType type;
++    GPUSize32 maxVertexCount = 0;
++    GPUSize32 maxIndexCount = 0;
++    GPUSize32 maxAABBCount = 0;
++    GPUSize32 maxInstanceCount = 0;
++};
++
++enum GPUAccelerationStructureType {
++    "bottom-level",
++    "top-level"
++};
+diff --git a/third_party/blink/renderer/modules/webgpu/gpu_bind_group.cc b/third_party/blink/renderer/modules/webgpu/gpu_bind_group.cc
+index f39c803e83..8790a5ec48 100644
+--- a/third_party/blink/renderer/modules/webgpu/gpu_bind_group.cc
++++ b/third_party/blink/renderer/modules/webgpu/gpu_bind_group.cc
+@@ -7,8 +7,9 @@
+ #include "third_party/blink/renderer/bindings/modules/v8/v8_gpu_bind_group_descriptor.h"
+ #include "third_party/blink/renderer/bindings/modules/v8/v8_gpu_bind_group_entry.h"
+ #include "third_party/blink/renderer/bindings/modules/v8/v8_gpu_buffer_binding.h"
+-#include "third_party/blink/renderer/bindings/modules/v8/v8_union_gpubuffer_gpubufferbinding_gpuexternaltexture_gpusampler_gputexture_gputextureview.h"
++#include "third_party/blink/renderer/bindings/modules/v8/v8_union_gpuaccelerationstructure_gpubuffer_gpubufferbinding_gpuexternaltexture_gpusampler_gputexture_gputextureview.h"
+ #include "third_party/blink/renderer/modules/webgpu/dawn_conversions.h"
++#include "third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure.h"
+ #include "third_party/blink/renderer/modules/webgpu/gpu_bind_group_layout.h"
+ #include "third_party/blink/renderer/modules/webgpu/gpu_buffer.h"
+ #include "third_party/blink/renderer/modules/webgpu/gpu_device.h"
+@@ -23,7 +24,9 @@ namespace blink {
+ wgpu::BindGroupEntry AsDawnType(
+     const GPUBindGroupEntry* webgpu_binding,
+     Vector<std::unique_ptr<wgpu::ExternalTextureBindingEntry>>*
+-        externalTextureBindingEntries) {
++        externalTextureBindingEntries,
++    Vector<std::unique_ptr<wgpu::AccelerationStructureBindingEntry>>*
++        structureBindingEntries) {
+   wgpu::BindGroupEntry dawn_binding = {
+       .binding = webgpu_binding->binding(),
+   };
+@@ -58,6 +61,15 @@ wgpu::BindGroupEntry AsDawnType(
+       dawn_binding.textureView =
+           AsDawnType(webgpu_binding->resource()->GetAsGPUTextureView());
+       break;
++    case V8GPUBindingResource::ContentType::kGPUAccelerationStructure: {
++      auto structureBindingEntry =
++          std::make_unique<wgpu::AccelerationStructureBindingEntry>();
++      structureBindingEntry->accelerationStructure = AsDawnType(
++          webgpu_binding->resource()->GetAsGPUAccelerationStructure());
++      dawn_binding.nextInChain = structureBindingEntry.get();
++      structureBindingEntries->push_back(std::move(structureBindingEntry));
++      break;
++    }
+     case V8GPUBindingResource::ContentType::kGPUExternalTexture:
+       std::unique_ptr<wgpu::ExternalTextureBindingEntry>
+           externalTextureBindingEntry =
+@@ -76,12 +88,15 @@ wgpu::BindGroupEntry AsDawnType(
+ base::HeapArray<wgpu::BindGroupEntry> AsDawnType(
+     const HeapVector<Member<GPUBindGroupEntry>>& webgpu_objects,
+     Vector<std::unique_ptr<wgpu::ExternalTextureBindingEntry>>*
+-        externalTextureBindingEntries) {
++        externalTextureBindingEntries,
++    Vector<std::unique_ptr<wgpu::AccelerationStructureBindingEntry>>*
++        structureBindingEntries) {
+   const wtf_size_t count = webgpu_objects.size();
+   auto dawn_objects = base::HeapArray<wgpu::BindGroupEntry>::WithSize(count);
+   for (wtf_size_t i = 0; i < count; ++i) {
+     dawn_objects[i] =
+-        AsDawnType(webgpu_objects[i].Get(), externalTextureBindingEntries);
++        AsDawnType(webgpu_objects[i].Get(), externalTextureBindingEntries,
++                   structureBindingEntries);
+   }
+   return dawn_objects;
+ }
+@@ -97,10 +112,13 @@ GPUBindGroup* GPUBindGroup::Create(GPUDevice* device,
+   base::HeapArray<wgpu::BindGroupEntry> entries;
+   Vector<std::unique_ptr<wgpu::ExternalTextureBindingEntry>>
+       externalTextureBindingEntries;
++  Vector<std::unique_ptr<wgpu::AccelerationStructureBindingEntry>>
++      structureBindingEntries;
+   entry_count = static_cast<uint32_t>(webgpu_desc->entries().size());
+   if (entry_count > 0) {
+     entries =
+-        AsDawnType(webgpu_desc->entries(), &externalTextureBindingEntries);
++        AsDawnType(webgpu_desc->entries(), &externalTextureBindingEntries,
++                   &structureBindingEntries);
+   }
+ 
+   wgpu::BindGroupDescriptor dawn_desc = {
+diff --git a/third_party/blink/renderer/modules/webgpu/gpu_bind_group_entry.idl b/third_party/blink/renderer/modules/webgpu/gpu_bind_group_entry.idl
+index 6945982e09..1a16e299ee 100644
+--- a/third_party/blink/renderer/modules/webgpu/gpu_bind_group_entry.idl
++++ b/third_party/blink/renderer/modules/webgpu/gpu_bind_group_entry.idl
+@@ -9,7 +9,8 @@ typedef (GPUSampler or
+          GPUTextureView or
+          GPUBuffer or
+          GPUBufferBinding or
+-         GPUExternalTexture) GPUBindingResource;
++         GPUExternalTexture or
++         GPUAccelerationStructure) GPUBindingResource;
+ 
+ dictionary GPUBindGroupEntry {
+     required GPUIndex32 binding;
+diff --git a/third_party/blink/renderer/modules/webgpu/gpu_bind_group_layout.cc b/third_party/blink/renderer/modules/webgpu/gpu_bind_group_layout.cc
+index 4f8cb1b6a0..1a28a5dc41 100644
+--- a/third_party/blink/renderer/modules/webgpu/gpu_bind_group_layout.cc
++++ b/third_party/blink/renderer/modules/webgpu/gpu_bind_group_layout.cc
+@@ -67,6 +67,12 @@ wgpu::BindGroupLayoutEntry AsDawnType(
+     };
+   }
+ 
++  if (webgpu_binding->hasAccelerationStructure()) {
++    // (it holds nothing, so one is enough for every entry)
++    static const wgpu::AccelerationStructureBindingLayout structure_layout;
++    dawn_binding.nextInChain = &structure_layout;
++  }
++
+   if (webgpu_binding->hasExternalTexture()) {
+     std::unique_ptr<wgpu::ExternalTextureBindingLayout>
+         externalTextureBindingLayout =
+diff --git a/third_party/blink/renderer/modules/webgpu/gpu_bind_group_layout_entry.idl b/third_party/blink/renderer/modules/webgpu/gpu_bind_group_layout_entry.idl
+index bd8cac5d91..8ea9f3f7a9 100644
+--- a/third_party/blink/renderer/modules/webgpu/gpu_bind_group_layout_entry.idl
++++ b/third_party/blink/renderer/modules/webgpu/gpu_bind_group_layout_entry.idl
+@@ -10,6 +10,7 @@ dictionary GPUBindGroupLayoutEntry {
+     GPUTextureBindingLayout texture;
+     GPUStorageTextureBindingLayout storageTexture;
+     GPUExternalTextureBindingLayout externalTexture;
++    GPUAccelerationStructureBindingLayout accelerationStructure;
+ };
+ 
+ enum GPUBindingType {
+diff --git a/third_party/blink/renderer/modules/webgpu/gpu_command_encoder.cc b/third_party/blink/renderer/modules/webgpu/gpu_command_encoder.cc
+index dda2fc46f6..d8ea9a6b50 100644
+--- a/third_party/blink/renderer/modules/webgpu/gpu_command_encoder.cc
++++ b/third_party/blink/renderer/modules/webgpu/gpu_command_encoder.cc
+@@ -4,6 +4,7 @@
+ 
+ #include "third_party/blink/renderer/modules/webgpu/gpu_command_encoder.h"
+ 
++#include "third_party/blink/renderer/bindings/modules/v8/v8_gpu_acceleration_structure_build_descriptor.h"
+ #include "third_party/blink/renderer/bindings/modules/v8/v8_gpu_command_buffer_descriptor.h"
+ #include "third_party/blink/renderer/bindings/modules/v8/v8_gpu_command_encoder_descriptor.h"
+ #include "third_party/blink/renderer/bindings/modules/v8/v8_gpu_compute_pass_descriptor.h"
+@@ -16,6 +17,8 @@
+ #include "third_party/blink/renderer/bindings/modules/v8/v8_gpu_texel_copy_texture_info.h"
+ #include "third_party/blink/renderer/bindings/modules/v8/v8_union_gputexture_gputextureview.h"
+ #include "third_party/blink/renderer/modules/webgpu/dawn_conversions.h"
++#include "third_party/blink/renderer/core/typed_arrays/dom_array_buffer.h"
++#include "third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure.h"
+ #include "third_party/blink/renderer/modules/webgpu/gpu_buffer.h"
+ #include "third_party/blink/renderer/modules/webgpu/gpu_command_buffer.h"
+ #include "third_party/blink/renderer/modules/webgpu/gpu_compute_pass_encoder.h"
+@@ -409,6 +412,43 @@ void GPUCommandEncoder::copyTextureToTexture(
+                                    &dawn_copy_size);
+ }
+ 
++void GPUCommandEncoder::buildAccelerationStructure(
++    DawnObject<wgpu::AccelerationStructure>* destination,
++    const GPUAccelerationStructureBuildDescriptor* webgpu_desc) {
++  wgpu::AccelerationStructureBuildDescriptor dawn_desc = {};
++  if (webgpu_desc->hasVertexBuffer()) {
++    dawn_desc.vertexBuffer = AsDawnType(webgpu_desc->vertexBuffer());
++  }
++  dawn_desc.vertexOffset = webgpu_desc->vertexOffset();
++  dawn_desc.vertexStride = webgpu_desc->vertexStride();
++  dawn_desc.vertexCount = webgpu_desc->vertexCount();
++  if (webgpu_desc->hasIndexBuffer()) {
++    dawn_desc.indexBuffer = AsDawnType(webgpu_desc->indexBuffer());
++  }
++  dawn_desc.indexOffset = webgpu_desc->indexOffset();
++  dawn_desc.indexCount = webgpu_desc->indexCount();
++  if (webgpu_desc->hasAabbBuffer()) {
++    dawn_desc.aabbBuffer = AsDawnType(webgpu_desc->aabbBuffer());
++  }
++  dawn_desc.aabbOffset = webgpu_desc->aabbOffset();
++  dawn_desc.aabbStride = webgpu_desc->aabbStride();
++  dawn_desc.aabbCount = webgpu_desc->aabbCount();
++  dawn_desc.opaque = webgpu_desc->opaque();
++
++  std::unique_ptr<wgpu::AccelerationStructure[]> sources =
++      AsDawnType(webgpu_desc->sources());
++  dawn_desc.sourceCount = webgpu_desc->sources().size();
++  dawn_desc.sources = sources.get();
++
++  if (webgpu_desc->hasInstanceData()) {
++    base::span<const uint8_t> data = webgpu_desc->instanceData()->ByteSpan();
++    dawn_desc.instanceDataCount = data.size() / sizeof(uint32_t);
++    dawn_desc.instanceData = reinterpret_cast<const uint32_t*>(data.data());
++  }
++
++  GetHandle().BuildAccelerationStructure(destination->GetHandle(), &dawn_desc);
++}
++
+ void GPUCommandEncoder::writeTimestamp(DawnObject<wgpu::QuerySet>* querySet,
+                                        uint32_t queryIndex,
+                                        ExceptionState& exception_state) {
+diff --git a/third_party/blink/renderer/modules/webgpu/gpu_command_encoder.h b/third_party/blink/renderer/modules/webgpu/gpu_command_encoder.h
+index cea6873688..7c2bdf36ea 100644
+--- a/third_party/blink/renderer/modules/webgpu/gpu_command_encoder.h
++++ b/third_party/blink/renderer/modules/webgpu/gpu_command_encoder.h
+@@ -112,6 +112,9 @@ class GPUCommandEncoder : public DawnObject<wgpu::CommandEncoder> {
+   void writeTimestamp(DawnObject<wgpu::QuerySet>* querySet,
+                       uint32_t queryIndex,
+                       ExceptionState& exception_state);
++  void buildAccelerationStructure(
++      DawnObject<wgpu::AccelerationStructure>* destination,
++      const GPUAccelerationStructureBuildDescriptor* descriptor);
+   void clearBuffer(DawnObject<wgpu::Buffer>* buffer, uint64_t offset) {
+     GetHandle().ClearBuffer(buffer->GetHandle(), offset);
+   }
+diff --git a/third_party/blink/renderer/modules/webgpu/gpu_command_encoder.idl b/third_party/blink/renderer/modules/webgpu/gpu_command_encoder.idl
+index 9ac855e9b6..15179d9956 100644
+--- a/third_party/blink/renderer/modules/webgpu/gpu_command_encoder.idl
++++ b/third_party/blink/renderer/modules/webgpu/gpu_command_encoder.idl
+@@ -50,6 +50,7 @@
+ 
+     [RuntimeEnabled=WebGPUExperimentalFeatures, NoAllocDirectCall, RaisesException]
+     void writeTimestamp(GPUQuerySet querySet, GPUSize32 queryIndex);
++    void buildAccelerationStructure(GPUAccelerationStructure destination, GPUAccelerationStructureBuildDescriptor descriptor);
+ 
+     [NoAllocDirectCall] void clearBuffer(
+         GPUBuffer buffer,
+diff --git a/third_party/blink/renderer/modules/webgpu/gpu_device.cc b/third_party/blink/renderer/modules/webgpu/gpu_device.cc
+index e6d12efd14..beaed5300b 100644
+--- a/third_party/blink/renderer/modules/webgpu/gpu_device.cc
++++ b/third_party/blink/renderer/modules/webgpu/gpu_device.cc
+@@ -35,6 +35,7 @@
+ #include "third_party/blink/renderer/modules/webgpu/gpu_out_of_memory_error.h"
+ #include "third_party/blink/renderer/modules/webgpu/gpu_pipeline_error.h"
+ #include "third_party/blink/renderer/modules/webgpu/gpu_pipeline_layout.h"
++#include "third_party/blink/renderer/modules/webgpu/gpu_acceleration_structure.h"
+ #include "third_party/blink/renderer/modules/webgpu/gpu_query_set.h"
+ #include "third_party/blink/renderer/modules/webgpu/gpu_queue.h"
+ #include "third_party/blink/renderer/modules/webgpu/gpu_render_bundle_encoder.h"
+@@ -674,6 +675,11 @@ GPURenderBundleEncoder* GPUDevice::createRenderBundleEncoder(
+   return GPURenderBundleEncoder::Create(this, descriptor, exception_state);
+ }
+ 
++GPUAccelerationStructure* GPUDevice::createAccelerationStructure(
++    const GPUAccelerationStructureDescriptor* descriptor) {
++  return GPUAccelerationStructure::Create(this, descriptor);
++}
++
+ GPUQuerySet* GPUDevice::createQuerySet(const GPUQuerySetDescriptor* descriptor,
+                                        ExceptionState& exception_state) {
+   constexpr auto kTimestampQuery = V8GPUFeatureName::Enum::kTimestampQuery;
+diff --git a/third_party/blink/renderer/modules/webgpu/gpu_device.h b/third_party/blink/renderer/modules/webgpu/gpu_device.h
+index 4142bff814..defa846415 100644
+--- a/third_party/blink/renderer/modules/webgpu/gpu_device.h
++++ b/third_party/blink/renderer/modules/webgpu/gpu_device.h
+@@ -42,6 +42,8 @@ class GPUExternalTexture;
+ class GPUExternalTextureDescriptor;
+ class GPUPipelineLayout;
+ class GPUPipelineLayoutDescriptor;
++class GPUAccelerationStructure;
++class GPUAccelerationStructureDescriptor;
+ class GPUQuerySet;
+ class GPUQuerySetDescriptor;
+ class GPUQueue;
+@@ -157,6 +159,8 @@ class GPUDevice final : public EventTarget,
+       const GPURenderBundleEncoderDescriptor* descriptor,
+       ExceptionState& exception_state);
+ 
++  GPUAccelerationStructure* createAccelerationStructure(
++      const GPUAccelerationStructureDescriptor* descriptor);
+   GPUQuerySet* createQuerySet(const GPUQuerySetDescriptor* descriptor,
+                               ExceptionState& exception_state);
+ 
+diff --git a/third_party/blink/renderer/modules/webgpu/gpu_device.idl b/third_party/blink/renderer/modules/webgpu/gpu_device.idl
+index 821f99c51a..3eb69c872f 100644
+--- a/third_party/blink/renderer/modules/webgpu/gpu_device.idl
++++ b/third_party/blink/renderer/modules/webgpu/gpu_device.idl
+@@ -39,6 +39,7 @@
+     [RaisesException] GPURenderBundleEncoder createRenderBundleEncoder(GPURenderBundleEncoderDescriptor descriptor);
+ 
+     [RaisesException] GPUQuerySet createQuerySet(GPUQuerySetDescriptor descriptor);
++    GPUAccelerationStructure createAccelerationStructure(GPUAccelerationStructureDescriptor descriptor);
+ 
+     void pushErrorScope(GPUErrorFilter filter);
+     [CallWith=ScriptState] Promise<GPUError?> popErrorScope();
+diff --git a/third_party/blink/renderer/modules/webgpu/gpu_resource_table.cc b/third_party/blink/renderer/modules/webgpu/gpu_resource_table.cc
+index 669eddefba..b02615cded 100644
+--- a/third_party/blink/renderer/modules/webgpu/gpu_resource_table.cc
++++ b/third_party/blink/renderer/modules/webgpu/gpu_resource_table.cc
+@@ -6,7 +6,7 @@
+ 
+ #include "third_party/blink/renderer/bindings/modules/v8/v8_gpu_buffer_binding.h"
+ #include "third_party/blink/renderer/bindings/modules/v8/v8_gpu_resource_table_descriptor.h"
+-#include "third_party/blink/renderer/bindings/modules/v8/v8_union_gpubuffer_gpubufferbinding_gpuexternaltexture_gpusampler_gputexture_gputextureview.h"
++#include "third_party/blink/renderer/bindings/modules/v8/v8_union_gpuaccelerationstructure_gpubuffer_gpubufferbinding_gpuexternaltexture_gpusampler_gputexture_gputextureview.h"
+ #include "third_party/blink/renderer/modules/webgpu/dawn_conversions.h"
+ #include "third_party/blink/renderer/modules/webgpu/gpu_buffer.h"
+ #include "third_party/blink/renderer/modules/webgpu/gpu_device.h"
+@@ -49,6 +49,10 @@ wgpu::BindingResource AsDawnType(const V8GPUBindingResource* webgpu_resource,
+       dawn_resource.textureView =
+           AsDawnType(webgpu_resource->GetAsGPUTextureView());
+       break;
++    case V8GPUBindingResource::ContentType::kGPUAccelerationStructure:
++      exception_state.ThrowTypeError(
++          "GPUAccelerationStructure used with GPUResourceTable");
++      break;
+     case V8GPUBindingResource::ContentType::kGPUExternalTexture:
+       exception_state.ThrowTypeError(
+           "GPUExternalTexture used with GPUResourceTable");
+diff --git a/third_party/blink/renderer/modules/webgpu/gpu_supported_features.cc b/third_party/blink/renderer/modules/webgpu/gpu_supported_features.cc
+index 265661fe57..20aafbe967 100644
+--- a/third_party/blink/renderer/modules/webgpu/gpu_supported_features.cc
++++ b/third_party/blink/renderer/modules/webgpu/gpu_supported_features.cc
+@@ -40,6 +40,8 @@ std::optional<V8GPUFeatureName::Enum> GPUSupportedFeatures::ToV8FeatureNameEnum(
+       return V8GPUFeatureName::Enum::kFloat32Filterable;
+     case wgpu::FeatureName::Float32Blendable:
+       return V8GPUFeatureName::Enum::kFloat32Blendable;
++    case wgpu::FeatureName::AccelerationStructure:
++      return V8GPUFeatureName::Enum::kAccelerationStructure;
+     case wgpu::FeatureName::DualSourceBlending:
+       return V8GPUFeatureName::Enum::kDualSourceBlending;
+     case wgpu::FeatureName::Subgroups:
+diff --git a/third_party/blink/renderer/modules/webgpu/gpu_supported_features.idl b/third_party/blink/renderer/modules/webgpu/gpu_supported_features.idl
+index 52df7786b3..35d173fd53 100644
+--- a/third_party/blink/renderer/modules/webgpu/gpu_supported_features.idl
++++ b/third_party/blink/renderer/modules/webgpu/gpu_supported_features.idl
+@@ -5,6 +5,7 @@
+ // https://gpuweb.github.io/gpuweb/
+ 
+ enum GPUFeatureName {
++    "acceleration-structure",
+     "core-features-and-limits",
+     "depth-clip-control",
+     "depth32float-stencil8",
+-- 
+2.55.0
+
+
+From 35e531f0f2730fa33181b9654b304f0ccd1eb954 Mon Sep 17 00:00:00 2001
+From: Ben Jude <19900120+fractaal@users.noreply.github.com>
+Date: Tue, 3 Nov 2026 14:11:38 +0800
+Subject: [PATCH 2/5] [fix][ben] Declare the build descriptor in Blink's
+ command encoder header
+
+---
+ third_party/blink/renderer/modules/webgpu/gpu_command_encoder.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/third_party/blink/renderer/modules/webgpu/gpu_command_encoder.h b/third_party/blink/renderer/modules/webgpu/gpu_command_encoder.h
+index 7c2bdf36ea..692045bdf9 100644
+--- a/third_party/blink/renderer/modules/webgpu/gpu_command_encoder.h
++++ b/third_party/blink/renderer/modules/webgpu/gpu_command_encoder.h
+@@ -12,6 +12,7 @@
+ namespace blink {
+ 
+ class ExceptionState;
++class GPUAccelerationStructureBuildDescriptor;
+ class GPUCommandBuffer;
+ class GPUCommandBufferDescriptor;
+ class GPUCommandEncoderDescriptor;
+-- 
+2.55.0
+
+
+From eb17e188f32f7500c3ca457401e96168e7a4cf15 Mon Sep 17 00:00:00 2001
+From: Ben Jude <19900120+fractaal@users.noreply.github.com>
+Date: Fri, 6 Nov 2026 12:10:51 +0800
+Subject: [PATCH 3/5] WebGPU devices parse WGSL on Dawn's worker pool
+ (async_shader_module_parse)
+
+The decoder asks for Dawn's async_shader_module_parse on the devices pages
+create, unless --disable-dawn-features=async_shader_module_parse is given: the
+GPU main thread, which every page's WebGPU and the compositor share, then
+spends no time parsing one page's WGSL while another page waits. The decoder
+processes Dawn's events while work is pending (PerformPollingWork), which the
+toggle needs. about:gpu's list of WebGPU toggles says the same.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01ER71sVYGueZp5unvUUWTC4
+---
+ gpu/command_buffer/service/webgpu_decoder_impl.cc | 10 ++++++++++
+ gpu/config/gpu_info_collector.cc                  |  6 ++++++
+ 2 files changed, 16 insertions(+)
+
+diff --git a/gpu/command_buffer/service/webgpu_decoder_impl.cc b/gpu/command_buffer/service/webgpu_decoder_impl.cc
+index a7d4f8792e..1d01a9b544 100644
+--- a/gpu/command_buffer/service/webgpu_decoder_impl.cc
++++ b/gpu/command_buffer/service/webgpu_decoder_impl.cc
+@@ -1557,6 +1557,16 @@ WGPUFuture WebGPUDecoderImpl::RequestDeviceImpl(
+     require_device_disabled_toggles.push_back("timestamp_quantization");
+   }
+ 
++  // Parse WGSL on Dawn's worker pool rather than on this thread, which every
++  // page's WebGPU and the compositor share: a page's shaders then hold up no
++  // other page's frames. This decoder processes Dawn's events while it waits
++  // (PerformPollingWork), as the toggle needs. Turned off with
++  // --disable-dawn-features=async_shader_module_parse.
++  if (!std::ranges::contains(require_disabled_toggles_,
++                             "async_shader_module_parse")) {
++    require_device_enabled_toggles.push_back("async_shader_module_parse");
++  }
++
+   // We need the isolation key to create a device. We should already have it
+   // because RequestAdapter waits to reply until we do.
+   CHECK(isolation_key_.has_value());
+diff --git a/gpu/config/gpu_info_collector.cc b/gpu/config/gpu_info_collector.cc
+index 76f9aa04c8..9c140ea755 100644
+--- a/gpu/config/gpu_info_collector.cc
++++ b/gpu/config/gpu_info_collector.cc
+@@ -7,6 +7,7 @@
+ #include <stddef.h>
+ #include <stdint.h>
+ 
++#include <algorithm>
+ #include <optional>
+ #include <string>
+ #include <utility>
+@@ -267,6 +268,11 @@ void GetDawnTogglesForWebGPU(
+   } else {
+     force_disabled_toggles->push_back("timestamp_quantization");
+   }
++  // Parse WGSL on Dawn's worker pool, as WebGPUDecoderImpl asks.
++  if (!std::ranges::contains(disabled_preference,
++                             "async_shader_module_parse")) {
++    force_enabled_toggles->push_back("async_shader_module_parse");
++  }
+ 
+   for (const std::string& toggle : enabled_preference) {
+     force_enabled_toggles->push_back(toggle.c_str());
+-- 
+2.55.0
+
+
+From 1c49e6c02e7c21503b829f0e0ff0d8088d9cfc46 Mon Sep 17 00:00:00 2001
+From: Ben Jude <19900120+fractaal@users.noreply.github.com>
+Date: Sat, 7 Nov 2026 03:19:05 +0800
+Subject: [PATCH 4/5] Renderers of sites given with --gpu-low-priority-site run
+ their GPU work at low priority
+
+A renderer process locked to one of them is launched with --gpu-stream-priority-low, and every GPU context it makes
+(WebGPU, WebGL, canvases, its compositor) asks for SchedulingPriority::kLow, which now reaches the GPU process as itself
+(it was sent as kNormal); renderers' raster workers, which asked for kLow and so got kNormal, ask for kNormal. The
+editor's window then gets its turn on the GPU process's main thread between the tasks of a film page drawing heavy frames
+in it.
+---
+ .../renderer_host/render_process_host_impl.cc | 20 +++++++++++++++++++
+ content/public/common/gpu_stream_constants.h  |  5 +++--
+ gpu/config/gpu_switches.cc                    | 10 ++++++++++
+ gpu/config/gpu_switches.h                     |  2 ++
+ gpu/ipc/client/command_buffer_proxy_impl.cc   |  8 ++++++++
+ .../common/scheduling_priority_mojom_traits.h |  2 +-
+ 6 files changed, 44 insertions(+), 3 deletions(-)
+
+diff --git a/content/browser/renderer_host/render_process_host_impl.cc b/content/browser/renderer_host/render_process_host_impl.cc
+index d4f0389839..c2b6668479 100644
+--- a/content/browser/renderer_host/render_process_host_impl.cc
++++ b/content/browser/renderer_host/render_process_host_impl.cc
+@@ -56,6 +56,7 @@
+ #include "base/rand_util.h"
+ #include "base/strings/strcat.h"
+ #include "base/strings/string_number_conversions.h"
++#include "base/strings/string_split.h"
+ #include "base/strings/string_util.h"
+ #include "base/strings/stringprintf.h"
+ #include "base/supports_user_data.h"
+@@ -3745,6 +3746,25 @@ void RenderProcessHostImpl::AppendRendererCommandLine(
+     command_line->AppendSwitch(switches::kTopChromeWebUI);
+   }
+ 
++  // A renderer locked to a site the browser was told to put behind the rest
++  // (--gpu-low-priority-site): its GPU work at low priority.
++  if (const base::CommandLine& own = *base::CommandLine::ForCurrentProcess();
++      own.HasSwitch(::switches::kGpuLowPrioritySite)) {
++    const GURL lock = GetProcessLock().GetProcessLockURL();
++    const std::string sites =
++        own.GetSwitchValueASCII(::switches::kGpuLowPrioritySite);
++    for (std::string_view site :
++         base::SplitStringPiece(sites, ",", base::TRIM_WHITESPACE,
++                                base::SPLIT_WANT_NONEMPTY)) {
++      const GURL url(site);
++      if (lock.is_valid() && url.is_valid() && lock.scheme() == url.scheme() &&
++          lock.host() == url.host()) {
++        command_line->AppendSwitch(::switches::kGpuStreamPriorityLow);
++        break;
++      }
++    }
++  }
++
+   if (ShouldSendGpuChannelEarly()) {
+     command_line->AppendSwitchASCII(
+         switches::kGpuClientId, base::NumberToString(gpu_client_->client_id()));
+diff --git a/content/public/common/gpu_stream_constants.h b/content/public/common/gpu_stream_constants.h
+index b23c5e0aa4..21041c0105 100644
+--- a/content/public/common/gpu_stream_constants.h
++++ b/content/public/common/gpu_stream_constants.h
+@@ -28,9 +28,10 @@ const gpu::SchedulingPriority kGpuStreamPriorityUI =
+ const gpu::SchedulingPriority kGpuStreamPriorityMedia =
+     gpu::SchedulingPriority::kHigh;
+ 
+-// Used for renderer raster worker context.
++// Used for renderer raster worker context. (kNormal: what kLow reached the GPU
++// process as before kLow went through as itself; switches::kGpuLowPrioritySite.)
+ const gpu::SchedulingPriority kGpuStreamPriorityWorker =
+-    gpu::SchedulingPriority::kLow;
++    gpu::SchedulingPriority::kNormal;
+ 
+ }  // namespace content
+ 
+diff --git a/gpu/config/gpu_switches.cc b/gpu/config/gpu_switches.cc
+index 3af3b71ef1..5dc3a91e32 100644
+--- a/gpu/config/gpu_switches.cc
++++ b/gpu/config/gpu_switches.cc
+@@ -177,4 +177,14 @@ const char kSuppressPerformanceLogs[] = "suppress-performance-logs";
+ // it runs as well as after it has gone.
+ const char kGpuSharedShaderCache[] = "gpu-shared-shader-cache";
+ 
++// Sites (comma-separated, such as http://localhost) whose renderers' GPU work
++// waits behind every other page's and the browser's own: each renderer process
++// locked to one is launched with --gpu-stream-priority-low. A page drawing heavy
++// frames there leaves the window its turn on the GPU process's main thread.
++const char kGpuLowPrioritySite[] = "gpu-low-priority-site";
++
++// Given to a renderer by the browser (kGpuLowPrioritySite): all its GPU contexts
++// (WebGPU, WebGL, canvases, its compositor) at SchedulingPriority::kLow.
++const char kGpuStreamPriorityLow[] = "gpu-stream-priority-low";
++
+ }  // namespace switches
+diff --git a/gpu/config/gpu_switches.h b/gpu/config/gpu_switches.h
+index 73a87870a1..abd31c252a 100644
+--- a/gpu/config/gpu_switches.h
++++ b/gpu/config/gpu_switches.h
+@@ -59,6 +59,8 @@ GPU_CONFIG_EXPORT extern const char kDisableSkiaGraphitePrecompilation[];
+ GPU_CONFIG_EXPORT extern const char kEnableSkiaGraphitePrecompilation[];
+ GPU_CONFIG_EXPORT extern const char kEnableGpuMainTimeKeeperMetrics[];
+ GPU_CONFIG_EXPORT extern const char kSuppressPerformanceLogs[];
++GPU_CONFIG_EXPORT extern const char kGpuLowPrioritySite[];
++GPU_CONFIG_EXPORT extern const char kGpuStreamPriorityLow[];
+ 
+ }  // namespace switches
+ 
+diff --git a/gpu/ipc/client/command_buffer_proxy_impl.cc b/gpu/ipc/client/command_buffer_proxy_impl.cc
+index 24242e16b7..cfee5ba2fc 100644
+--- a/gpu/ipc/client/command_buffer_proxy_impl.cc
++++ b/gpu/ipc/client/command_buffer_proxy_impl.cc
+@@ -30,6 +30,7 @@
+ #include "gpu/ipc/client/gpu_channel_host.h"
+ #include "gpu/ipc/common/command_buffer_id.h"
+ #include "gpu/ipc/common/gpu_channel.mojom.h"
++#include "gpu/config/gpu_switches.h"
+ #include "ipc/constants.mojom.h"
+ #include "ipc/ipc_mojo_bootstrap.h"
+ #include "mojo/public/cpp/bindings/sync_call_restrictions.h"
+@@ -227,6 +228,13 @@ ContextResult CommandBufferProxyImpl::Initialize(
+   // prevent cleanup on destruction.
+   auto channel = std::move(channel_);
+ 
++  // (a renderer the browser put behind the rest: every context of it, whatever
++  // it asked for; switches::kGpuStreamPriorityLow)
++  if (base::CommandLine::ForCurrentProcess()->HasSwitch(
++          switches::kGpuStreamPriorityLow)) {
++    stream_priority = gpu::SchedulingPriority::kLow;
++  }
++
+   auto params = mojom::CreateCommandBufferParams::New();
+   params->stream_id = stream_id_;
+   params->stream_priority = stream_priority;
+diff --git a/gpu/ipc/common/scheduling_priority_mojom_traits.h b/gpu/ipc/common/scheduling_priority_mojom_traits.h
+index abe9d30ce3..387f437f9d 100644
+--- a/gpu/ipc/common/scheduling_priority_mojom_traits.h
++++ b/gpu/ipc/common/scheduling_priority_mojom_traits.h
+@@ -24,7 +24,7 @@ struct GPU_IPC_COMMON_EXPORT EnumTraits<gpu::mojom::SchedulingPriority,
+       case gpu::SchedulingPriority::kNormal:
+         return gpu::mojom::SchedulingPriority::kNormal;
+       case gpu::SchedulingPriority::kLow:
+-        return gpu::mojom::SchedulingPriority::kNormal;
++        return gpu::mojom::SchedulingPriority::kLow;
+       default:
+         NOTREACHED();
+     }
+-- 
+2.55.0
+
+
+From ae61d9f9b7dbf318d7cdebbf0256f50b2298572f Mon Sep 17 00:00:00 2001
+From: Ben Jude <19900120+fractaal@users.noreply.github.com>
+Date: Sat, 7 Nov 2026 09:51:10 +0800
+Subject: [PATCH 5/5] A page can write a frame into a DMA-BUF another process
+ shares, with WebGPU
+
+GPUDevice.importSharedTexture(videoFrame, usage) gives the GPU texture behind a VideoFrame (one made by Electron's
+sharedTexture from a DMA-BUF) with the usages asked for, so a render worker draws its frame straight into a buffer the
+editor shows; destroy() ends the access. WebGPUMailboxTexture::FromVideoFrame honours the usage it is given (its one
+caller passes TextureBinding).
+
+Desktop Linux keeps WebGPU off Ozone images for want of sync fences between WebGPU and GL on one image; the feature
+EphemerisWebGPUNativePixmap (off by default) allows it, for a process whose imports WebGPU alone uses, and asks Dawn for
+SharedTextureMemoryDmaBuf and SharedFenceSyncFD on its WebGPU devices.
+---
+ .../ozone_image_backing_factory.cc            |  3 +-
+ .../service/webgpu_decoder_impl.cc            | 13 ++++++++
+ gpu/config/gpu_finch_features.cc              |  6 ++++
+ gpu/config/gpu_finch_features.h               |  2 ++
+ .../renderer/modules/webgpu/gpu_device.cc     | 33 +++++++++++++++++++
+ .../renderer/modules/webgpu/gpu_device.h      |  4 +++
+ .../renderer/modules/webgpu/gpu_device.idl    |  2 ++
+ .../graphics/gpu/webgpu_mailbox_texture.cc    |  2 +-
+ 8 files changed, 63 insertions(+), 2 deletions(-)
+
+diff --git a/gpu/command_buffer/service/shared_image/ozone_image_backing_factory.cc b/gpu/command_buffer/service/shared_image/ozone_image_backing_factory.cc
+index dfa3858f21..899d69337f 100644
+--- a/gpu/command_buffer/service/shared_image/ozone_image_backing_factory.cc
++++ b/gpu/command_buffer/service/shared_image/ozone_image_backing_factory.cc
+@@ -385,7 +385,8 @@ bool OzoneImageBackingFactory::CanImportNativePixmapToWebGPU() {
+   // This testing in runtime can be done where graphite is enabled by checking
+   // against features in the 'dawn_context_provider' in the
+   // 'shared_context_state_'.
+-  return false;
++  // (Ephemeris: unless asked, for images WebGPU alone uses)
++  return base::FeatureList::IsEnabled(features::kEphemerisWebGPUNativePixmap);
+ #endif
+ }
+ 
+diff --git a/gpu/command_buffer/service/webgpu_decoder_impl.cc b/gpu/command_buffer/service/webgpu_decoder_impl.cc
+index 1d01a9b544..8a78e5883d 100644
+--- a/gpu/command_buffer/service/webgpu_decoder_impl.cc
++++ b/gpu/command_buffer/service/webgpu_decoder_impl.cc
+@@ -1520,6 +1520,19 @@ WGPUFuture WebGPUDecoderImpl::RequestDeviceImpl(
+       required_features.push_back(feature);
+     }
+   }
++#if BUILDFLAG(IS_LINUX)
++  // (Ephemeris) DMA-BUF images for WebGPU on desktop Linux too, where asked: the
++  // Ozone backing gives them to Dawn as shared texture memory
++  if (base::FeatureList::IsEnabled(features::kEphemerisWebGPUNativePixmap)) {
++    for (wgpu::FeatureName feature :
++         {wgpu::FeatureName::SharedTextureMemoryDmaBuf,
++          wgpu::FeatureName::SharedFenceSyncFD}) {
++      if (adapter_obj.HasFeature(feature)) {
++        required_features.push_back(feature);
++      }
++    }
++  }
++#endif
+ 
+ #if BUILDFLAG(USE_DAWN) && BUILDFLAG(DAWN_ENABLE_BACKEND_OPENGLES)
+   // If adapter_options.forceFallbackAdapter is set to true,
+diff --git a/gpu/config/gpu_finch_features.cc b/gpu/config/gpu_finch_features.cc
+index 350c6d12ed..eff720c148 100644
+--- a/gpu/config/gpu_finch_features.cc
++++ b/gpu/config/gpu_finch_features.cc
+@@ -132,6 +132,12 @@ bool IsDeviceBlocked(std::string_view field, std::string_view block_list) {
+ // purge as much in case of memory pressure.
+ BASE_FEATURE(kAggressiveShaderCacheLimits, base::FEATURE_DISABLED_BY_DEFAULT);
+ 
++// (Ephemeris) Off by default: Chromium keeps WebGPU off Ozone images on desktop
++// Linux for want of sync fences between WebGPU and GL on one image. A process
++// whose imports WebGPU alone uses (a render worker writing frames it shares)
++// needs none.
++BASE_FEATURE(kEphemerisWebGPUNativePixmap, base::FEATURE_DISABLED_BY_DEFAULT);
++
+ #if BUILDFLAG(IS_ANDROID)
+ // Use android SurfaceControl API for managing display compositor's buffer queue
+ // and using overlays on Android. Also used by webview to disable surface
+diff --git a/gpu/config/gpu_finch_features.h b/gpu/config/gpu_finch_features.h
+index 61c6b96223..13dd037a6e 100644
+--- a/gpu/config/gpu_finch_features.h
++++ b/gpu/config/gpu_finch_features.h
+@@ -28,6 +28,8 @@ namespace features {
+ // All features in alphabetical order. The features should be documented
+ // alongside the definition of their values in the .cc file.
+ GPU_CONFIG_EXPORT BASE_DECLARE_FEATURE(kAggressiveShaderCacheLimits);
++// (Ephemeris) WebGPU may use an imported native pixmap (a DMA-BUF) on desktop Linux
++GPU_CONFIG_EXPORT BASE_DECLARE_FEATURE(kEphemerisWebGPUNativePixmap);
+ 
+ #if BUILDFLAG(IS_ANDROID)
+ GPU_CONFIG_EXPORT BASE_DECLARE_FEATURE(kAndroidSurfaceControl);
+diff --git a/third_party/blink/renderer/modules/webgpu/gpu_device.cc b/third_party/blink/renderer/modules/webgpu/gpu_device.cc
+index beaed5300b..bbd4a6b691 100644
+--- a/third_party/blink/renderer/modules/webgpu/gpu_device.cc
++++ b/third_party/blink/renderer/modules/webgpu/gpu_device.cc
+@@ -18,6 +18,9 @@
+ #include "third_party/blink/renderer/bindings/modules/v8/v8_gpu_resource_table_descriptor.h"
+ #include "third_party/blink/renderer/bindings/modules/v8/v8_gpu_uncaptured_error_event_init.h"
+ #include "third_party/blink/renderer/core/dom/dom_exception.h"
++#include "media/base/video_frame.h"
++#include "third_party/blink/renderer/modules/webcodecs/video_frame.h"
++#include "third_party/blink/renderer/platform/graphics/gpu/webgpu_mailbox_texture.h"
+ #include "third_party/blink/renderer/core/inspector/console_message.h"
+ #include "third_party/blink/renderer/modules/event_target_modules.h"
+ #include "third_party/blink/renderer/modules/webgpu/dawn_conversions.h"
+@@ -564,6 +567,36 @@ GPUExternalTexture* GPUDevice::importExternalTexture(
+   return external_texture_cache_->Import(descriptor, exception_state);
+ }
+ 
++GPUTexture* GPUDevice::importSharedTexture(VideoFrame* frame,
++                                           uint32_t usage,
++                                           ExceptionState& exception_state) {
++  scoped_refptr<media::VideoFrame> media_frame =
++      frame ? frame->frame() : nullptr;
++  if (!media_frame) {
++    exception_state.ThrowDOMException(DOMExceptionCode::kInvalidStateError,
++                                      "The VideoFrame is closed.");
++    return nullptr;
++  }
++  if (!media_frame->HasSharedImage()) {
++    exception_state.ThrowDOMException(
++        DOMExceptionCode::kNotSupportedError,
++        "The VideoFrame is not backed by a shared GPU texture.");
++    return nullptr;
++  }
++  wgpu::TextureUsage dawn_usage = static_cast<wgpu::TextureUsage>(usage);
++  scoped_refptr<WebGPUMailboxTexture> mailbox_texture =
++      WebGPUMailboxTexture::FromVideoFrame(GetDawnControlClient(), GetHandle(),
++                                           dawn_usage, media_frame);
++  if (!mailbox_texture) {
++    exception_state.ThrowDOMException(DOMExceptionCode::kOperationError,
++                                      "The shared texture could not be used.");
++    return nullptr;
++  }
++  wgpu::TextureFormat format = mailbox_texture->GetTexture().GetFormat();
++  return MakeGarbageCollected<GPUTexture>(
++      this, format, dawn_usage, std::move(mailbox_texture), String());
++}
++
+ GPUBindGroup* GPUDevice::createBindGroup(
+     const GPUBindGroupDescriptor* descriptor,
+     ExceptionState& exception_state) {
+diff --git a/third_party/blink/renderer/modules/webgpu/gpu_device.h b/third_party/blink/renderer/modules/webgpu/gpu_device.h
+index defa846415..df792d5774 100644
+--- a/third_party/blink/renderer/modules/webgpu/gpu_device.h
++++ b/third_party/blink/renderer/modules/webgpu/gpu_device.h
+@@ -40,6 +40,7 @@ class GPUDeviceLostInfo;
+ class GPUError;
+ class GPUExternalTexture;
+ class GPUExternalTextureDescriptor;
++class VideoFrame;
+ class GPUPipelineLayout;
+ class GPUPipelineLayoutDescriptor;
+ class GPUAccelerationStructure;
+@@ -125,6 +126,9 @@ class GPUDevice final : public EventTarget,
+   GPUExternalTexture* importExternalTexture(
+       const GPUExternalTextureDescriptor* descriptor,
+       ExceptionState& exception_state);
++  GPUTexture* importSharedTexture(VideoFrame* frame,
++                                  uint32_t usage,
++                                  ExceptionState& exception_state);
+ 
+   GPUBindGroup* createBindGroup(const GPUBindGroupDescriptor* descriptor,
+                                 ExceptionState& exception_state);
+diff --git a/third_party/blink/renderer/modules/webgpu/gpu_device.idl b/third_party/blink/renderer/modules/webgpu/gpu_device.idl
+index 3eb69c872f..78ea7fb090 100644
+--- a/third_party/blink/renderer/modules/webgpu/gpu_device.idl
++++ b/third_party/blink/renderer/modules/webgpu/gpu_device.idl
+@@ -22,6 +22,8 @@
+     [RaisesException] GPUTexture createTexture(GPUTextureDescriptor descriptor);
+     GPUSampler createSampler(optional GPUSamplerDescriptor descriptor = {});
+     [RaisesException] GPUExternalTexture importExternalTexture(GPUExternalTextureDescriptor descriptor);
++    // (Ephemeris: the GPU texture behind a VideoFrame, with the usages given, written in place; destroy() ends the access)
++    [RaisesException] GPUTexture importSharedTexture(VideoFrame frame, GPUTextureUsageFlags usage);
+ 
+     [RaisesException] GPUBindGroup createBindGroup(GPUBindGroupDescriptor descriptor);
+     [RaisesException] GPUBindGroupLayout createBindGroupLayout(GPUBindGroupLayoutDescriptor descriptor);
+diff --git a/third_party/blink/renderer/platform/graphics/gpu/webgpu_mailbox_texture.cc b/third_party/blink/renderer/platform/graphics/gpu/webgpu_mailbox_texture.cc
+index 8f8a904bf4..9aa2da287e 100644
+--- a/third_party/blink/renderer/platform/graphics/gpu/webgpu_mailbox_texture.cc
++++ b/third_party/blink/renderer/platform/graphics/gpu/webgpu_mailbox_texture.cc
+@@ -234,7 +234,7 @@ scoped_refptr<WebGPUMailboxTexture> WebGPUMailboxTexture::FromVideoFrame(
+       context_provider, base::RetainedRef(video_frame));
+ 
+   wgpu::TextureDescriptor desc = {
+-      .usage = wgpu::TextureUsage::TextureBinding,
++      .usage = usage,
+   };
+   return base::AdoptRef(new WebGPUMailboxTexture(
+       std::move(dawn_control_client), device, desc, video_frame->shared_image(),
+-- 
+2.55.0
+

@@ -1,0 +1,1019 @@
+{
+  "created": "2026-10-23T22:43:36.829Z",
+  "mode": "compare",
+  "film": "doctor-who-intro-max",
+  "settings": {
+    "sub": 4,
+    "scale": 1,
+    "fps": 24,
+    "shutter": 0.25
+  },
+  "chromeVersion": "153.0.8010.47",
+  "node": "v24.15.0",
+  "platform": "linux 7.2.5-1-cachyos",
+  "cpu": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
+  "root": "/home/benjude/.cache/ephemeris-native-bench/study",
+  "options": {
+    "gi": null,
+    "shadows": true
+  },
+  "clockTicks": 100,
+  "rows": [
+    {
+      "t": 30,
+      "width": 1920,
+      "height": 1080,
+      "quality": {
+        "baselineReplay": {
+          "mae": 0,
+          "rmse": 0,
+          "max": 0,
+          "pixelsOver2": 0,
+          "pixelsOver8": 0,
+          "pixels": 2073600
+        },
+        "browserNative": {
+          "mae": 0,
+          "rmse": 0,
+          "max": 0,
+          "pixelsOver2": 0,
+          "pixelsOver8": 0,
+          "pixels": 2073600
+        }
+      },
+      "capture": {
+        "prepareMs": 1817.1999999955297,
+        "layerReadbackMs": 246.30000000447035,
+        "serializeMs": 86.09999999403954,
+        "bytes": 201828261,
+        "imageBytes": 191917804,
+        "captures": 48,
+        "subs": 42,
+        "bands": 6
+      },
+      "samples": [
+        {
+          "browserMs": 717.0999999940395,
+          "browserWallMs": 743.9606469999999,
+          "nativeMs": 701.8532890000006
+        },
+        {
+          "browserMs": 699.8999999985099,
+          "browserWallMs": 713.4907639999983,
+          "nativeMs": 711.4267910000017
+        },
+        {
+          "browserMs": 702.3999999985099,
+          "browserWallMs": 715.8589769999999,
+          "nativeMs": 715.5205040000001
+        },
+        {
+          "browserMs": 706.5999999940395,
+          "browserWallMs": 744.9232560000019,
+          "nativeMs": 795.9894950000016
+        },
+        {
+          "browserMs": 724.2999999970198,
+          "browserWallMs": 749.1373940000012,
+          "nativeMs": 715.9566580000028
+        },
+        {
+          "browserMs": 712.7000000029802,
+          "browserWallMs": 733.3913250000005,
+          "nativeMs": 752.5535090000012
+        },
+        {
+          "browserMs": 709.1000000014901,
+          "browserWallMs": 734.4134789999989,
+          "nativeMs": 701.9731690000008
+        },
+        {
+          "browserMs": 709.5,
+          "browserWallMs": 741.2908020000032,
+          "nativeMs": 706.1232170000003
+        },
+        {
+          "browserMs": 711.3000000044703,
+          "browserWallMs": 732.1779319999987,
+          "nativeMs": 711.9215409999997
+        },
+        {
+          "browserMs": 734.2000000029802,
+          "browserWallMs": 753.5812890000016,
+          "nativeMs": 701.967055000001
+        },
+        {
+          "browserMs": 761.3000000044703,
+          "browserWallMs": 779.25389,
+          "nativeMs": 730.3172669999985
+        },
+        {
+          "browserMs": 730.2999999970198,
+          "browserWallMs": 761.3832330000005,
+          "nativeMs": 729.5672830000003
+        }
+      ],
+      "browser": {
+        "n": 12,
+        "median": 712.7000000029802,
+        "p90": 734.2000000029802,
+        "mean": 718.2249999996275
+      },
+      "native": {
+        "n": 12,
+        "median": 715.5205040000001,
+        "p90": 752.5535090000012,
+        "mean": 722.930814833334
+      },
+      "profiles": {
+        "baseline": {
+          "ms": 674.4,
+          "subs": 42,
+          "stages": [
+            {
+              "name": "Layers",
+              "ms": 0,
+              "n": 1
+            },
+            {
+              "name": "Film code",
+              "ms": 61.4,
+              "n": 51
+            },
+            {
+              "name": "Scene data",
+              "ms": 8.8,
+              "n": 42
+            },
+            {
+              "name": "GPU commands",
+              "ms": 13.1,
+              "n": 43
+            },
+            {
+              "name": "GPU wait",
+              "ms": 582.6,
+              "n": 1
+            }
+          ],
+          "gpu": {
+            "ms": 645.82,
+            "busy": 513.365,
+            "full": false,
+            "passes": [
+              {
+                "name": "prepass",
+                "ms": 5.329,
+                "parts": [
+                  {
+                    "name": "prepass",
+                    "ms": 5.329
+                  }
+                ]
+              },
+              {
+                "name": "ao",
+                "ms": 3.773,
+                "parts": [
+                  {
+                    "name": "ao",
+                    "ms": 3.773
+                  }
+                ]
+              },
+              {
+                "name": "gi",
+                "ms": 0.098,
+                "parts": [
+                  {
+                    "name": "gi",
+                    "ms": 0.098
+                  }
+                ]
+              },
+              {
+                "name": "opaque",
+                "ms": 187.546,
+                "parts": [
+                  {
+                    "name": "opaque",
+                    "ms": 187.546
+                  }
+                ]
+              },
+              {
+                "name": "denoise",
+                "ms": 10.308,
+                "parts": [
+                  {
+                    "name": "denoise: noise",
+                    "ms": 3.82
+                  },
+                  {
+                    "name": "denoise: across",
+                    "ms": 3.834
+                  },
+                  {
+                    "name": "denoise: down",
+                    "ms": 2.654
+                  }
+                ]
+              },
+              {
+                "name": "film scene passes",
+                "ms": 298.865,
+                "parts": [
+                  {
+                    "name": "time vortex",
+                    "ms": 297.741
+                  }
+                ]
+              },
+              {
+                "name": "glass",
+                "ms": 3.712,
+                "parts": [
+                  {
+                    "name": "glass depth",
+                    "ms": 0.415
+                  },
+                  {
+                    "name": "behind glass",
+                    "ms": 1.821
+                  },
+                  {
+                    "name": "glass",
+                    "ms": 0.385
+                  }
+                ]
+              },
+              {
+                "name": "resolve",
+                "ms": 1.402,
+                "parts": [
+                  {
+                    "name": "resolve",
+                    "ms": 1.402
+                  }
+                ]
+              },
+              {
+                "name": "film light passes",
+                "ms": 2.167,
+                "parts": [
+                  {
+                    "name": "lens",
+                    "ms": 2.142
+                  }
+                ]
+              },
+              {
+                "name": "bloom",
+                "ms": 0.085,
+                "parts": []
+              },
+              {
+                "name": "view",
+                "ms": 0.024,
+                "parts": [
+                  {
+                    "name": "view",
+                    "ms": 0.024
+                  }
+                ]
+              },
+              {
+                "name": "film display passes",
+                "ms": 0.044,
+                "parts": [
+                  {
+                    "name": "print (grade and grain)",
+                    "ms": 0.02
+                  }
+                ]
+              },
+              {
+                "name": "output",
+                "ms": 0.012,
+                "parts": [
+                  {
+                    "name": "output",
+                    "ms": 0.012
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "browser": {
+          "ms": 718.8,
+          "subs": 1,
+          "stages": [
+            {
+              "name": "Scene data",
+              "ms": 10.6,
+              "n": 42
+            },
+            {
+              "name": "GPU commands",
+              "ms": 24.1,
+              "n": 43
+            },
+            {
+              "name": "GPU wait",
+              "ms": 679.1,
+              "n": 1
+            }
+          ],
+          "gpu": {
+            "ms": 710.543,
+            "busy": 563.88,
+            "full": false,
+            "passes": [
+              {
+                "name": "prepass",
+                "ms": 5.336,
+                "parts": [
+                  {
+                    "name": "prepass",
+                    "ms": 5.336
+                  }
+                ]
+              },
+              {
+                "name": "ao",
+                "ms": 3.79,
+                "parts": [
+                  {
+                    "name": "ao",
+                    "ms": 3.79
+                  }
+                ]
+              },
+              {
+                "name": "gi",
+                "ms": 0.108,
+                "parts": [
+                  {
+                    "name": "gi",
+                    "ms": 0.108
+                  }
+                ]
+              },
+              {
+                "name": "opaque",
+                "ms": 237.121,
+                "parts": [
+                  {
+                    "name": "opaque",
+                    "ms": 237.121
+                  }
+                ]
+              },
+              {
+                "name": "denoise",
+                "ms": 10.111,
+                "parts": [
+                  {
+                    "name": "denoise: noise",
+                    "ms": 3.805
+                  },
+                  {
+                    "name": "denoise: across",
+                    "ms": 3.79
+                  },
+                  {
+                    "name": "denoise: down",
+                    "ms": 2.516
+                  }
+                ]
+              },
+              {
+                "name": "film scene passes",
+                "ms": 299.528,
+                "parts": [
+                  {
+                    "name": "time vortex",
+                    "ms": 298.391
+                  }
+                ]
+              },
+              {
+                "name": "glass",
+                "ms": 4.133,
+                "parts": [
+                  {
+                    "name": "glass depth",
+                    "ms": 0.415
+                  },
+                  {
+                    "name": "behind glass",
+                    "ms": 1.647
+                  },
+                  {
+                    "name": "glass",
+                    "ms": 0.959
+                  }
+                ]
+              },
+              {
+                "name": "resolve",
+                "ms": 1.446,
+                "parts": [
+                  {
+                    "name": "resolve",
+                    "ms": 1.446
+                  }
+                ]
+              },
+              {
+                "name": "film light passes",
+                "ms": 2.142,
+                "parts": [
+                  {
+                    "name": "lens",
+                    "ms": 2.116
+                  }
+                ]
+              },
+              {
+                "name": "bloom",
+                "ms": 0.089,
+                "parts": []
+              },
+              {
+                "name": "view",
+                "ms": 0.02,
+                "parts": [
+                  {
+                    "name": "view",
+                    "ms": 0.02
+                  }
+                ]
+              },
+              {
+                "name": "film display passes",
+                "ms": 0.048,
+                "parts": [
+                  {
+                    "name": "print (grade and grain)",
+                    "ms": 0.021
+                  }
+                ]
+              },
+              {
+                "name": "output",
+                "ms": 0.01,
+                "parts": [
+                  {
+                    "name": "output",
+                    "ms": 0.01
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "native": {
+          "ms": 719.61,
+          "subs": 1,
+          "stages": [
+            {
+              "name": "Scene data",
+              "ms": 14.49,
+              "n": 42
+            },
+            {
+              "name": "GPU commands",
+              "ms": 96.32,
+              "n": 43
+            },
+            {
+              "name": "GPU wait",
+              "ms": 603.58,
+              "n": 1
+            }
+          ],
+          "gpu": {
+            "ms": 711,
+            "busy": 582.812,
+            "full": false,
+            "passes": [
+              {
+                "name": "prepass",
+                "ms": 5.243,
+                "parts": [
+                  {
+                    "name": "prepass",
+                    "ms": 5.243
+                  }
+                ]
+              },
+              {
+                "name": "ao",
+                "ms": 3.867,
+                "parts": [
+                  {
+                    "name": "ao",
+                    "ms": 3.867
+                  }
+                ]
+              },
+              {
+                "name": "gi",
+                "ms": 0.262,
+                "parts": [
+                  {
+                    "name": "gi",
+                    "ms": 0.262
+                  }
+                ]
+              },
+              {
+                "name": "opaque",
+                "ms": 256.377,
+                "parts": [
+                  {
+                    "name": "opaque",
+                    "ms": 256.377
+                  }
+                ]
+              },
+              {
+                "name": "denoise",
+                "ms": 10.42,
+                "parts": [
+                  {
+                    "name": "denoise: noise",
+                    "ms": 4.063
+                  },
+                  {
+                    "name": "denoise: across",
+                    "ms": 3.736
+                  },
+                  {
+                    "name": "denoise: down",
+                    "ms": 2.621
+                  }
+                ]
+              },
+              {
+                "name": "film scene passes",
+                "ms": 298.779,
+                "parts": [
+                  {
+                    "name": "time vortex",
+                    "ms": 297.533
+                  }
+                ]
+              },
+              {
+                "name": "glass",
+                "ms": 3.998,
+                "parts": [
+                  {
+                    "name": "glass depth",
+                    "ms": 0.393
+                  },
+                  {
+                    "name": "behind glass",
+                    "ms": 1.704
+                  },
+                  {
+                    "name": "glass",
+                    "ms": 0.983
+                  }
+                ]
+              },
+              {
+                "name": "resolve",
+                "ms": 1.507,
+                "parts": [
+                  {
+                    "name": "resolve",
+                    "ms": 1.507
+                  }
+                ]
+              },
+              {
+                "name": "film light passes",
+                "ms": 2.163,
+                "parts": [
+                  {
+                    "name": "lens",
+                    "ms": 2.097
+                  }
+                ]
+              },
+              {
+                "name": "bloom",
+                "ms": 0.131,
+                "parts": []
+              },
+              {
+                "name": "view",
+                "ms": 0,
+                "parts": [
+                  {
+                    "name": "view",
+                    "ms": 0
+                  }
+                ]
+              },
+              {
+                "name": "film display passes",
+                "ms": 0.066,
+                "parts": [
+                  {
+                    "name": "print (grade and grain)",
+                    "ms": 0.066
+                  }
+                ]
+              },
+              {
+                "name": "output",
+                "ms": 0,
+                "parts": [
+                  {
+                    "name": "output",
+                    "ms": 0
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "resources": {
+        "beforeBrowser": {
+          "at": 16225.451791,
+          "ticks": 966,
+          "pssKB": 1435346,
+          "processes": [
+            {
+              "pid": 2044722,
+              "ppid": 2044708,
+              "ticks": 74,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 121092,
+              "rssKB": 237696
+            },
+            {
+              "pid": 2044730,
+              "ppid": 2044722,
+              "ticks": 1,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 18659,
+              "rssKB": 76612
+            },
+            {
+              "pid": 2044731,
+              "ppid": 2044722,
+              "ticks": 1,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 11075,
+              "rssKB": 75776
+            },
+            {
+              "pid": 2044733,
+              "ppid": 2044731,
+              "ticks": 1,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 2291,
+              "rssKB": 22852
+            },
+            {
+              "pid": 2044757,
+              "ppid": 2044730,
+              "ticks": 548,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 480719,
+              "rssKB": 729912
+            },
+            {
+              "pid": 2044759,
+              "ppid": 2044722,
+              "ticks": 27,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 45786,
+              "rssKB": 143540
+            },
+            {
+              "pid": 2044760,
+              "ppid": 2044759,
+              "ticks": 0,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 9508,
+              "rssKB": 23452
+            },
+            {
+              "pid": 2044772,
+              "ppid": 2044733,
+              "ticks": 0,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 6774,
+              "rssKB": 56996
+            },
+            {
+              "pid": 2044800,
+              "ppid": 2044733,
+              "ticks": 29,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 73944,
+              "rssKB": 176836
+            },
+            {
+              "pid": 2044816,
+              "ppid": 2044733,
+              "ticks": 273,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 550934,
+              "rssKB": 788400
+            },
+            {
+              "pid": 2044824,
+              "ppid": 2044733,
+              "ticks": 3,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 19064,
+              "rssKB": 103772
+            },
+            {
+              "pid": 2044838,
+              "ppid": 2044733,
+              "ticks": 2,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 13721,
+              "rssKB": 82844
+            },
+            {
+              "pid": 2044854,
+              "ppid": 2044733,
+              "ticks": 2,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 19515,
+              "rssKB": 101028
+            },
+            {
+              "pid": 2044855,
+              "ppid": 2044733,
+              "ticks": 2,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 19412,
+              "rssKB": 101264
+            },
+            {
+              "pid": 2045212,
+              "ppid": 2044733,
+              "ticks": 0,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 13557,
+              "rssKB": 82112
+            },
+            {
+              "pid": 2045249,
+              "ppid": 2044733,
+              "ticks": 3,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 29295,
+              "rssKB": 121128
+            }
+          ]
+        },
+        "beforeNative": {
+          "at": 16288.724121,
+          "ticks": 700,
+          "pssKB": 723033,
+          "processes": [
+            {
+              "pid": 2045010,
+              "ppid": 2044708,
+              "ticks": 700,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 723033,
+              "rssKB": 821820
+            }
+          ]
+        },
+        "afterBrowser": {
+          "at": 33956.689596,
+          "ticks": 1726,
+          "pssKB": 1416429,
+          "processes": [
+            {
+              "pid": 2044722,
+              "ppid": 2044708,
+              "ticks": 88,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 124185,
+              "rssKB": 239588
+            },
+            {
+              "pid": 2044730,
+              "ppid": 2044722,
+              "ticks": 1,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 18853,
+              "rssKB": 76612
+            },
+            {
+              "pid": 2044731,
+              "ppid": 2044722,
+              "ticks": 1,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 11629,
+              "rssKB": 75776
+            },
+            {
+              "pid": 2044733,
+              "ppid": 2044731,
+              "ticks": 1,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 2781,
+              "rssKB": 22980
+            },
+            {
+              "pid": 2044757,
+              "ppid": 2044730,
+              "ticks": 1193,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 498103,
+              "rssKB": 746780
+            },
+            {
+              "pid": 2044759,
+              "ppid": 2044722,
+              "ticks": 31,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 47067,
+              "rssKB": 143976
+            },
+            {
+              "pid": 2044760,
+              "ppid": 2044759,
+              "ticks": 0,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 9566,
+              "rssKB": 23452
+            },
+            {
+              "pid": 2044772,
+              "ppid": 2044733,
+              "ticks": 0,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 7609,
+              "rssKB": 56996
+            },
+            {
+              "pid": 2044800,
+              "ppid": 2044733,
+              "ticks": 36,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 63692,
+              "rssKB": 166992
+            },
+            {
+              "pid": 2044816,
+              "ppid": 2044733,
+              "ticks": 367,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 549497,
+              "rssKB": 785700
+            },
+            {
+              "pid": 2044824,
+              "ppid": 2044733,
+              "ticks": 3,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 20888,
+              "rssKB": 103772
+            },
+            {
+              "pid": 2044838,
+              "ppid": 2044733,
+              "ticks": 2,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 15207,
+              "rssKB": 82848
+            },
+            {
+              "pid": 2045212,
+              "ppid": 2044733,
+              "ticks": 0,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 15019,
+              "rssKB": 82112
+            },
+            {
+              "pid": 2045249,
+              "ppid": 2044733,
+              "ticks": 3,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 32333,
+              "rssKB": 120980
+            }
+          ]
+        },
+        "afterNative": {
+          "at": 34023.108365,
+          "ticks": 2129,
+          "pssKB": 802042,
+          "processes": [
+            {
+              "pid": 2045010,
+              "ppid": 2044708,
+              "ticks": 2129,
+              "nice": 16,
+              "policy": 0,
+              "pssKB": 802042,
+              "rssKB": 900828
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "harness": {
+    "run.mjs": "bf2933351acc79ea6244f6fc23295ed9e157b725395a7a1f87aae87cb84a7402",
+    "browser.mjs": "bba09c3b2f87cabe2fe2838f6fa1e4f35d1a460359dadfd8aa0cef461564d617",
+    "producer.mjs": "a44688fa283ee22fb8dc6d00801c04a5493bb3a31aba5a6df3c4796c3e745eb9",
+    "native.mjs": "7d76ecba213aeecc8c1eb251f20fca4a4c2dfc60bd21f6b657819a29c1ab9da8",
+    "codec.mjs": "8ada2794e421ab994dbe9d0a62bd0ba20c2db942ac441f7f73def8f794b29013"
+  },
+  "bootMs": 673.4418000000001,
+  "visibility": "visible",
+  "browser": {
+    "size": [
+      1920,
+      1080
+    ],
+    "duration": 74.35,
+    "limits": {
+      "maxTextureDimension2D": 16384,
+      "maxStorageBufferBindingSize": 2147483644,
+      "maxBufferSize": 4294967292,
+      "maxColorAttachmentBytesPerSample": 128,
+      "maxSampledTexturesPerShaderStage": 48,
+      "maxStorageBuffersPerShaderStage": 16
+    },
+    "adapter": {
+      "vendor": "nvidia",
+      "architecture": "blackwell",
+      "device": "",
+      "description": ""
+    },
+    "layers": []
+  },
+  "native": {
+    "pid": 2045010,
+    "adapter": {
+      "vendor": "nvidia",
+      "architecture": "blackwell",
+      "device": "nvidia-geforce-rtx-5070-ti",
+      "description": "NVIDIA: 615.71.09 615.71.9.0"
+    },
+    "features": [
+      "timestamp-query",
+      "core-features-and-limits"
+    ],
+    "limits": {
+      "maxTextureDimension2D": 16384,
+      "maxStorageBufferBindingSize": 2147483644,
+      "maxBufferSize": 4294967292,
+      "maxColorAttachmentBytesPerSample": 128,
+      "maxSampledTexturesPerShaderStage": 48,
+      "maxStorageBuffersPerShaderStage": 16
+    }
+  }
+}

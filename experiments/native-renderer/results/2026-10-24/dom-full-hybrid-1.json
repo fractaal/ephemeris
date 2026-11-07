@@ -1,0 +1,1023 @@
+{
+  "created": "2026-10-23T22:43:17.960Z",
+  "mode": "hybrid",
+  "film": "motion-design-test-claude-2",
+  "settings": {
+    "sub": 4,
+    "scale": 1,
+    "fps": 24,
+    "shutter": 0.5
+  },
+  "chromeVersion": "153.0.8010.47",
+  "node": "v24.15.0",
+  "platform": "linux 7.2.5-1-cachyos",
+  "cpu": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M",
+  "root": "/home/benjude/.cache/ephemeris-native-bench/study",
+  "options": {
+    "gi": null,
+    "shadows": null
+  },
+  "clockTicks": 100,
+  "rows": [
+    {
+      "t": 18,
+      "first": {
+        "time": 18,
+        "wallMs": 39.92805899999985,
+        "browserWallMs": 30.661952000000156,
+        "prepareMs": 17.100000001490116,
+        "layerReadbackMs": 10.300000004470348,
+        "serializeMs": 0.7999999970197678,
+        "bytes": 1645388,
+        "imageBytes": 1628072,
+        "captures": 4,
+        "subs": 4,
+        "decodeMs": 0.17304400000000442,
+        "uploadSubmitMs": 0.8533380000000079,
+        "renderMs": 4.680452000000059,
+        "profile": null,
+        "width": 1920,
+        "height": 1080,
+        "bands": 1,
+        "nativeMs": 6.184908999999948,
+        "hash": "0af01c32ab6aa0fc4295c220e0330aa6b2b5c3b923f5c4187205b3f768bada40"
+      },
+      "samples": [
+        {
+          "time": 18,
+          "wallMs": 35.21039599999972,
+          "browserWallMs": 19.758970999999974,
+          "prepareMs": 4.800000004470348,
+          "layerReadbackMs": 10.799999997019768,
+          "serializeMs": 1.1000000014901161,
+          "bytes": 1645388,
+          "imageBytes": 1628072,
+          "captures": 4,
+          "subs": 4,
+          "decodeMs": 0.1453520000000026,
+          "uploadSubmitMs": 0.8150860000000648,
+          "renderMs": 4.642622000000074,
+          "profile": null,
+          "width": 1920,
+          "height": 1080,
+          "bands": 1,
+          "nativeMs": 6.0143900000000485,
+          "hash": "0af01c32ab6aa0fc4295c220e0330aa6b2b5c3b923f5c4187205b3f768bada40"
+        },
+        {
+          "time": 18.041666666666668,
+          "wallMs": 30.03689200000008,
+          "browserWallMs": 19.934037999999873,
+          "prepareMs": 6.800000004470348,
+          "layerReadbackMs": 10.299999997019768,
+          "serializeMs": 0.7999999970197678,
+          "bytes": 1645536,
+          "imageBytes": 1628072,
+          "captures": 4,
+          "subs": 4,
+          "decodeMs": 0.23888700000020435,
+          "uploadSubmitMs": 0.8446109999999862,
+          "renderMs": 4.586706999999933,
+          "profile": null,
+          "width": 1920,
+          "height": 1080,
+          "bands": 1,
+          "nativeMs": 6.063372000000072,
+          "hash": "29e0692ff511acbac20059280e0ada8fee84c731c0bf7b401f5adba0f85bed1e"
+        },
+        {
+          "time": 18.083333333333332,
+          "wallMs": 30.460223999999926,
+          "browserWallMs": 20.179917999999816,
+          "prepareMs": 6.899999998509884,
+          "layerReadbackMs": 10.5,
+          "serializeMs": 0.7000000029802322,
+          "bytes": 1645541,
+          "imageBytes": 1628072,
+          "captures": 4,
+          "subs": 4,
+          "decodeMs": 0.12692799999990712,
+          "uploadSubmitMs": 0.7723249999999098,
+          "renderMs": 4.620200000000068,
+          "profile": null,
+          "width": 1920,
+          "height": 1080,
+          "bands": 1,
+          "nativeMs": 6.381887000000006,
+          "hash": "25d4f9a54832caa53e24f1cf191f62807af3314652613b8cfbebd16a22576873"
+        },
+        {
+          "time": 18.125,
+          "wallMs": 31.11424799999986,
+          "browserWallMs": 18.194171000000097,
+          "prepareMs": 6.5,
+          "layerReadbackMs": 9,
+          "serializeMs": 0.7999999970197678,
+          "bytes": 1645738,
+          "imageBytes": 1628072,
+          "captures": 4,
+          "subs": 4,
+          "decodeMs": 0.13131600000019716,
+          "uploadSubmitMs": 0.9641149999999925,
+          "renderMs": 6.074161000000004,
+          "profile": null,
+          "width": 1920,
+          "height": 1080,
+          "bands": 1,
+          "nativeMs": 7.56619499999988,
+          "hash": "183700bca49c941b7356fb1ab9f5ed5dffab03e779c7a3bd7ec88fe6b17f9ecc"
+        },
+        {
+          "time": 18.166666666666668,
+          "wallMs": 53.906136999999944,
+          "browserWallMs": 40.73005999999987,
+          "prepareMs": 24.69999999552965,
+          "layerReadbackMs": 12.100000001490116,
+          "serializeMs": 1.3999999985098839,
+          "bytes": 1645823,
+          "imageBytes": 1628072,
+          "captures": 4,
+          "subs": 4,
+          "decodeMs": 0.1096149999998488,
+          "uploadSubmitMs": 0.801731000000018,
+          "renderMs": 7.50357699999995,
+          "profile": null,
+          "width": 1920,
+          "height": 1080,
+          "bands": 1,
+          "nativeMs": 8.791739000000007,
+          "hash": "4b49317646e603c3fb9355469913041e8b27c330987947ec73f56cf72440f6ab"
+        },
+        {
+          "time": 18.208333333333332,
+          "wallMs": 48.47913699999981,
+          "browserWallMs": 34.979505000000245,
+          "prepareMs": 17.19999999552965,
+          "layerReadbackMs": 14.300000004470348,
+          "serializeMs": 1.3999999985098839,
+          "bytes": 1645817,
+          "imageBytes": 1628072,
+          "captures": 4,
+          "subs": 4,
+          "decodeMs": 0.11048700000014833,
+          "uploadSubmitMs": 0.7577779999999166,
+          "renderMs": 9.751837000000023,
+          "profile": null,
+          "width": 1920,
+          "height": 1080,
+          "bands": 1,
+          "nativeMs": 11.001224999999977,
+          "hash": "e3f43769268106562e372520b209544a7571c9561b9720a63d8f3b6bb13f929a"
+        },
+        {
+          "time": 18.25,
+          "wallMs": 41.897084999999606,
+          "browserWallMs": 31.85169900000028,
+          "prepareMs": 15.899999998509884,
+          "layerReadbackMs": 12.399999998509884,
+          "serializeMs": 1.3000000044703484,
+          "bytes": 1645787,
+          "imageBytes": 1628072,
+          "captures": 4,
+          "subs": 4,
+          "decodeMs": 0.15723400000001675,
+          "uploadSubmitMs": 0.752819000000045,
+          "renderMs": 5.305071999999882,
+          "profile": null,
+          "width": 1920,
+          "height": 1080,
+          "bands": 1,
+          "nativeMs": 6.6040230000000975,
+          "hash": "791139a9f5ea31322178705fae2c65fe2c897547ad8d69829244d9b12f2049a9"
+        },
+        {
+          "time": 18.291666666666668,
+          "wallMs": 43.312304999999924,
+          "browserWallMs": 30.94160499999998,
+          "prepareMs": 17.399999998509884,
+          "layerReadbackMs": 10.300000004470348,
+          "serializeMs": 0.7999999970197678,
+          "bytes": 1646362,
+          "imageBytes": 1628072,
+          "captures": 4,
+          "subs": 4,
+          "decodeMs": 0.1099659999999858,
+          "uploadSubmitMs": 0.7129740000000311,
+          "renderMs": 5.1950550000001385,
+          "profile": null,
+          "width": 1920,
+          "height": 1080,
+          "bands": 1,
+          "nativeMs": 6.91321199999993,
+          "hash": "176dbfe78fe0dc020ade6219029a932788417fb1b61f96cc96fdac4e2326c372"
+        },
+        {
+          "time": 18.333333333333332,
+          "wallMs": 44.29166699999996,
+          "browserWallMs": 33.81822999999986,
+          "prepareMs": 20,
+          "layerReadbackMs": 10.200000002980232,
+          "serializeMs": 0.8999999985098839,
+          "bytes": 1646365,
+          "imageBytes": 1628072,
+          "captures": 4,
+          "subs": 4,
+          "decodeMs": 0.16626099999984945,
+          "uploadSubmitMs": 0.8529270000001361,
+          "renderMs": 6.102283999999827,
+          "profile": null,
+          "width": 1920,
+          "height": 1080,
+          "bands": 1,
+          "nativeMs": 7.576855000000023,
+          "hash": "7e923e6736deed3e762026c86fb844e8fbf8f833fd957cb2f7f912465f6247d1"
+        },
+        {
+          "time": 18.375,
+          "wallMs": 27.51037099999985,
+          "browserWallMs": 19.04003399999965,
+          "prepareMs": 6.100000001490116,
+          "layerReadbackMs": 10,
+          "serializeMs": 0.5999999940395355,
+          "bytes": 1646352,
+          "imageBytes": 1628072,
+          "captures": 4,
+          "subs": 4,
+          "decodeMs": 0.11556599999994432,
+          "uploadSubmitMs": 0.7723760000001221,
+          "renderMs": 4.616872999999941,
+          "profile": null,
+          "width": 1920,
+          "height": 1080,
+          "bands": 1,
+          "nativeMs": 5.909832999999935,
+          "hash": "df706d7893b472ec18a12f4558919b09d7eaa1210f699fd019bbf7556a83b192"
+        },
+        {
+          "time": 18.416666666666668,
+          "wallMs": 43.08291499999996,
+          "browserWallMs": 33.2974650000001,
+          "prepareMs": 18.69999999552965,
+          "layerReadbackMs": 9.900000005960464,
+          "serializeMs": 0.8999999985098839,
+          "bytes": 1646363,
+          "imageBytes": 1628072,
+          "captures": 4,
+          "subs": 4,
+          "decodeMs": 0.11783999999988737,
+          "uploadSubmitMs": 0.781163000000106,
+          "renderMs": 5.333896000000095,
+          "profile": null,
+          "width": 1920,
+          "height": 1080,
+          "bands": 1,
+          "nativeMs": 6.621936999999889,
+          "hash": "b1dd69723e2bb2a67510c773dbc9a8c209989dd944aecf33ee3505532c4d8bdb"
+        },
+        {
+          "time": 18.458333333333332,
+          "wallMs": 38.1610910000004,
+          "browserWallMs": 25.11086000000023,
+          "prepareMs": 10.300000004470348,
+          "layerReadbackMs": 11.299999997019768,
+          "serializeMs": 1.2000000029802322,
+          "bytes": 1646639,
+          "imageBytes": 1628072,
+          "captures": 4,
+          "subs": 4,
+          "decodeMs": 0.11402399999997215,
+          "uploadSubmitMs": 0.7584289999999783,
+          "renderMs": 5.523380999999972,
+          "profile": null,
+          "width": 1920,
+          "height": 1080,
+          "bands": 1,
+          "nativeMs": 7.382561000000123,
+          "hash": "954525a15f6bdd53c50b1a2b6fe13a408c77a633abb8a5fa4db81de07889fcfc"
+        }
+      ],
+      "elapsedMs": 514.0194059999999,
+      "fps": 23.34542209871353,
+      "wall": {
+        "n": 12,
+        "median": 41.897084999999606,
+        "p90": 48.47913699999981,
+        "mean": 38.955205666666586
+      },
+      "before": {
+        "at": 2018.829737,
+        "ticks": 411,
+        "pssKB": 1017055,
+        "processes": [
+          {
+            "pid": 2043222,
+            "ppid": 2027520,
+            "ticks": 131,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 124317,
+            "rssKB": 176492
+          },
+          {
+            "pid": 2043236,
+            "ppid": 2043222,
+            "ticks": 57,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 117821,
+            "rssKB": 231432
+          },
+          {
+            "pid": 2043237,
+            "ppid": 2043222,
+            "ticks": 22,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 44788,
+            "rssKB": 44796
+          },
+          {
+            "pid": 2043251,
+            "ppid": 2043236,
+            "ticks": 2,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 18657,
+            "rssKB": 77880
+          },
+          {
+            "pid": 2043252,
+            "ppid": 2043236,
+            "ticks": 2,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 11764,
+            "rssKB": 78328
+          },
+          {
+            "pid": 2043258,
+            "ppid": 2043252,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 2707,
+            "rssKB": 22700
+          },
+          {
+            "pid": 2043282,
+            "ppid": 2043251,
+            "ticks": 55,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 120549,
+            "rssKB": 241928
+          },
+          {
+            "pid": 2043284,
+            "ppid": 2043236,
+            "ticks": 10,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 43581,
+            "rssKB": 140128
+          },
+          {
+            "pid": 2043313,
+            "ppid": 2043284,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 10611,
+            "rssKB": 25800
+          },
+          {
+            "pid": 2043330,
+            "ppid": 2043258,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 7486,
+            "rssKB": 56612
+          },
+          {
+            "pid": 2043358,
+            "ppid": 2043258,
+            "ticks": 21,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 75134,
+            "rssKB": 175764
+          },
+          {
+            "pid": 2043374,
+            "ppid": 2043258,
+            "ticks": 41,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 116974,
+            "rssKB": 224584
+          },
+          {
+            "pid": 2043382,
+            "ppid": 2043258,
+            "ticks": 3,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21493,
+            "rssKB": 103072
+          },
+          {
+            "pid": 2043396,
+            "ppid": 2043258,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 14933,
+            "rssKB": 81536
+          },
+          {
+            "pid": 2043421,
+            "ppid": 2043258,
+            "ticks": 2,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21445,
+            "rssKB": 99512
+          },
+          {
+            "pid": 2043422,
+            "ppid": 2043258,
+            "ticks": 2,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21111,
+            "rssKB": 98828
+          },
+          {
+            "pid": 2043497,
+            "ppid": 2043222,
+            "ticks": 62,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 243684,
+            "rssKB": 342276
+          }
+        ]
+      },
+      "after": {
+        "at": 2608.876133,
+        "ticks": 513,
+        "pssKB": 1079838,
+        "processes": [
+          {
+            "pid": 2043222,
+            "ppid": 2027520,
+            "ticks": 186,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 123333,
+            "rssKB": 175508
+          },
+          {
+            "pid": 2043236,
+            "ppid": 2043222,
+            "ticks": 58,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 117845,
+            "rssKB": 231508
+          },
+          {
+            "pid": 2043237,
+            "ppid": 2043222,
+            "ticks": 22,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 44788,
+            "rssKB": 44796
+          },
+          {
+            "pid": 2043251,
+            "ppid": 2043236,
+            "ticks": 2,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 18657,
+            "rssKB": 77880
+          },
+          {
+            "pid": 2043252,
+            "ppid": 2043236,
+            "ticks": 2,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 11764,
+            "rssKB": 78328
+          },
+          {
+            "pid": 2043258,
+            "ppid": 2043252,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 2707,
+            "rssKB": 22700
+          },
+          {
+            "pid": 2043282,
+            "ppid": 2043251,
+            "ticks": 62,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 120563,
+            "rssKB": 241944
+          },
+          {
+            "pid": 2043284,
+            "ppid": 2043236,
+            "ticks": 11,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 44052,
+            "rssKB": 140600
+          },
+          {
+            "pid": 2043313,
+            "ppid": 2043284,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 10611,
+            "rssKB": 25800
+          },
+          {
+            "pid": 2043330,
+            "ppid": 2043258,
+            "ticks": 0,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 7486,
+            "rssKB": 56612
+          },
+          {
+            "pid": 2043358,
+            "ppid": 2043258,
+            "ticks": 21,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 75135,
+            "rssKB": 175768
+          },
+          {
+            "pid": 2043374,
+            "ppid": 2043258,
+            "ticks": 58,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 146484,
+            "rssKB": 254100
+          },
+          {
+            "pid": 2043382,
+            "ppid": 2043258,
+            "ticks": 3,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21492,
+            "rssKB": 103072
+          },
+          {
+            "pid": 2043396,
+            "ppid": 2043258,
+            "ticks": 1,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 14932,
+            "rssKB": 81536
+          },
+          {
+            "pid": 2043421,
+            "ppid": 2043258,
+            "ticks": 2,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21445,
+            "rssKB": 99512
+          },
+          {
+            "pid": 2043422,
+            "ppid": 2043258,
+            "ticks": 2,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 21108,
+            "rssKB": 98828
+          },
+          {
+            "pid": 2043497,
+            "ppid": 2043222,
+            "ticks": 83,
+            "nice": 16,
+            "policy": 0,
+            "pssKB": 277436,
+            "rssKB": 376028
+          }
+        ]
+      }
+    }
+  ],
+  "harness": {
+    "run.mjs": "bf2933351acc79ea6244f6fc23295ed9e157b725395a7a1f87aae87cb84a7402",
+    "browser.mjs": "bba09c3b2f87cabe2fe2838f6fa1e4f35d1a460359dadfd8aa0cef461564d617",
+    "producer.mjs": "a44688fa283ee22fb8dc6d00801c04a5493bb3a31aba5a6df3c4796c3e745eb9",
+    "native.mjs": "7d76ecba213aeecc8c1eb251f20fca4a4c2dfc60bd21f6b657819a29c1ab9da8",
+    "codec.mjs": "8ada2794e421ab994dbe9d0a62bd0ba20c2db942ac441f7f73def8f794b29013"
+  },
+  "bootMs": 466.989143,
+  "visibility": "visible",
+  "browser": {
+    "size": [
+      1920,
+      1080
+    ],
+    "duration": 102,
+    "limits": {
+      "maxTextureDimension2D": 16384,
+      "maxStorageBufferBindingSize": 2147483644,
+      "maxBufferSize": 4294967292,
+      "maxColorAttachmentBytesPerSample": 128,
+      "maxSampledTexturesPerShaderStage": 48,
+      "maxStorageBuffersPerShaderStage": 16
+    },
+    "adapter": {
+      "vendor": "nvidia",
+      "architecture": "blackwell",
+      "device": "",
+      "description": ""
+    },
+    "layers": [
+      {
+        "label": "year",
+        "live": [
+          0,
+          102
+        ],
+        "width": 77,
+        "height": 35,
+        "res": 1
+      },
+      {
+        "label": "Mysterium Cosmographicum",
+        "live": [
+          2.35,
+          8.136
+        ],
+        "width": 1497,
+        "height": 84,
+        "res": 1
+      },
+      {
+        "label": "The secret of the universe",
+        "live": [
+          3.25,
+          7.859999999999999
+        ],
+        "width": 407,
+        "height": 46,
+        "res": 1
+      },
+      {
+        "label": "Six planets. Five perfect so",
+        "live": [
+          7.95,
+          12.104
+        ],
+        "width": 1079,
+        "height": 52,
+        "res": 1
+      },
+      {
+        "label": "It was beautiful.",
+        "live": [
+          11.649999999999999,
+          14.555
+        ],
+        "width": 349,
+        "height": 62,
+        "res": 1
+      },
+      {
+        "label": "It was wrong.",
+        "live": [
+          14.2,
+          16.295
+        ],
+        "width": 297,
+        "height": 62,
+        "res": 1
+      },
+      {
+        "label": "Astronomia Nova",
+        "live": [
+          16.25,
+          20.01
+        ],
+        "width": 601,
+        "height": 55,
+        "res": 1
+      },
+      {
+        "label": "For twenty years, Tycho Brah",
+        "live": [
+          16.65,
+          20.352
+        ],
+        "width": 846,
+        "height": 52,
+        "res": 1
+      },
+      {
+        "label": "The best circle missed by ei",
+        "live": [
+          20.099999999999998,
+          23.426000000000002
+        ],
+        "width": 816,
+        "height": 52,
+        "res": 1
+      },
+      {
+        "label": "So the circle had to go. The",
+        "live": [
+          23.05,
+          26.292
+        ],
+        "width": 805,
+        "height": 52,
+        "res": 1
+      },
+      {
+        "label": "A line from the Sun sweeps o",
+        "live": [
+          25.95,
+          31.964
+        ],
+        "width": 1034,
+        "height": 52,
+        "res": 1
+      },
+      {
+        "label": "The square of a planet’s yea",
+        "live": [
+          32.95,
+          37.788000000000004
+        ],
+        "width": 920,
+        "height": 46,
+        "res": 1
+      },
+      {
+        "label": "Near the Sun it runs fast; f",
+        "live": [
+          37.35,
+          41.160000000000004
+        ],
+        "width": 755,
+        "height": 52,
+        "res": 1
+      },
+      {
+        "label": "And Kepler heard each planet",
+        "live": [
+          40.85,
+          43.672
+        ],
+        "width": 622,
+        "height": 52,
+        "res": 1
+      },
+      {
+        "label": "Harmonices Mundi",
+        "live": [
+          44,
+          48.480000000000004
+        ],
+        "width": 1286,
+        "height": 101,
+        "res": 1
+      },
+      {
+        "label": "The harmony of the world",
+        "live": [
+          44.550000000000004,
+          48.24
+        ],
+        "width": 416,
+        "height": 46,
+        "res": 1
+      },
+      {
+        "label": "Every eight years, Venus and",
+        "live": [
+          61.35,
+          68.14399999999999
+        ],
+        "width": 1184,
+        "height": 49,
+        "res": 1
+      },
+      {
+        "label": "Thirteen turns of Venus to e",
+        "live": [
+          69.35000000000001,
+          76.66399999999999
+        ],
+        "width": 953,
+        "height": 49,
+        "res": 1
+      },
+      {
+        "label": "Tabulae Rudolphinae",
+        "live": [
+          76.35000000000001,
+          87.466
+        ],
+        "width": 1009,
+        "height": 74,
+        "res": 1
+      },
+      {
+        "label": "Tables of every motion, for ",
+        "live": [
+          76.95,
+          87.442
+        ],
+        "width": 634,
+        "height": 46,
+        "res": 1
+      },
+      {
+        "label": "21 October · Tonight",
+        "live": [
+          88.05,
+          100.28
+        ],
+        "width": 360,
+        "height": 27,
+        "res": 1
+      },
+      {
+        "label": "Ephemeris",
+        "live": [
+          90.25,
+          100.46999999999998
+        ],
+        "width": 925,
+        "height": 131,
+        "res": 1
+      },
+      {
+        "label": "a table of where every body ",
+        "live": [
+          91.35000000000001,
+          100.485
+        ],
+        "width": 584,
+        "height": 49,
+        "res": 1
+      },
+      {
+        "label": "Tycho’s table",
+        "live": [
+          16,
+          19.8
+        ],
+        "width": 367,
+        "height": 404,
+        "res": 1
+      },
+      {
+        "label": "eight minutes",
+        "live": false,
+        "width": 145,
+        "height": 74,
+        "res": 2
+      },
+      {
+        "label": "the third law",
+        "live": [
+          32,
+          43
+        ],
+        "width": 630,
+        "height": 494,
+        "res": 1
+      },
+      {
+        "label": "label mercury",
+        "live": false,
+        "width": 201,
+        "height": 62,
+        "res": 1.5
+      },
+      {
+        "label": "label venus",
+        "live": false,
+        "width": 112,
+        "height": 62,
+        "res": 1.5
+      },
+      {
+        "label": "label earth",
+        "live": false,
+        "width": 112,
+        "height": 62,
+        "res": 1.5
+      },
+      {
+        "label": "label mars",
+        "live": false,
+        "width": 90,
+        "height": 62,
+        "res": 1.5
+      },
+      {
+        "label": "label jupiter",
+        "live": false,
+        "width": 102,
+        "height": 62,
+        "res": 1.5
+      },
+      {
+        "label": "label saturn",
+        "live": false,
+        "width": 101,
+        "height": 62,
+        "res": 1.5
+      },
+      {
+        "label": "label mercury",
+        "live": false,
+        "width": 186,
+        "height": 32,
+        "res": 1.5
+      },
+      {
+        "label": "label venus",
+        "live": false,
+        "width": 294,
+        "height": 58,
+        "res": 1.5
+      },
+      {
+        "label": "label earth",
+        "live": false,
+        "width": 155,
+        "height": 32,
+        "res": 1.5
+      },
+      {
+        "label": "label mars",
+        "live": false,
+        "width": 145,
+        "height": 32,
+        "res": 1.5
+      },
+      {
+        "label": "label jupiter",
+        "live": false,
+        "width": 186,
+        "height": 32,
+        "res": 1.5
+      },
+      {
+        "label": "label saturn",
+        "live": false,
+        "width": 232,
+        "height": 58,
+        "res": 1.5
+      }
+    ]
+  },
+  "native": {
+    "pid": 2043497,
+    "adapter": {
+      "vendor": "nvidia",
+      "architecture": "blackwell",
+      "device": "nvidia-geforce-rtx-5070-ti",
+      "description": "NVIDIA: 615.71.09 615.71.9.0"
+    },
+    "features": [
+      "timestamp-query",
+      "core-features-and-limits"
+    ],
+    "limits": {
+      "maxTextureDimension2D": 16384,
+      "maxStorageBufferBindingSize": 2147483644,
+      "maxBufferSize": 4294967292,
+      "maxColorAttachmentBytesPerSample": 128,
+      "maxSampledTexturesPerShaderStage": 48,
+      "maxStorageBuffersPerShaderStage": 16
+    }
+  }
+}
